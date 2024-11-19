@@ -1,5 +1,3 @@
-// components/ProductCard.tsx
-
 type Product = {
     id: number;
     name: string;

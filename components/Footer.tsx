@@ -1,34 +1,84 @@
-// components/Footer.tsx
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import Image from 'next/image';
+import React from 'react';
+import { FaFacebook, FaInstagram, FaLinkedinIn, FaWhatsapp, FaXTwitter } from 'react-icons/fa6';
+import { MdEmail } from 'react-icons/md';
 
-export default function Footer() {
+const Footer: React.FC = () => {
     return (
-        <footer className="bg-gray-800 text-white py-6">
-            <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-                {/* Section gauche : Informations */}
-                <div className="mb-4 md:mb-0">
-                    <h2 className="text-xl font-bold">Diamond</h2>
-                    <p className="text-gray-400 mt-2">
-                        &copy; {new Date().getFullYear()} Diamond. Tous droits réservés.
-                    </p>
+        <footer className="bg-black text-white py-4 fixed bottom-0 left-0 right-0">
+            <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
+                <div className="flex flex-col items-center sm:items-start sm:ml-7 mb-2 sm:mb-0">
+                    <a
+                        href="#"
+                        className="w-12 h-12 rounded-full overflow-hidden mb-2"
+                    >
+                        <Image
+                            src="/images/diamond.jpg"
+                            alt="Diamond Store Logo"
+                            width={96}
+                            height={96}
+                            className="w-full h-full object-cover"
+                        />
+                    </a>
                 </div>
 
-                {/* Section droite : Liens sociaux */}
-                <div className="flex space-x-4">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                        <FaFacebook className="text-2xl hover:text-blue-500 transition-colors" />
+                <div className="flex space-x-6 justify-center sm:justify-end sm:mr-8 mt-1 sm:mt-0 items-center mb-2 sm:mb-1">
+                    <a
+                        href="https://www.facebook.com/"
+                        className="text-white hover:text-white"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <FaFacebook size={30} />  
                     </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                        <FaTwitter className="text-2xl hover:text-blue-400 transition-colors" />
+                    <a
+                        href="https://www.instagram.com/"
+                        className="text-white hover:text-white"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <FaInstagram size={30} /> 
                     </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                        <FaInstagram className="text-2xl hover:text-pink-500 transition-colors" />
+                    <a
+                        href="https://x.com/"
+                        className="text-white hover:text-white"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <FaXTwitter size={30} />  
                     </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                        <FaLinkedin className="text-2xl hover:text-blue-700 transition-colors" />
+                    <a
+                        href="https://linkedin.com/"
+                        className="text-white hover:text-white"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <FaLinkedinIn size={30} /> 
+                    </a>
+                    <a
+                        href="https://web.whatsapp.com/"
+                        className="text-white hover:text-white"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <FaWhatsapp size={30} />  
+                    </a>
+                    <a
+                        href="mailto: diamond.store@gmail.com"
+                        className="text-white hover:text-white"
+                    >
+                        <MdEmail size={30} />
                     </a>
                 </div>
             </div>
+
+            <div className="w-full text-center bg-black py-2">
+                <p className="text-creme">
+                    &copy; {new Date().getFullYear()} Diamond Store®. All rights reserved. Created by RaJharit77
+                </p>
+            </div>
         </footer>
     );
-}
+};
+
+export default Footer;
