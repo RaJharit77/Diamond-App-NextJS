@@ -5,7 +5,6 @@ import "./globals.css";
 
 export const metadata = {
   title: "Diamond Store®",
-  description: "Your go-to store for premium jewelry and diamonds.",
   icons: {
     icon: "/assets/diamond_blue.jpg",
   },
@@ -14,10 +13,16 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+        <link rel="icon" type="image/svg+xml" href="./public/img/diamond_blue.jpg" />
+      </head>
       <body className="font-poppins">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <div>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

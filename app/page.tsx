@@ -2,24 +2,36 @@
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from 'react';
 
 export default function HomePage() {
   useEffect(() => {
     AOS.init();
   }, []);
 
+  const [opacity, setOpacity] = useState<number>(0.5);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPos = window.scrollY;
+      const newOpacity = 0.5 + scrollPos / 500;
+      setOpacity(Math.min(newOpacity, 0.9));
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div>
       <section
-        className="relative bg-cover bg-center min-h-screen h-full flex items-center justify-center"
+        className="relative bg-cover bg-center w-full h-full top-0 bottom-0 min-h-screen flex flex-col items-center justify-center bg-transparent"
         style={{
           backgroundImage: `url('/images/diamant_2.jpg')`,
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-70" style={{ backgroundColor: `rgba(0, 0, 0, ${opacity})` }}></div>
 
-        <div className="relative text-center text-menthe space-y-5 px-4 bottom-20">
+        <div className="relative text-center text-menthe space-y-5 px-4 z-10 w-full h-full">
           <h1
             className="text-4xl sm:text-4xl font-bold"
             data-aos="fade-down"
@@ -64,7 +76,7 @@ export default function HomePage() {
           </p>
           <a
             href="#products"
-            className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-all"
+            className="inline-block bg-bleuDiamant text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-all"
           >
             Découvrir maintenant
           </a>
@@ -105,7 +117,7 @@ export default function HomePage() {
             ].map((category, index) => (
               <div
                 key={index}
-                className="bg-bleuDiamant text-black rounded-xl shadow-lg overflow-hidden transform transition-all duration-500 ease-in-out hover:scale-105 cursor-pointer"
+                className="bg-bleuDiamant text-black rounded-xl shadow-lg overflow-hidden hover:scale-105 z-50 transform transition-all duration-500 ease-in-out cursor-pointer"
                 data-aos="flip-up"
                 data-aos-delay={`${index * 100}`}
               >
@@ -118,7 +130,7 @@ export default function HomePage() {
                   <h3 className="text-xl font-semibold mb-2">{category.title}</h3>
                   <a
                     href={category.link}
-                    className="bg-black text-white px-4 py-2 rounded-xl hover:bg-menthe hover:text-black transition-all"
+                    className="bg-black text-white px-4 py-2 rounded-xl hover:bg-menthe hover:text-black transition-all hover:scale-105"
                   >
                     Explorer
                   </a>
