@@ -5,15 +5,15 @@ import { MdEmail } from 'react-icons/md';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-black text-white py-4 fixed bottom-0 left-0 right-0">
+        <footer className="bg-black text-white py-4 relative bottom-0 left-0 right-0">
             <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
                 <div className="flex flex-col items-center sm:items-start sm:ml-7 mb-2 sm:mb-0">
                     <a
                         href="#"
-                        className="w-12 h-12 rounded-full overflow-hidden mb-2"
+                        className="w-16 h-16 rounded-full overflow-hidden mb-2 ml-0"
                     >
                         <Image
-                            src="/images/diamond.jpg"
+                            src="/images/diamond_blue_3.jpg"
                             alt="Diamond Store Logo"
                             width={96}
                             height={96}
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
                 <div className="flex space-x-6 justify-center sm:justify-end sm:mr-8 mt-1 sm:mt-0 items-center mb-2 sm:mb-1">
                     <a
                         href="https://www.facebook.com/"
-                        className="text-white hover:text-white"
+                        className="text-bleuDiamant hover:text-bleuTurquoise"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
                     </a>
                     <a
                         href="https://www.instagram.com/"
-                        className="text-white hover:text-white"
+                        className="text-bleuDiamant hover:text-bleuTurquoise"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
                     </a>
                     <a
                         href="https://x.com/"
-                        className="text-white hover:text-white"
+                        className="text-bleuDiamant hover:text-bleuTurquoise"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
                     </a>
                     <a
                         href="https://linkedin.com/"
-                        className="text-white hover:text-white"
+                        className="text-bleuDiamant hover:text-bleuTurquoise"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
                     </a>
                     <a
                         href="https://web.whatsapp.com/"
-                        className="text-white hover:text-white"
+                        className="text-bleuDiamant hover:text-bleuTurquoise"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
                     </a>
                     <a
                         href="mailto: diamond.store@gmail.com"
-                        className="text-white hover:text-white"
+                        className="text-bleuDiamant hover:text-bleuTurquoise"
                     >
                         <MdEmail size={30} />
                     </a>
@@ -73,8 +73,8 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="w-full text-center bg-black py-2">
-                <p className="text-creme">
-                    &copy; {new Date().getFullYear()} Diamond Store®. All rights reserved. Created by RaJharit77
+                <p className="text-bleuDiamant">
+                    &copy; {new Date().getFullYear()} Diamond Store®. Created by RaJharit77. All rights reserved
                 </p>
             </div>
         </footer>

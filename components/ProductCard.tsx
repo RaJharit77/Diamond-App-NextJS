@@ -7,7 +7,7 @@ type Product = {
 
 export default function ProductCard({ product }: { product: Product }) {
     return (
-        <div className="border rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-200">
+        <div className="border rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-200 bg-bleuDiamant">
             <img
                 src={product.image}
                 alt={product.name}

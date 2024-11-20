@@ -3,10 +3,39 @@
 @tailwind utilities;
 
 @import '../styles/talilwind.css';
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
 body {
   font-family: "Poppins", sans-serif;
+}
+
+@layer utilities {
+  .glow-effect {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5), 0 0 20px rgba(0, 123, 255, 0.4);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .glow-effect:hover {
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8), 0 0 30px rgba(0, 123, 255, 0.6);
+  }
+}
+
+@keyframes neon {
+  0% {
+    text-shadow: 0 0 5px #0EBFE9, 0 0 10px #0EBFE9, 0 0 15px #0EBFE9, 0 0 20px #0EBFE9, 0 0 25px #0EBFE9, 0 0 30px #0EBFE9;
+  }
+
+  50% {
+    text-shadow: 0 0 5px #40E0D0, 0 0 10px #40E0D0, 0 0 15px #40E0D0, 0 0 20px #40E0D0, 0 0 25px #40E0D0, 0 0 30px #40E0D0;
+  }
+
+  100% {
+    text-shadow: 0 0 5px #98FF98, 0 0 10px #98FF98, 0 0 15px #98FF98, 0 0 20px #98FF98, 0 0 25px #98FF98, 0 0 30px #98FF98;
+  }
+}
+
+.text-neon-animation {
+  animation: neon 1.5s ease-in-out infinite alternate;
 }
 
 :root {

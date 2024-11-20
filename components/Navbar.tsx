@@ -14,57 +14,54 @@ import {
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const links = [
+        { href: "/", label: "Accueil", icon: <FaHome /> },
+        { href: "/hommes", label: "Hommes", icon: <FaMale /> },
+        { href: "/femmes", label: "Femmes", icon: <FaFemale /> },
+        { href: "/enfants", label: "Enfants", icon: <FaChild /> },
+        { href: "/autres", label: "Autres", icon: <FaGripHorizontal /> },
+        { href: "/contact", label: "Contact", icon: <FaPhoneAlt /> },
+    ];
+
     return (
-        <nav className="bg-zinc-800 text-white p-4 sticky top-0 z-50 shadow-lg">
+        <nav className="bg-black text-white p-5 sticky top-0 z-50 shadow-lg">
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 <div className="flex items-center space-x-4 cursor-pointer">
-                    <img
-                        src="/images/diamond.jpg"
-                        alt="Logo Diamond"
-                        className="h-12 rounded-full"
-                    />
-                    <div className="text-xl font-bold">Diamond Store</div>
+                    <a href="/">
+                        <img
+                            src="/images/diamond_blue_3.jpg"
+                            alt="Logo Diamond Blue"
+                            className="w-16 h-16 rounded-full hover:scale-110 transition-all duration-500 ease-in-out transform"
+                        />
+                    </a>
+                    <div className="text-xl font-bold text-neon-animation">
+                        Diamond Store
+                    </div>
                 </div>
 
-                <ul className="hidden md:flex space-x-6 items-center">
-                    <li>
-                        <a href="/" className="hover:text-gray-400 flex items-center">
-                            <FaHome className="mr-2" /> Accueil
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/hommes" className="hover:text-gray-400 flex items-center">
-                            <FaMale className="mr-2" /> Hommes
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/femmes" className="hover:text-gray-400 flex items-center">
-                            <FaFemale className="mr-2" /> Femmes
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/enfants" className="hover:text-gray-400 flex items-center">
-                            <FaChild className="mr-2" /> Enfants
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/autres" className="hover:text-gray-400 flex items-center">
-                            <FaGripHorizontal className="mr-2" /> Autres
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/contact" className="hover:text-gray-400 flex items-center">
-                            <FaPhoneAlt className="mr-2" /> Contact
-                        </a>
-                    </li>
+                <ul className="hidden md:flex space-x-6 items-center ml-auto">
+                    {links.map(({ href, label, icon }, index) => (
+                        <li key={index}>
+                            <a
+                                href={href}
+                                className={`relative flex items-center group text-white hover:text-bleuDiamant`}
+                            >
+                                <span className="mr-2 text-bleuDiamant">{icon}</span>
+                                {label}
+                                <span
+                                    className="absolute left-0 bottom-0 w-0 h-[2px] bg-bleuDiamant group-hover:w-full transition-all duration-500 ease-in-out"
+                                ></span>
+                            </a>
+                        </li>
+                    ))}
                 </ul>
 
-                <div className="hidden md:block">
+                <div className="hidden md:block ml-6">
                     <a
                         href="/login"
-                        className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
+                        className="bg-bleuDiamant px-4 py-2 rounded-lg hover:bg-bleuTurquoise relative group transition-all duration-500 ease-in-out glow-effect"
                     >
-                        Login
+                        Se connecter
                     </a>
                 </div>
 
@@ -76,45 +73,28 @@ const Navbar = () => {
                 </button>
             </div>
 
-            {/* Navigation Mobile */}
             {isMenuOpen && (
                 <ul className="md:hidden mt-2 bg-gray-700 p-4 space-y-3">
-                    <li>
-                        <a href="/" className="flex items-center">
-                            <FaHome className="mr-2" /> Accueil
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/hommes" className="flex items-center">
-                            <FaMale className="mr-2" /> Hommes
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/femmes" className="flex items-center">
-                            <FaFemale className="mr-2" /> Femmes
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/enfants" className="flex items-center">
-                            <FaChild className="mr-2" /> Enfants
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/autres" className="flex items-center">
-                            <FaGripHorizontal className="mr-2" /> Autres
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/contact" className="flex items-center">
-                            <FaPhoneAlt className="mr-2" /> Contact
-                        </a>
-                    </li>
+                    {links.map(({ href, label, icon }, index) => (
+                        <li key={index}>
+                            <a
+                                href={href}
+                                className={`relative flex items-center group text-white hover:text-bleuDiamant`}
+                            >
+                                <span className="mr-2 text-bleuDiamant">{icon}</span>
+                                {label}
+                                <span
+                                    className="absolute left-0 bottom-0 w-0 h-[2px] bg-bleuDiamant group-hover:w-full transition-all duration-500 ease-in-out"
+                                ></span>
+                            </a>
+                        </li>
+                    ))}
                     <li>
                         <a
                             href="/login"
-                            className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
+                            className="bg-bleuDiamant px-4 py-2 rounded-lg hover:bg-bleuTurquoise relative group transition-all duration-500 ease-in-out glow-effect"
                         >
-                            Login
+                            Se connecter
                         </a>
                     </li>
                 </ul>

@@ -7,7 +7,7 @@ export const metadata = {
   title: "Diamond Store®",
   description: "Your go-to store for premium jewelry and diamonds.",
   icons: {
-    icon: "/images/diamond_2.jpg",
+    icon: "/assets/diamond_blue.jpg",
   },
 };
 
