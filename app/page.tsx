@@ -12,9 +12,9 @@ export default function HomePage() {
   return (
     <div>
       <section
-        className="relative bg-cover bg-center min-h-screen flex items-center justify-center"
+        className="relative bg-cover bg-center min-h-screen h-full flex items-center justify-center"
         style={{
-          backgroundImage: `url('/images/diamond_blue.jpg')`,
+          backgroundImage: `url('/images/diamant_2.jpg')`,
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
@@ -30,7 +30,7 @@ export default function HomePage() {
             className="text-lg sm:text-xl"
             data-aos="fade-up"
           >
-            Découvrez notre collection exclusive de vêtements et accessoires sportifs 
+            Découvrez notre collection exclusive de vêtements et accessoires sportifs
             <br />de la célèbre marque Danois Hummel®.
           </p>
           <a
@@ -45,80 +45,80 @@ export default function HomePage() {
 
       <section
         id="promotion"
-        className="relative w-full h-screen bg-cover bg-center flex flex-col justify-end p-10 text-white"
+        className="relative w-full h-screen bg-cover bg-center flex items-center p-10"
         style={{
-          backgroundImage: `url('/images/vitality.jpg')`,
+          backgroundImage: `url('/images/outfit.jpg')`,
         }}
       >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-70"></div>
 
-        {/* Content */}
-        <div className="relative z-10 text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold mb-5" data-aos="zoom-in">
+        <div
+          className="relative z-10 text-left max-w-md w-full text-white"
+          data-aos="fade-up"
+        >
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
             Vêtements de sport en promotion !
           </h2>
-          <p className="text-lg mb-5" data-aos="fade-up">
+          <p className="text-base sm:text-lg mb-6">
             Parfaits pour vos entraînements. Découvrez nos styles uniques.
           </p>
           <a
             href="#products"
-            className="inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-all"
-            data-aos="fade-up"
+            className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-all"
           >
             Découvrir maintenant
           </a>
         </div>
       </section>
 
-      {/* Section Produits */}
-      <section id="products" className="bg-gray-100 py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2
-            className="text-3xl font-bold text-center mb-10 text-gray-800"
-            data-aos="fade-down"
-          >
-            Nos Catégories
-          </h2>
+      <section
+        id="products"
+        className="relative bg-cover bg-center py-16"
+        style={{
+          backgroundImage: `url('/images/diamant.jpg')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="relative max-w-7xl mx-auto px-6 z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 title: "Hommes",
-                image: "/images/homme.jpg",
+                image: "/images/hummel_homme.jpg",
                 link: "/hommes",
               },
               {
                 title: "Femmes",
-                image: "/images/femme.jpg",
+                image: "/images/hummel_femme.jpg",
                 link: "/femmes",
               },
               {
                 title: "Enfants",
-                image: "/images/enfants.jpg",
+                image: "/images/hummel_enfant.jpg",
                 link: "/enfants",
               },
               {
                 title: "Autres",
-                image: "/images/autres.jpg",
+                image: "/images/hummel_autre.jpg",
                 link: "/autres",
               },
             ].map((category, index) => (
               <div
                 key={index}
-                className="bg-white text-black rounded-lg shadow-lg overflow-hidden"
+                className="bg-bleuDiamant text-black rounded-xl shadow-lg overflow-hidden transform transition-all duration-500 ease-in-out hover:scale-105 cursor-pointer"
                 data-aos="flip-up"
                 data-aos-delay={`${index * 100}`}
               >
                 <img
                   src={category.image}
                   alt={category.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-96 object-cover"
                 />
-                <div className="p-4">
+                <div className="p-4 text-center">
                   <h3 className="text-xl font-semibold mb-2">{category.title}</h3>
                   <a
                     href={category.link}
-                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-all"
+                    className="bg-black text-white px-4 py-2 rounded-xl hover:bg-menthe hover:text-black transition-all"
                   >
                     Explorer
                   </a>

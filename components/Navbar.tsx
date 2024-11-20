@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     FaBars,
     FaChild,
@@ -13,6 +13,7 @@ import {
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const links = [
         { href: "/", label: "Accueil", icon: <FaHome /> },
@@ -23,8 +24,28 @@ const Navbar = () => {
         { href: "/contact", label: "Contact", icon: <FaPhoneAlt /> },
     ];
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
-        <nav className="bg-black text-white p-5 sticky top-0 z-50 shadow-lg">
+        <nav
+            className={`${
+                isScrolled ? "bg-black" : "bg-transparent"
+            } text-white p-5 sticky top-0 z-50 shadow-lg transition-all duration-300 ease-in-out`}
+        >
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 <div className="flex items-center space-x-4 cursor-pointer">
                     <a href="/">
