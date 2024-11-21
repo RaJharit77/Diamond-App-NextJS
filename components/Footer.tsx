@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
                         className="w-16 h-16 rounded-full overflow-hidden mb-2 ml-0"
                     >
                         <Image
-                            src="/images/diamond_blue_3.jpg"
+                            src="/img/diamond_blue_3.jpg"
                             alt="Diamond Store Logo"
                             width={96}
                             height={96}

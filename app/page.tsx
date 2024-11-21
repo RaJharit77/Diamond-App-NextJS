@@ -2,7 +2,7 @@
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
   useEffect(() => {
@@ -17,33 +17,27 @@ export default function HomePage() {
       const newOpacity = 0.5 + scrollPos / 500;
       setOpacity(Math.min(newOpacity, 0.9));
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div>
       <section
-        className="relative bg-cover bg-center w-full h-full top-0 bottom-0 min-h-screen flex flex-col items-center justify-center bg-transparent"
+        className="relative bg-cover bg-center w-full bottom-0 min-h-screen flex flex-col items-center justify-center pb-40"
         style={{
-          backgroundImage: `url('/images/diamant_2.jpg')`,
+          backgroundImage: `url('/img/diamant_2.jpg')`,
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-70" style={{ backgroundColor: `rgba(0, 0, 0, ${opacity})` }}></div>
-
+        <div className="absolute inset-0 bg-gray-950 bg-opacity-75"></div>
         <div className="relative text-center text-menthe space-y-5 px-4 z-10 w-full h-full">
-          <h1
-            className="text-4xl sm:text-4xl font-bold"
-            data-aos="fade-down"
-          >
+          <h1 className="text-4xl sm:text-4xl font-bold" data-aos="fade-down">
             Bienvenue sur Diamond Store
           </h1>
-          <p
-            className="text-lg sm:text-xl"
-            data-aos="fade-up"
-          >
-            Découvrez notre collection exclusive de vêtements et accessoires sportifs
-            <br />de la célèbre marque Danois Hummel®.
+          <p className="text-lg sm:text-xl" data-aos="fade-up">
+            Découvrez notre collection exclusive de vêtements et accessoires
+            sportifs <br />
+            de la célèbre marque Danois Hummel®.
           </p>
           <a
             href="#promotion"
@@ -59,11 +53,10 @@ export default function HomePage() {
         id="promotion"
         className="relative w-full h-screen bg-cover bg-center flex items-center p-10"
         style={{
-          backgroundImage: `url('/images/outfit.jpg')`,
+          backgroundImage: `url('/img/outfit.jpg')`,
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
-
         <div
           className="relative z-10 text-left max-w-md w-full text-white"
           data-aos="fade-up"
@@ -87,7 +80,7 @@ export default function HomePage() {
         id="products"
         className="relative bg-cover bg-center py-16"
         style={{
-          backgroundImage: `url('/images/diamant.jpg')`,
+          backgroundImage: `url('/img/produit.jpg')`,
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -96,46 +89,41 @@ export default function HomePage() {
             {[
               {
                 title: "Hommes",
-                image: "/images/hummel_homme.jpg",
+                image: "/img/hummel_homme.jpg",
                 link: "/hommes",
               },
               {
                 title: "Femmes",
-                image: "/images/hummel_femme.jpg",
+                image: "/img/hummel_femme.jpg",
                 link: "/femmes",
               },
               {
                 title: "Enfants",
-                image: "/images/hummel_enfant.jpg",
+                image: "/img/hummel_enfant.jpg",
                 link: "/enfants",
               },
               {
                 title: "Autres",
-                image: "/images/hummel_autre.jpg",
+                image: "/img/hummel_autre.jpg",
                 link: "/autres",
               },
             ].map((category, index) => (
-              <div
+              <a
                 key={index}
-                className="bg-bleuDiamant text-black rounded-xl shadow-lg overflow-hidden hover:scale-105 z-50 transform transition-all duration-500 ease-in-out cursor-pointer"
+                href={category.link}
+                className="relative w-full bg-cover bg-center rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-500 ease-in-out cursor-pointer flex items-center justify-center"
+                style={{
+                  backgroundImage: `url(${category.image})`,
+                  height: "500px",
+                }}
                 data-aos="flip-up"
                 data-aos-delay={`${index * 100}`}
               >
-                <img
-                  src={category.image}
-                  alt={category.title}
-                  className="w-full h-96 object-cover"
-                />
-                <div className="p-4 text-center">
-                  <h3 className="text-xl font-semibold mb-2">{category.title}</h3>
-                  <a
-                    href={category.link}
-                    className="bg-black text-white px-4 py-2 rounded-xl hover:bg-menthe hover:text-black transition-all hover:scale-105"
-                  >
-                    Explorer
-                  </a>
-                </div>
-              </div>
+                <div className="absolute inset-0 bg-black bg-opacity-25"></div>
+                <h3 className="relative text-menthe text-xl font-bold z-10">
+                  {category.title}
+                </h3>
+              </a>
             ))}
           </div>
         </div>

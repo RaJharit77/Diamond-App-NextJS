@@ -34,15 +34,14 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`${
-                isScrolled ? "bg-black" : "bg-transparent"
-            } text-white p-5 sticky top-0 z-50 shadow-lg transition-all duration-300 ease-in-out`}
+            className={`${isScrolled ? "bg-black" : "bg-gray-950"
+                } text-white p-5 h-full sticky top-0 z-50 shadow-lg transition-all duration-300 ease-in-out`}
         >
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 <div className="flex items-center space-x-4 cursor-pointer">
                     <a href="/">
                         <img
-                            src="/images/diamond_blue_3.jpg"
+                            src="/img/diamond_blue_3.jpg"
                             alt="Logo Diamond Blue"
                             className="w-16 h-16 rounded-full hover:scale-110 transition-all duration-500 ease-in-out transform"
                         />
