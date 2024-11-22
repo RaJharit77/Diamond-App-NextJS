@@ -4,7 +4,7 @@ import ProductCard from "../../components/ProductCard";
 
 export default function ProductsPage() {
     const products = [
-        { id: 1, name: "Hummel blouse Coton", price: "99€", image: "/img/autre_1.jpg" },
+        { id: 1, name: "Hummel", price: "99€", image: "/img/autre_1.jpg" },
         { id: 2, name: "Hummel ", price: "149€", image: "/img/autre_2.jpg" },
         { id: 3, name: "Hummel ", price: "199€", image: "/img/autre_3.jpg" },
         { id: 4, name: "Hummel", price: "129€", image: "/img/autre_4.jpg" }, 
