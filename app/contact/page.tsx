@@ -4,45 +4,88 @@ import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 
 export default function ContactPage() {
     return (
-        <div className="max-w-4xl mx-auto p-6">
-            <h1 className="text-4xl font-bold text-center mb-6">Contactez-nous</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="flex items-center">
-                    <FaPhone className="text-3xl text-blue-500 mr-4" />
-                    <p className="text-lg">+33 1 23 45 67 89</p>
+        <div
+            className="min-h-screen bg-cover bg-center flex items-center justify-center"
+            style={{
+                backgroundImage: "url('/img/bgContact.jpg')",
+            }}
+        >
+
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 w-full max-w-6xl p-4">
+
+                <div className="bg-gray-900 bg-opacity-70 rounded-lg shadow-lg w-full lg:w-1/2 p-6 lg:p-10">
+                    <h1 className="text-3xl font-extrabold text-center text-bleuDiamant mb-8">
+                        Contactez-nous
+                    </h1>
+                    <form className="space-y-6 text-gray-100">
+                        <input
+                            type="text"
+                            placeholder="Votre nom"
+                            className="w-full bg-gray-800 p-4 border border-gray-700 rounded-md shadow-sm focus:ring-2 focus:ring-gray-700 focus:outline-none"
+                        />
+                        <input
+                            type="email"
+                            placeholder="Votre e-mail"
+                            className="w-full bg-gray-800 p-4 border border-gray-700 rounded-md shadow-sm focus:ring-2 focus:ring-gray-700 focus:outline-none"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Sujet"
+                            className="w-full bg-gray-800 p-4 border border-gray-700 rounded-md shadow-sm focus:ring-2 focus:ring-gray-700 focus:outline-none"
+                        />
+                        <textarea
+                            placeholder="Votre message"
+                            className="w-full bg-gray-800 p-4 border border-gray-700 rounded-md shadow-sm focus:ring-2 focus:ring-gray-700 focus:outline-none h-40"
+                        ></textarea>
+                        <button
+                            type="submit"
+                            className="w-full py-3 bg-bleuDiamant text-white rounded-md shadow-lg font-medium hover:bg-bleuTurquoise transition-all"
+                        >
+                            Envoyer
+                        </button>
+                    </form>
                 </div>
-                <div className="flex items-center">
-                    <FaEnvelope className="text-3xl text-green-500 mr-4" />
-                    <p className="text-lg">contact@diamond.com</p>
+
+                <div className="bg-gray-900 bg-opacity-70 rounded-lg shadow-lg w-full lg:w-1/2 p-6 lg:p-10">
+                    <h2 className="text-2xl font-bold text-center text-bleuDiamant mb-6">
+                        Coordonnées
+                    </h2>
+                    <p className="text-gray-300 text-center mb-6">
+                        Vous pouvez également nous contacter directement à notre adresse ou par
+                        téléphone.
+                    </p>
+                    <div className="space-y-4 text-gray-100">
+                        <div className="flex items-center">
+                            <FaMapMarkerAlt className="text-3xl text-bleuDiamant mr-4" />
+                            <p className="text-lg font-medium">
+                                Rue de la Haye, 101 Antananarivo Ville, Madagascar
+                            </p>
+                        </div>
+                        <div className="flex items-center">
+                            <FaPhone className="text-3xl text-bleuDiamant mr-4" />
+                            <p className="text-lg font-medium">
+                                +261 034 00 000 00 ou +261 039 00 000 00
+                            </p>
+                        </div>
+                        <div className="flex items-center">
+                            <FaEnvelope className="text-3xl text-bleuDiamant mr-4" />
+                            <p className="text-lg font-medium">contact@diamond.store.mg</p>
+                        </div>
+                    </div>
+
+                    <div className="mt-8">
+                        <h3 className="text-xl font-semibold text-left text-bleuDiamant mb-4">
+                            Localisation
+                        </h3>
+                        <div className="w-full h-64 bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                            <img
+                                src="/assets/carte.png"
+                                alt="Carte de localisation"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                    </div>
                 </div>
-                <div className="flex items-center">
-                    <FaMapMarkerAlt className="text-3xl text-red-500 mr-4" />
-                    <p className="text-lg">123 Avenue des Champs, Paris</p>
-                </div>
-            </div>
-            <div className="mt-10">
-                <form className="space-y-4">
-                    <input
-                        type="text"
-                        placeholder="Votre nom"
-                        className="w-full p-3 border rounded-md"
-                    />
-                    <input
-                        type="email"
-                        placeholder="Votre e-mail"
-                        className="w-full p-3 border rounded-md"
-                    />
-                    <textarea
-                        placeholder="Votre message"
-                        className="w-full p-3 border rounded-md h-32"
-                    ></textarea>
-                    <button
-                        type="submit"
-                        className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-                    >
-                        Envoyer
-                    </button>
-                </form>
             </div>
         </div>
     );
