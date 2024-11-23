@@ -86,7 +86,7 @@ const Navbar = () => {
             </div>
 
             {isMenuOpen && (
-                <ul className="md:hidden mt-2 bg-gray-700 p-4 space-y-3">
+                <ul className="md:hidden mt-2 bg-transparent p-4 space-y-3">
                     {links.map(({ href, label, icon }, index) => (
                         <li key={index}>
                             <a

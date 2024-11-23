@@ -19,7 +19,7 @@ export default function ProductsPage() {
                 backgroundImage: `url('/img/bgMale.jpg')`,
             }}
         >
-            <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
             <div className="relative max-w-6xl mx-auto p-6">
                 <h1 className="text-4xl font-bold mb-6 text-center text-menthe">Hommes</h1>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 cursor-pointer">

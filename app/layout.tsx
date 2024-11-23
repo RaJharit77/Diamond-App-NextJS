@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata = {
   title: "Diamond Store®",
   icons: {
-    icon: "/assets/diamond_blue.jpg",
+    icon: "./public/assets/diamond_blue.jpg",
   },
 };
 

@@ -5,12 +5,12 @@ import { MdEmail } from 'react-icons/md';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-black text-white py-4 relative bottom-0 left-0 right-0">
-            <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
-                <div className="flex flex-col items-center sm:items-start sm:ml-7 mb-2 sm:mb-0">
+        <footer className="bg-black text-white py-6">
+            <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center px-4">
+                <div className="flex flex-col items-center lg:items-start mb-4 lg:mb-0">
                     <a
-                        href="#"
-                        className="w-16 h-16 rounded-full overflow-hidden mb-2 ml-0"
+                        href="/"
+                        className="w-16 h-16 rounded-full overflow-hidden mb-4"
                     >
                         <Image
                             src="/img/diamond_blue_3.jpg"
@@ -22,14 +22,14 @@ const Footer: React.FC = () => {
                     </a>
                 </div>
 
-                <div className="flex space-x-6 justify-center sm:justify-end sm:mr-8 mt-1 sm:mt-0 items-center mb-2 sm:mb-1">
+                <div className="flex flex-wrap justify-center lg:justify-end space-x-6 items-center mb-6 lg:mb-0">
                     <a
                         href="https://www.facebook.com/"
                         className="text-bleuDiamant hover:text-bleuTurquoise"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <FaFacebook size={30} />  
+                        <FaFacebook size={30} />
                     </a>
                     <a
                         href="https://www.instagram.com/"
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <FaInstagram size={30} /> 
+                        <FaInstagram size={30} />
                     </a>
                     <a
                         href="https://x.com/"
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <FaXTwitter size={30} />  
+                        <FaXTwitter size={30} />
                     </a>
                     <a
                         href="https://linkedin.com/"
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <FaLinkedinIn size={30} /> 
+                        <FaLinkedinIn size={30} />
                     </a>
                     <a
                         href="https://web.whatsapp.com/"
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <FaWhatsapp size={30} />  
+                        <FaWhatsapp size={30} />
                     </a>
                     <a
                         href="mailto: diamond.store@gmail.com"
@@ -72,9 +72,50 @@ const Footer: React.FC = () => {
                 </div>
             </div>
 
-            <div className="w-full text-center bg-black py-2">
+            <div className="text-center mt-6 px-4">
+                <div className="flex flex-wrap justify-center gap-4">
+                    <a
+                        href="/"
+                        className="text-bleuDiamant hover:text-bleuTurquoise hover:underline"
+                    >
+                        Accueil
+                    </a>
+                    <a
+                        href="/about"
+                        className="text-bleuDiamant hover:text-bleuTurquoise hover:underline"
+                    >
+                        À propos de Diamond Store
+                    </a>
+                    <a
+                        href="/hommes"
+                        className="text-bleuDiamant hover:text-bleuTurquoise hover:underline"
+                    >
+                        Hommes
+                    </a>
+                    <a
+                        href="/femmes"
+                        className="text-bleuDiamant hover:text-bleuTurquoise hover:underline"
+                    >
+                        Femmes
+                    </a>
+                    <a
+                        href="/autres"
+                        className="text-bleuDiamant hover:text-bleuTurquoise hover:underline"
+                    >
+                        Autres
+                    </a>
+                    <a
+                        href="/contact"
+                        className="text-bleuDiamant hover:text-bleuTurquoise hover:underline"
+                    >
+                        Prendre contact
+                    </a>
+                </div>
+            </div>
+
+            <div className="w-full text-center bg-black py-3 mt-6">
                 <p className="text-bleuDiamant">
-                    &copy; {new Date().getFullYear()} Diamond Store®. Created by RaJharit77. All rights reserved
+                    &copy; {new Date().getFullYear()} Diamond Store®. Created by RaJharit77. All rights reserved.
                 </p>
             </div>
         </footer>
