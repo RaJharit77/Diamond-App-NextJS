@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
                         <FaWhatsapp size={30} />
                     </a>
                     <a
-                        href="mailto: diamond.store@gmail.com"
+                        href="mailto: contact@diamond.store.mg"
                         className="text-bleuDiamant hover:text-bleuTurquoise"
                     >
                         <MdEmail size={30} />
@@ -97,6 +97,12 @@ const Footer: React.FC = () => {
                         className="text-bleuDiamant hover:text-bleuTurquoise hover:underline"
                     >
                         Femmes
+                    </a>
+                    <a
+                        href="/enfants"
+                        className="text-bleuDiamant hover:text-bleuTurquoise hover:underline"
+                    >
+                        Enfants
                     </a>
                     <a
                         href="/autres"
