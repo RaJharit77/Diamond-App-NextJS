@@ -12,11 +12,12 @@ type Product = {
 
 export default function ProductsPage() {
     const [products, setProducts] = useState<Product[]>([]);
+    const [error, setError] = useState<string>("");
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch("/data/femmes.json");
+                const response = await fetch("/api/femmes");
                 if (!response.ok) {
                     throw new Error(`Erreur HTTP : ${response.status}`);
                 }
@@ -24,8 +25,10 @@ export default function ProductsPage() {
                 setProducts(data);
             } catch (error: unknown) {
                 if (error instanceof Error) {
+                    setError(error.message);
                     console.error("Erreur API:", error.message);
                 } else {
+                    setError("Erreur inconnue");
                     console.error("Erreur inconnue:", error);
                 }
                 alert("Erreur lors du chargement des produits");
@@ -45,6 +48,7 @@ export default function ProductsPage() {
             <div className="absolute inset-0 bg-black bg-opacity-70"></div>
             <div className="relative max-w-6xl mx-auto p-6">
                 <h1 className="text-4xl font-bold mb-6 text-center text-menthe">Femmes</h1>
+                {error && <div className="text-red-500 text-center mb-4">{error}</div>}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 cursor-pointer">
                     {products.map((product) => (
                         <ProductCard key={product.id} product={product} />
