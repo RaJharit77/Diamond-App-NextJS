@@ -1,8 +1,52 @@
 "use client";
 
+import { useState } from "react";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 
 export default function ContactPage() {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+    });
+    const [status, setStatus] = useState("");
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                setStatus("Message envoyé avec succès !");
+                setFormData({
+                    name: "",
+                    email: "",
+                    subject: "",
+                    message: "",
+                });
+            } else {
+                setStatus(result.error || "Erreur lors de l'envoi.");
+            }
+        } catch (error) {
+            setStatus("Erreur serveur. Réessayez plus tard.");
+        }
+    };
+
     return (
         <div
             className="min-h-screen bg-cover bg-center flex items-center justify-center"
@@ -10,30 +54,40 @@ export default function ContactPage() {
                 backgroundImage: "url('/img/bgContact.jpg')",
             }}
         >
-
             <div className="flex flex-col lg:flex-row items-center justify-center gap-8 w-full max-w-6xl p-4">
-
                 <div className="bg-gray-900 bg-opacity-70 rounded-lg shadow-lg w-full lg:w-1/2 p-6 lg:p-10">
                     <h1 className="text-3xl font-extrabold text-center text-bleuDiamant mb-8">
                         Contactez-nous
                     </h1>
-                    <form className="space-y-6 text-gray-100">
+                    <form onSubmit={handleSubmit} className="space-y-6 text-gray-100">
                         <input
                             type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
                             placeholder="Votre nom"
                             className="w-full bg-gray-800 p-4 border border-gray-700 rounded-md shadow-sm focus:ring-2 focus:ring-gray-700 focus:outline-none"
                         />
                         <input
                             type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
                             placeholder="Votre e-mail"
                             className="w-full bg-gray-800 p-4 border border-gray-700 rounded-md shadow-sm focus:ring-2 focus:ring-gray-700 focus:outline-none"
                         />
                         <input
                             type="text"
+                            name="subject"
+                            value={formData.subject}
+                            onChange={handleChange}
                             placeholder="Sujet"
                             className="w-full bg-gray-800 p-4 border border-gray-700 rounded-md shadow-sm focus:ring-2 focus:ring-gray-700 focus:outline-none"
                         />
                         <textarea
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
                             placeholder="Votre message"
                             className="w-full bg-gray-800 p-4 border border-gray-700 rounded-md shadow-sm focus:ring-2 focus:ring-gray-700 focus:outline-none h-40"
                         ></textarea>
@@ -44,8 +98,8 @@ export default function ContactPage() {
                             Envoyer
                         </button>
                     </form>
+                    {status && <p className="text-center mt-4 text-red-500">{status}</p>}
                 </div>
-
                 <div className="bg-gray-900 bg-opacity-70 rounded-lg shadow-lg w-full lg:w-1/2 p-6 lg:p-10">
                     <h2 className="text-2xl font-bold text-center text-bleuDiamant mb-6">
                         Coordonnées
@@ -72,7 +126,6 @@ export default function ContactPage() {
                             <p className="text-lg font-medium">contact@diamond.store.mg</p>
                         </div>
                     </div>
-
                     <div className="mt-8">
                         <h3 className="text-xl font-semibold text-left text-bleuDiamant mb-4">
                             Localisation
