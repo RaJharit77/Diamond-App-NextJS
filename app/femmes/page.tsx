@@ -72,7 +72,7 @@ export default function ProductsPage() {
                             Voir Plus
                         </button>
                     )}
-                    {visibleCount > 12 && (
+                    {visibleCount > 6 && (
                         <button
                             onClick={handleShowLess}
                             className="ml-4 px-6 py-2 bg-bleuTurquoise text-black rounded-md hover:bg-opacity-90"

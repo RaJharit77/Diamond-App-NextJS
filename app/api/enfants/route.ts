@@ -8,6 +8,12 @@ export async function GET() {
         { id: 4, name: "Hummel", price: "37€", image: "/img/enfant_4.jpg" },
         { id: 5, name: "Hummel", price: "57.77€", image: "/img/enfant_5.jpg" },
         { id: 6, name: "Hummel", price: "87€", image: "/img/enfant_6.jpg" },
+        { id: 7, name: "Hummel", price: "37€", image: "/img/enfant_7.jpg" },
+        { id: 8, name: "Hummel", price: "57.77€", image: "/img/enfant_8.jpg" },
+        { id: 9, name: "Hummel", price: "87€", image: "/img/enfant_9.jpg" },
+        { id: 10, name: "Hummel", price: "37€", image: "/img/enfant_10.jpg" },
+        { id: 11, name: "Hummel", price: "57.77€", image: "/img/enfant_11.jpg" },
+        { id: 12, name: "Hummel", price: "87€", image: "/img/enfant_12.jpg" },
     ];
 
     return NextResponse.json(products);
