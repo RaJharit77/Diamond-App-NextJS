@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
 
 const products = [
-    { id: 1, name: "Brassière de sport sans coûture taille (M, S, L, XL, XXL) en jersey", price: "103€", image: "/img/femme_1.jpg" },
-    { id: 2, name: "Hummel set sport sans coûture taille (S, M, L, XL, XXL) en jersey", price: "143.57€", image: "/img/femme_2.jpg" },
-    { id: 3, name: "Danemark maillot Gardienne CDM Féminin 2023 taille (S, M, L, XL, XXL)", price: "193€", image: "/img/femme_3.jpg" },
+    { id: 1, name: "Brassière de sport sans coûture taille (S, L, W) jersey woman", price: "103€", image: "/img/femme_1.jpg" },
+    { id: 2, name: "Hummel set sport sans coûture taille (S, L, W) jersey woman", price: "143.57€", image: "/img/femme_2.jpg" },
+    { id: 3, name: "Danemark maillot Gardienne CDM Féminin 2023 taille (S, L, W)", price: "193€", image: "/img/femme_3.jpg" },
     { id: 4, name: "Hummel first T-shirt sans coûture à manches longues noir jersey", price: "123.35€", image: "/img/femme_4.jpg" },
     { id: 5, name: "Hummel débardeur classique rose désert à logo taille medium", price: "113.77€", image: "/img/femme_5.jpg" },
     { id: 6, name: "Hummel Tif soutient gorge de sport sans coûture bleu taille medium", price: "133€", image: "/img/femme_6.jpg" },
-    { id: 7, name: "Hummel Core Short Noir en jersey", price: "127€", image: "/img/femme_7.jpg" },
+    { id: 7, name: "Hummel Core Short Noir poly woman", price: "127€", image: "/img/femme_7.jpg" },
     { id: 8, name: "Hummel Legging de sport sans coûture Rose", price: "153€", image: "/img/femme_8.jpg" },
     { id: 9, name: "Hummel Legging taille haute sans coûture", price: "107€", image: "/img/femme_9.jpg" },
     { id: 10, name: "Hummel Seamless T-shirt à manches longues Vert Kaki", price: "100€", image: "/img/femme_10.jpg" },
@@ -18,7 +18,7 @@ const products = [
     { id: 15, name: "Hummel Sweat à logo à manches long Crème Blanc", price: "175€", image: "/img/femme_15.jpg" },
     { id: 16, name: "Hummel Brassière de sport à maintient lèger deep litchen green", price: "173€", image: "/img/femme_16.jpg" },
     { id: 17, name: "Hummel CamiSeamless sport athletic noir melange crème blanc", price: "132€", image: "/img/femme_17.jpg" },
-    { id: 18, name: "Hummel Tif soutient gorge de sport sans coûture Noir en jersey", price: "122€", image: "/img/femme_18.jpg" },
+    { id: 18, name: "Hummel HMLTif soutient gorge de sports sans coûture Noir Top", price: "122€", image: "/img/femme_18.jpg" },
     { id: 19, name: "Hummel T-shirt de sport dusty blue", price: "102€", image: "/img/femme_19.jpg" },
     { id: 20, name: "Hummel veste de sûrvêtement  à liséré Noir", price: "112€", image: "/img/femme_20.jpg" },
     { id: 21, name: "Hummel CamiSeamless sport grise", price: "120€", image: "/img/femme_21.jpg" },

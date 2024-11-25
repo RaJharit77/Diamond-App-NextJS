@@ -6,9 +6,12 @@ import {
     FaChild,
     FaFemale,
     FaGripHorizontal,
+    FaHeart,
     FaHome,
     FaMale,
     FaPhoneAlt,
+    FaShoppingCart,
+    FaUser
 } from "react-icons/fa";
 
 const Navbar = () => {
@@ -28,8 +31,8 @@ const Navbar = () => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
         };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
@@ -66,14 +69,24 @@ const Navbar = () => {
                             </a>
                         </li>
                     ))}
+                    <li>
+                        <a href="/favoris" className="flex items-center hover:text-bleuDiamant">
+                            <FaHeart className="mr-1" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/panier" className="flex items-center hover:text-bleuDiamant">
+                            <FaShoppingCart className="mr-1" />
+                        </a>
+                    </li>
                 </ul>
 
-                <div className="hidden md:block ml-6">
+                <div className="hidden md:block ml-5">
                     <a
                         href="/login"
-                        className="bg-bleuDiamant px-4 py-2 rounded-lg hover:bg-bleuTurquoise relative group transition-all duration-500 ease-in-out glow-effect"
+                        className="bg-bleuDiamant p-3 rounded-lg hover:bg-bleuTurquoise relative group transition-all duration-500 ease-in-out glow-effect flex justify-center items-center"
                     >
-                        Se connecter
+                        <FaUser className="text-white text-lg group-hover:text-black" />
                     </a>
                 </div>
 
@@ -84,33 +97,6 @@ const Navbar = () => {
                     <FaBars />
                 </button>
             </div>
-
-            {isMenuOpen && (
-                <ul className="md:hidden mt-2 bg-transparent p-4 space-y-3">
-                    {links.map(({ href, label, icon }, index) => (
-                        <li key={index}>
-                            <a
-                                href={href}
-                                className={`relative flex items-center group text-white hover:text-bleuDiamant`}
-                            >
-                                <span className="mr-2 text-bleuDiamant">{icon}</span>
-                                {label}
-                                <span
-                                    className="absolute left-0 bottom-0 w-0 h-[2px] bg-bleuDiamant group-hover:w-full transition-all duration-500 ease-in-out"
-                                ></span>
-                            </a>
-                        </li>
-                    ))}
-                    <li>
-                        <a
-                            href="/login"
-                            className="bg-bleuDiamant px-4 py-2 rounded-lg hover:bg-bleuTurquoise relative group transition-all duration-500 ease-in-out glow-effect"
-                        >
-                            Se connecter
-                        </a>
-                    </li>
-                </ul>
-            )}
         </nav>
     );
 };

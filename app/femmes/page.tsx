@@ -12,6 +12,7 @@ type Product = {
 
 export default function ProductsPage() {
     const [products, setProducts] = useState<Product[]>([]);
+    const [visibleCount, setVisibleCount] = useState<number>(6);
     const [error, setError] = useState<string>("");
 
     useEffect(() => {
@@ -38,6 +39,14 @@ export default function ProductsPage() {
         fetchProducts();
     }, []);
 
+    const handleShowMore = () => {
+        setVisibleCount((prevCount) => prevCount + 6);
+    };
+
+    const handleShowLess = () => {
+        setVisibleCount(6);
+    };
+
     return (
         <div
             className="relative bg-cover bg-center min-h-screen"
@@ -50,9 +59,27 @@ export default function ProductsPage() {
                 <h1 className="text-4xl font-bold mb-6 text-center text-menthe">Femmes</h1>
                 {error && <div className="text-red-500 text-center mb-4">{error}</div>}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 cursor-pointer">
-                    {products.map((product) => (
+                    {products.slice(0, visibleCount).map((product) => (
                         <ProductCard key={product.id} product={product} />
                     ))}
+                </div>
+                <div className="flex justify-center mt-6">
+                    {visibleCount < products.length && (
+                        <button
+                            onClick={handleShowMore}
+                            className="px-6 py-2 bg-bleuDiamant text-white rounded-md hover:bg-opacity-90"
+                        >
+                            Voir Plus
+                        </button>
+                    )}
+                    {visibleCount > 12 && (
+                        <button
+                            onClick={handleShowLess}
+                            className="ml-4 px-6 py-2 bg-bleuTurquoise text-black rounded-md hover:bg-opacity-90"
+                        >
+                            Voir Moins
+                        </button>
+                    )}
                 </div>
             </div>
         </div>
