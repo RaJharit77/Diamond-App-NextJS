@@ -17,8 +17,12 @@ export default function HomePage() {
       const newOpacity = 0.5 + scrollPos / 500;
       setOpacity(Math.min(newOpacity, 0.9));
     };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
@@ -27,10 +31,9 @@ export default function HomePage() {
         className="relative bg-cover bg-center w-full bottom-0 min-h-screen flex flex-col items-center justify-center pb-40"
         style={{
           backgroundImage: `url('/img/diamant_2.jpg')`,
-          opacity: opacity,
         }}
       >
-        <div className="absolute inset-0 bg-gray-950 bg-opacity-75"></div>
+        <div className="absolute inset-0 bg-gray-950 bg-opacity-80" style={{ backgroundColor: `rgba(0, 0, 0, ${opacity})` }}></div>
         <div className="relative text-center text-menthe space-y-5 px-4 z-10 w-full h-full">
           <h1 className="text-4xl sm:text-4xl font-bold" data-aos="fade-down">
             Bienvenue sur Diamond Store
