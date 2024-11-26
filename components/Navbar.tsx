@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
     FaBars,
@@ -44,13 +46,15 @@ const Navbar = () => {
         >
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 <div className="flex items-center space-x-4 cursor-pointer">
-                    <a href="/">
-                        <img
+                    <Link href="/">
+                        <Image
                             src="/img/diamond_blue_3.jpg"
                             alt="Logo Diamond Blue"
-                            className="w-16 h-16 rounded-full hover:scale-110 transition-all duration-500 ease-in-out transform"
+                            width={64}
+                            height={64}
+                            className="rounded-full hover:scale-110 transition-all duration-500 ease-in-out transform"
                         />
-                    </a>
+                    </Link>
                     <div className="text-xl font-bold text-neon-animation">
                         Diamond Store
                     </div>
@@ -59,7 +63,7 @@ const Navbar = () => {
                 <ul className="hidden md:flex space-x-6 items-center ml-auto">
                     {links.map(({ href, label, icon }, index) => (
                         <li key={index}>
-                            <a
+                            <Link
                                 href={href}
                                 className="relative flex items-center group text-white hover:text-bleuDiamant"
                             >
@@ -68,28 +72,28 @@ const Navbar = () => {
                                 <span
                                     className="absolute left-0 bottom-0 w-0 h-[2px] bg-bleuDiamant group-hover:w-full transition-all duration-500 ease-in-out"
                                 ></span>
-                            </a>
+                            </Link>
                         </li>
                     ))}
                     <li>
-                        <a href="/favoris" className="flex items-center hover:text-bleuDiamant">
+                        <Link href="/favoris" className="flex items-center hover:text-bleuDiamant">
                             <FaHeart className="mr-1" />
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/panier" className="flex items-center hover:text-bleuDiamant">
+                        <Link href="/panier" className="flex items-center hover:text-bleuDiamant">
                             <FaShoppingCart className="mr-1" />
-                        </a>
+                        </Link>
                     </li>
                 </ul>
 
                 <div className="hidden md:block ml-5">
-                    <a
+                    <Link
                         href="/login"
                         className="bg-bleuDiamant w-10 h-10 rounded-full flex items-center justify-center hover:bg-bleuTurquoise relative group transition-all duration-500 ease-in-out glow-effect"
                     >
                         <FaUser className="text-white text-lg group-hover:text-black" />
-                    </a>
+                    </Link>
                 </div>
 
                 <button
@@ -104,44 +108,44 @@ const Navbar = () => {
                 <ul className="md:hidden mt-4 flex flex-col space-y-4 items-center bg-gray-950 p-4 rounded-lg shadow-lg">
                     {links.map(({ href, label, icon }, index) => (
                         <li key={index}>
-                            <a
+                            <Link
                                 href={href}
                                 className="flex items-center text-white hover:text-bleuDiamant"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 <span className="mr-2">{icon}</span>
                                 {label}
-                            </a>
+                            </Link>
                         </li>
                     ))}
                     <li>
-                        <a
+                        <Link
                             href="/favoris"
                             className="flex items-center text-white hover:text-bleuDiamant"
                             onClick={() => setIsMenuOpen(false)}
                         >
                             <FaHeart className="mr-1" />
                             Favoris
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a
+                        <Link
                             href="/panier"
                             className="flex items-center text-white hover:text-bleuDiamant"
                             onClick={() => setIsMenuOpen(false)}
                         >
                             <FaShoppingCart className="mr-1" />
                             Panier
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a
+                        <Link
                             href="/login"
                             className="bg-bleuDiamant w-12 h-12 rounded-full flex items-center justify-center text-white hover:bg-bleuTurquoise transition-all duration-500"
                             onClick={() => setIsMenuOpen(false)}
                         >
                             <FaUser className="text-lg" />
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             )}

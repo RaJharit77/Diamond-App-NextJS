@@ -27,6 +27,7 @@ export default function HomePage() {
         className="relative bg-cover bg-center w-full bottom-0 min-h-screen flex flex-col items-center justify-center pb-40"
         style={{
           backgroundImage: `url('/img/diamant_2.jpg')`,
+          opacity: opacity,
         }}
       >
         <div className="absolute inset-0 bg-gray-950 bg-opacity-75"></div>

@@ -1,4 +1,4 @@
-import { useRouter } from "next/navigation";
+import Image from "next/image"; // Importer Image depuis next/image
 import { useState } from "react";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 
@@ -13,12 +13,11 @@ export default function ProductCard({ product }: { product: Product }) {
     const [liked, setLiked] = useState(false);
     const [inCart, setInCart] = useState(false);
     const [message, setMessage] = useState<string | null>(null);
-    const router = useRouter();
 
     const toggleLike = () => {
         setLiked(!liked);
+        const favorites = JSON.parse(localStorage.getItem('favorites') || '[]'); // Déclarer avec const
         if (!liked) {
-            let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
             favorites.push(product);
             localStorage.setItem('favorites', JSON.stringify(favorites));
             setMessage('Produit ajouté aux favoris !');
@@ -30,8 +29,8 @@ export default function ProductCard({ product }: { product: Product }) {
 
     const toggleCart = () => {
         setInCart(!inCart);
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]'); // Déclarer avec const
         if (!inCart) {
-            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
             cart.push(product);
             localStorage.setItem('cart', JSON.stringify(cart));
             setMessage('Produit ajouté au panier !');
@@ -42,7 +41,7 @@ export default function ProductCard({ product }: { product: Product }) {
     };
 
     const handleBuy = () => {
-        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]'); // Déclarer avec const
         cart.push(product);
         localStorage.setItem('cart', JSON.stringify(cart));
         const isPurchaseSuccessful = Math.random() > 0.5;
@@ -63,9 +62,11 @@ export default function ProductCard({ product }: { product: Product }) {
             )}
             
             <div className="rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-200 bg-bleuDiamant">
-                <img
+                <Image
                     src={product.image}
                     alt={product.name}
+                    width={500} // Ajout de largeur
+                    height={500} // Ajout de hauteur
                     className="w-full h-96 object-cover rounded mb-3"
                 />
                 <h2 className="text-xl font-semibold text-gray-900">{product.name}</h2>

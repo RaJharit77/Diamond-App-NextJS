@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 
@@ -42,7 +43,7 @@ export default function ContactPage() {
             } else {
                 setStatus(result.error || "Erreur lors de l'envoi.");
             }
-        } catch (error) {
+        } catch {
             setStatus("Erreur serveur. Réessayez plus tard.");
         }
     };
@@ -131,9 +132,11 @@ export default function ContactPage() {
                             Localisation
                         </h3>
                         <div className="w-full h-64 bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-                            <img
+                            <Image
                                 src="/assets/carte.png"
                                 alt="Carte de localisation"
+                                width={400}
+                                height={300}
                                 className="w-full h-full object-cover"
                             />
                         </div>

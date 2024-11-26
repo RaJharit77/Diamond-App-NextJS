@@ -32,7 +32,7 @@ export default function SignupPage() {
                     />
                 </div>
                 <button className="bg-bleuTurquoise text-white px-4 py-2 rounded-lg w-full">
-                    S'inscrire
+                    S&apos;inscrire
                 </button>
                 <p className="mt-4 text-center text-menthe">
                     Déjà un compte ?{" "}

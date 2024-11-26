@@ -19,7 +19,7 @@ export default function AboutPage() {
             <div className="mt-6">
                 <h2 className="text-2xl font-semibold mb-2">Notre Mission</h2>
                 <p className="text-gray-700 leading-6">
-                    Fournir une expérience d'achat en ligne inégalée en mettant l'accent sur l'innovation et le style.
+                    Fournir une expérience d&apos;achat en ligne inégalée en mettant l&apos;accent sur l&apos;innovation et le style.
                 </p>
             </div>
         </div>

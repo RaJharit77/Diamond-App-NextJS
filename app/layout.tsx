@@ -1,7 +1,13 @@
+import { Poppins } from "next/font/google";
 import { ReactNode } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import "../styles/globals.css";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export const metadata = {
   title: "Diamond Store®",
@@ -12,11 +18,8 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-poppins">
+    <html lang="en" className={poppins.className}>
+      <body>
         <div>
           <Navbar />
           <main className="pt-0">{children}</main>
