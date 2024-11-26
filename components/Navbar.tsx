@@ -43,7 +43,6 @@ const Navbar = () => {
             } text-white p-5 sticky top-0 z-50 shadow-lg transition-all duration-300 ease-in-out`}
         >
             <div className="max-w-7xl mx-auto flex justify-between items-center">
-                {/* Logo */}
                 <div className="flex items-center space-x-4 cursor-pointer">
                     <a href="/">
                         <img
@@ -57,7 +56,6 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                {/* Desktop Menu */}
                 <ul className="hidden md:flex space-x-6 items-center ml-auto">
                     {links.map(({ href, label, icon }, index) => (
                         <li key={index}>
@@ -85,7 +83,6 @@ const Navbar = () => {
                     </li>
                 </ul>
 
-                {/* Login Button */}
                 <div className="hidden md:block ml-5">
                     <a
                         href="/login"
@@ -95,7 +92,6 @@ const Navbar = () => {
                     </a>
                 </div>
 
-                {/* Hamburger Menu */}
                 <button
                     className="block md:hidden text-2xl"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -104,7 +100,6 @@ const Navbar = () => {
                 </button>
             </div>
 
-            {/* Mobile Menu */}
             {isMenuOpen && (
                 <ul className="md:hidden mt-4 flex flex-col space-y-4 items-center bg-gray-950 p-4 rounded-lg shadow-lg">
                     {links.map(({ href, label, icon }, index) => (
