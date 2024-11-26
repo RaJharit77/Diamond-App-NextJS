@@ -54,7 +54,9 @@ export default function ProductsPage() {
                 backgroundImage: `url('/img/bgOther.jpg')`,
             }}
         >
+
             <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+
             <div className="relative max-w-6xl mx-auto p-6">
                 <h1 className="text-4xl font-bold mb-6 text-center text-menthe">Autres</h1>
                 {error && <div className="text-red-500 text-center mb-4">{error}</div>}
@@ -67,7 +69,7 @@ export default function ProductsPage() {
                     {visibleCount < products.length && (
                         <button
                             onClick={handleShowMore}
-                            className="px-6 py-2 bg-bleuDiamant text-white rounded-md hover:bg-opacity-90"
+                            className="px-6 py-2 bg-bleuDiamant text-white hover:bg-gray-800 hover:text-bleuDiamant rounded-md hover:bg-opacity-90"
                         >
                             Voir Plus
                         </button>
@@ -75,7 +77,7 @@ export default function ProductsPage() {
                     {visibleCount > 6 && (
                         <button
                             onClick={handleShowLess}
-                            className="ml-4 px-6 py-2 bg-bleuTurquoise text-black rounded-md hover:bg-opacity-90"
+                            className="ml-4 px-6 py-2 bg-bleuTurquoise text-black hover:bg-black hover:text-bleuTurquoise rounded-md hover:bg-opacity-90"
                         >
                             Voir Moins
                         </button>
