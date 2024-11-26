@@ -9,12 +9,12 @@ const Footer: React.FC = () => {
         <footer className="bg-black text-white py-6">
             <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center px-4">
                 <div className="flex flex-col items-center lg:items-start mb-4 lg:mb-0">
-                    <Link href="/" className="w-16 h-16 rounded-full overflow-hidden mb-4">
+                    <Link href="/" className="w-20 h-20 rounded-full overflow-hidden mb-4">
                         <Image
                             src="/img/diamond_blue_3.jpg"
                             alt="Diamond Store Logo"
-                            width={96}
-                            height={96}
+                            width={120} // Augmenter la taille pour une meilleure qualité
+                            height={120} // Ajuster la hauteur en fonction du ratio de l'image
                             className="w-full h-full object-cover"
                         />
                     </Link>

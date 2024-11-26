@@ -30,7 +30,7 @@ export default function HomePage() {
       <section
         className="relative bg-cover bg-center w-full bottom-0 min-h-screen flex flex-col items-center justify-center pb-40"
         style={{
-          backgroundImage: `url('/img/diamant_2.jpg')`,
+          backgroundImage: `url('/img/diamant.jpg')`,
         }}
       >
         <div className="absolute inset-0 bg-gray-950 bg-opacity-80" style={{ backgroundColor: `rgba(0, 0, 0, ${opacity})` }}></div>
