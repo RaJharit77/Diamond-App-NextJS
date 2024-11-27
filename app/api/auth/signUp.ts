@@ -33,6 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             res.status(201).json({ message: "Utilisateur créé avec succès.", user });
         } catch (error) {
+            console.error("Erreur lors de la création de l'utilisateur :", error);
             res.status(500).json({ message: "Erreur interne du serveur." });
         }
     } else {
