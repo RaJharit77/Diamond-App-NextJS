@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
         );
 
         return NextResponse.json({ message: "Connexion réussie", token });
-    } catch (error) {
+    } catch {
         return NextResponse.json({ message: "Erreur interne du serveur." }, { status: 500 });
     }
 }
