@@ -1,42 +1,29 @@
 import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcryptjs";
-import { NextApiRequest, NextApiResponse } from "next";
+import bcrypt from "bcrypt";
+import { NextRequest, NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method === "POST") {
-        const { name, email, password } = req.body;
+export async function POST(req: NextRequest) {
+    const { name, email, password } = await req.json();
 
-        if (!name || !email || !password) {
-            return res.status(400).json({ message: "Tous les champs sont requis." });
+    if (!email || !password) {
+        return NextResponse.json({ message: "Email et mot de passe requis." }, { status: 400 });
+    }
+
+    try {
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const user = await prisma.user.create({
+            data: { name, email, password: hashedPassword },
+        });
+
+        return NextResponse.json({ message: "Utilisateur créé avec succès.", user });
+    } catch (error: any) {
+        if (error.code === "P2002") {
+            return NextResponse.json({ message: "Email déjà utilisé." }, { status: 409 });
         }
 
-        try {
-            const existingUser = await prisma.user.findUnique({
-                where: { email },
-            });
-
-            if (existingUser) {
-                return res.status(400).json({ message: "Cet email est déjà utilisé." });
-            }
-
-            const hashedPassword = await bcrypt.hash(password, 10);
-
-            const user = await prisma.user.create({
-                data: {
-                    name,
-                    email,
-                    password: hashedPassword,
-                },
-            });
-
-            res.status(201).json({ message: "Utilisateur créé avec succès.", user });
-        } catch (error) {
-            console.error("Erreur lors de la création de l'utilisateur :", error);
-            res.status(500).json({ message: "Erreur interne du serveur." });
-        }
-    } else {
-        res.status(405).json({ message: "Méthode non autorisée" });
+        return NextResponse.json({ message: "Erreur lors de l'inscription." }, { status: 500 });
     }
 }

@@ -1,6 +1,6 @@
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL") // Exemple: sqlite:./db.sqlite
+  url      = "file:./dev.db"
 }
 
 generator client {
@@ -8,9 +8,9 @@ generator client {
 }
 
 model User {
-  id        Int    @id @default(autoincrement())
-  name      String
-  email     String @unique
-  password  String
+  id       Int      @id @default(autoincrement())
+  name     String?
+  email    String   @unique
+  password String
   createdAt DateTime @default(now())
 }

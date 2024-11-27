@@ -59,7 +59,7 @@ export default function LoginPage() {
                     {error && <div className="text-red-500">{error}</div>}
                     <button className="bg-bleuTurquoise text-black hover:bg-black hover:text-bleuDiamant px-4 py-2 rounded-lg w-full">Se connecter</button>
                     <p className="mt-4 text-center text-menthe">
-                        Pas encore de compte ?{" "}
+                        Pas de compte ?{" "}
                         <Link href="/signup" className="text-bleuDiamant hover:underline">
                             Inscrivez-vous
                         </Link>

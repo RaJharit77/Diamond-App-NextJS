@@ -19,14 +19,18 @@ export default function SignupPage() {
             },
             body: JSON.stringify({ name, email, password }),
         });
-
-        const data = await res.json();
-
-        if (res.ok) {
-            window.location.href = "/login";
-        } else {
-            setError(data.message || "Erreur lors de l'inscription");
+        
+        if (!res.ok) {
+            const errorData = await res.text();
+            console.error("Erreur : ", errorData);
+            setError(errorData || "Erreur lors de l'inscription");
+            return;
         }
+        
+        const data = await res.json();
+        if (data.message === "Utilisateur créé avec succès.") {
+            window.location.href = "/login";
+        }        
     };
 
     return (
