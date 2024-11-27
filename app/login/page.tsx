@@ -22,17 +22,20 @@ export default function LoginPage() {
         const data = await res.json();
 
         if (res.ok) {
-            window.location.href = "/"; // Rediriger vers la page d'accueil ou dashboard
+            window.location.href = "/";
         } else {
             setError(data.message || "Erreur lors de la connexion");
         }
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-black">
-            <div className="relative z-10">
+        <div className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/img/bgLogin.jpg')" }}>
+
+            <div className="absolute inset-0 bg-black opacity-70"></div>
+
+            <div className="relative z-10 flex flex-col items-center justify-center min-h-screen bottom-24">
                 <h1 className="text-2xl font-bold mb-4 text-center text-corail">Se connecter</h1>
-                <form onSubmit={handleSubmit} className="bg-gray-800 p-7 rounded-xl shadow-md w-96">
+                <form onSubmit={handleSubmit} className="bg-gray-800 bg-opacity-50 p-7 rounded-xl shadow-md w-96">
                     <div className="mb-4">
                         <label className="block text-menthe mb-2">Email</label>
                         <input
@@ -54,10 +57,10 @@ export default function LoginPage() {
                         />
                     </div>
                     {error && <div className="text-red-500">{error}</div>}
-                    <button className="bg-bleuTurquoise text-white px-4 py-2 rounded-lg w-full">Se connecter</button>
+                    <button className="bg-bleuTurquoise text-black hover:bg-black hover:text-bleuDiamant px-4 py-2 rounded-lg w-full">Se connecter</button>
                     <p className="mt-4 text-center text-menthe">
                         Pas encore de compte ?{" "}
-                        <Link href="/signup" className="text-bleuDiamant hover:underline">
+                        <Link href="/signUp" className="text-bleuDiamant hover:underline">
                             Inscrivez-vous
                         </Link>
                     </p>
