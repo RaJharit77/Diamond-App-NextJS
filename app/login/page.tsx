@@ -60,7 +60,7 @@ export default function LoginPage() {
                     <button className="bg-bleuTurquoise text-black hover:bg-black hover:text-bleuDiamant px-4 py-2 rounded-lg w-full">Se connecter</button>
                     <p className="mt-4 text-center text-menthe">
                         Pas encore de compte ?{" "}
-                        <Link href="/signUp" className="text-bleuDiamant hover:underline">
+                        <Link href="/signup" className="text-bleuDiamant hover:underline">
                             Inscrivez-vous
                         </Link>
                     </p>
