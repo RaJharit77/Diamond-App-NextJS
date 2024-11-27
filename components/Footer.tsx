@@ -13,8 +13,8 @@ const Footer: React.FC = () => {
                         <Image
                             src="/img/diamond_blue_3.jpg"
                             alt="Diamond Store Logo"
-                            width={120} // Augmenter la taille pour une meilleure qualité
-                            height={120} // Ajuster la hauteur en fonction du ratio de l'image
+                            width={120}
+                            height={120}
                             className="w-full h-full object-cover"
                         />
                     </Link>

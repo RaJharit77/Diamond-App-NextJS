@@ -36,7 +36,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gray-950 bg-opacity-80" style={{ backgroundColor: `rgba(0, 0, 0, ${opacity})` }}></div>
         <div className="relative text-center text-menthe space-y-5 px-4 z-10 w-full h-full">
           <h1 className="text-4xl sm:text-4xl font-bold" data-aos="fade-down">
-            Bienvenue sur Diamond Store
+            Bienvenue sur Diamond Store®
           </h1>
           <p className="text-lg sm:text-xl" data-aos="fade-up">
             Découvrez notre collection exclusive de vêtements et accessoires

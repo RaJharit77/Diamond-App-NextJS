@@ -50,14 +50,14 @@ const Navbar = () => {
                         <Image
                             src="/img/diamond_blue_3.jpg"
                             alt="Logo Diamond Blue"
-                            width={200}  // Taille adaptée pour un meilleur rendu
+                            width={200}
                             height={200}
                             className="rounded-full hover:scale-110 transition-all duration-500 ease-in-out transform object-cover w-16 h-16"
-                            priority // Assure que l'image est chargée en priorité
+                            priority
                         />
                     </Link>
                     <div className="text-xl font-bold text-neon-animation">
-                        Diamond Store
+                        Diamond Store®
                     </div>
                 </div>
 
