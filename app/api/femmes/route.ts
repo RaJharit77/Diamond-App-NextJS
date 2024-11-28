@@ -73,6 +73,9 @@ const products = [
     { id: 70, name: "Hummel TIF SEAMLESS brassières sport normale black iris", price: "78€", image: "/img/femme_70.jpg" },
     { id: 71, name: "Hummel TOLA - Neliela atbalsta sporta krusturis cabernet", price: "69€", image: "/img/femme_71.jpg" },
     { id: 72, name: "Hummel Top - marina blue and green melange sport normale complete", price: "73€", image: "/img/femme_72.jpg" },
+    { id: 73, name: "Hummel", price: "54€", image: "/img/femme_73.jpg" },
+    { id: 74, name: "Hummel", price: "63€", image: "/img/femme_74.jpg" },
+    { id: 75, name: "Hummel", price: "47€", image: "/img/femme_75.jpg" },
 ];
 
 export async function GET() {

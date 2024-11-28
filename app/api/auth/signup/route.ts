@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { Prisma, PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -19,11 +19,15 @@ export async function POST(req: NextRequest) {
         });
 
         return NextResponse.json({ message: "Utilisateur créé avec succès.", user });
-    } catch (error: any) {
-        if (error.code === "P2002") {
-            return NextResponse.json({ message: "Email déjà utilisé." }, { status: 409 });
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
+                return NextResponse.json({ message: "Email déjà utilisé." }, { status: 409 });
+            }
+
+            return NextResponse.json({ message: "Erreur lors de l'inscription." }, { status: 500 });
         }
 
-        return NextResponse.json({ message: "Erreur lors de l'inscription." }, { status: 500 });
+        return NextResponse.json({ message: "Erreur interne." }, { status: 500 });
     }
 }

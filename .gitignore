@@ -40,3 +40,4 @@ yarn-error.log*
 next-env.d.ts
 
 /public/data/
+/app/api/auth/info.ts
