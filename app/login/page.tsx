@@ -10,21 +10,28 @@ export default function LoginPage() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-
-        const res = await fetch("/api/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password }),
-        });
-
-        const data = await res.json();
-
-        if (res.ok) {
-            window.location.href = "/";
-        } else {
-            setError(data.message || "Erreur lors de la connexion");
+    
+        try {
+            const res = await fetch("/api/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password }),
+            });
+    
+            if (!res.ok) {
+                const data = await res.json();
+                setError(data.message || "Erreur lors de la connexion");
+                return;
+            }
+    
+            const data = await res.json();
+            localStorage.setItem('user', JSON.stringify(data.user));
+            window.location.href = "/profile";
+        } catch (error) {
+            console.error("Erreur de connexion:", error);
+            setError("Erreur de connexion. Veuillez réessayer plus tard.");
         }
     };
 

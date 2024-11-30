@@ -41,7 +41,7 @@ export default function HomePage() {
           <p className="text-lg sm:text-xl" data-aos="fade-up">
             Découvrez notre collection exclusive de vêtements et accessoires
             sportifs <br />
-            de la célèbre marque Danois Hummel®.
+            de la célèbre marque Danoise Hummel®.
           </p>
           <a
             href="#promotion"
@@ -123,7 +123,7 @@ export default function HomePage() {
                 data-aos="flip-up"
                 data-aos-delay={`${index * 100}`}
               >
-                <div className="absolute inset-0 bg-black bg-opacity-25"></div>
+                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                 <h3 className="relative text-menthe text-xl font-bold z-10">
                   {category.title}
                 </h3>

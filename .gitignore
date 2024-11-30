@@ -39,5 +39,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+#data
 /public/data/
+
+#infos
 /app/api/auth/info.ts
+
+#prisma
+/prisma/dev.db

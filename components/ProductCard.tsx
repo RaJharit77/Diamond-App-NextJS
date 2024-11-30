@@ -1,4 +1,4 @@
-import Image from "next/image"; // Importer Image depuis next/image
+import Image from "next/image";
 import { useState } from "react";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 
@@ -65,8 +65,8 @@ export default function ProductCard({ product }: { product: Product }) {
                 <Image
                     src={product.image}
                     alt={product.name}
-                    width={500} // Ajout de largeur
-                    height={500} // Ajout de hauteur
+                    width={500}
+                    height={500}
                     className="w-full h-96 object-cover rounded mb-3"
                 />
                 <h2 className="text-xl font-semibold text-gray-900">{product.name}</h2>
