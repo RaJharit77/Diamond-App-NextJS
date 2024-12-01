@@ -18,8 +18,12 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ message: "Email ou mot de passe incorrect." }, { status: 401 });
         }
 
-        return NextResponse.json({ message: "Connexion réussie." });
-    } catch {
+        return NextResponse.json({
+            user: { name: user.name, email: user.email },
+            message: "Connexion réussie.",
+        });
+    } catch (error) {
+        console.error("Erreur:", error);
         return NextResponse.json({ message: "Erreur lors de la connexion." }, { status: 500 });
     }
 }

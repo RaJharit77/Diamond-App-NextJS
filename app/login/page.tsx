@@ -10,7 +10,7 @@ export default function LoginPage() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-    
+
         try {
             const res = await fetch("/api/auth/login", {
                 method: "POST",
@@ -19,60 +19,56 @@ export default function LoginPage() {
                 },
                 body: JSON.stringify({ email, password }),
             });
-    
+
             if (!res.ok) {
                 const data = await res.json();
                 setError(data.message || "Erreur lors de la connexion");
                 return;
             }
-    
+
             const data = await res.json();
             localStorage.setItem('user', JSON.stringify(data.user));
-            window.location.href = "/profile";
+            window.location.href = '/profile';
         } catch (error) {
-            console.error("Erreur de connexion:", error);
-            setError("Erreur de connexion. Veuillez réessayer plus tard.");
+            setError("Erreur lors de la connexion");
         }
     };
 
     return (
-        <div className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/img/bgLogin.jpg')" }}>
+        <div className="relative bg-cover bg-center min-h-screen flex items-center justify-center" style={{ backgroundImage: "url('/img/bgLogin.jpg')" }}>
 
-            <div className="absolute inset-0 bg-black opacity-70"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
-            <div className="relative z-10 flex flex-col items-center justify-center min-h-screen bottom-24">
-                <h1 className="text-2xl font-bold mb-4 text-center text-corail">Se connecter</h1>
-                <form onSubmit={handleSubmit} className="bg-gray-800 bg-opacity-50 p-7 rounded-xl shadow-md w-96">
-                    <div className="mb-4">
-                        <label className="block text-menthe mb-2">Email</label>
-                        <input
-                            type="email"
-                            className="w-full px-4 py-2 border rounded-lg bg-black text-white"
-                            placeholder="Entrez votre email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block text-menthe mb-2">Mot de passe</label>
-                        <input
-                            type="password"
-                            className="w-full px-4 py-2 border rounded-lg bg-black text-white"
-                            placeholder="Entrez votre mot de passe"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                    {error && <div className="text-red-500">{error}</div>}
-                    <button className="bg-bleuTurquoise text-black hover:bg-black hover:text-bleuDiamant px-4 py-2 rounded-lg w-full">Se connecter</button>
-                    <p className="mt-4 text-center text-menthe">
-                        Pas de compte ?{" "}
-                        <Link href="/signup" className="text-bleuDiamant hover:underline">
-                            Inscrivez-vous
-                        </Link>
-                    </p>
-                </form>
-            </div>
+            <form onSubmit={handleSubmit} className="relative bg-gray-900 bg-opacity-50 p-8 rounded-lg shadow-lg w-96 z-10 text-menthe bottom-20">
+                <h2 className="text-xl font-bold text-center mb-6">Connexion</h2>
+                {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+                <div className="mb-4">
+                    <label htmlFor="email" className="block mb-2">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        className="w-full p-2 rounded-md bg-gray-800 text-white"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="password" className="block mb-2">Mot de passe</label>
+                    <input
+                        type="password"
+                        id="password"
+                        className="w-full p-2 rounded-md bg-gray-800 text-white"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                <button type="submit" className="w-full py-2 bg-bleuDiamant hover:bg-bleuTurquoise text-white hover:text-black rounded-lg">
+                    Se connecter
+                </button>
+                <div className="mt-4 text-center">
+                    <Link href="/signup" className="text-corail hover:underline">Créer un compte</Link>
+                </div>
+            </form>
         </div>
     );
 }

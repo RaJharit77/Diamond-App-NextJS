@@ -1,76 +1,107 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const ProfilePage = () => {
-    const [name, setName] = useState<string>("");
-    const [image, setImage] = useState<File | null>(null);
+    const [user, setUser] = useState<any>(null);
 
-    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files) {
-            setImage(e.target.files[0]);
+    useEffect(() => {
+        const storedUser = localStorage.getItem("user");
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
         }
-    };
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-
-        const formData = new FormData();
-        formData.append("name", name);
-        if (image) {
-            formData.append("image", image);
-        }
-
-        const res = await fetch("/api/user/update", {
-            method: "POST",
-            body: formData,
-        });
-
-        if (res.ok) {
-            window.location.href = "/";
-        } else {
-            console.error("Erreur lors de la mise à jour du profil");
-        }
-    };
+    }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center p-8 bg-gray-800 rounded-lg shadow-lg max-w-lg mx-auto">
-            <h1 className="text-2xl font-bold text-white mb-4">Éditer votre profil</h1>
-            <form onSubmit={handleSubmit} className="w-full">
-                <div className="mb-4">
-                    <label className="block text-white">Nom d&apos;utilisateur</label> {/* Escaped apostrophe */}
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className="w-full p-2 mt-2 bg-gray-700 text-white rounded"
-                        placeholder="Votre nom"
-                    />
-                </div>
+        <div className="flex justify-center items-center h-screen bg-cover bg-center text-white relative" style={{ backgroundImage: 'url(/img/bgProfile.jpg)' }}>
+            {/* Overlay sombre */}
+            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-                <div className="mb-4">
-                    <label className="block text-white">Image de profil</label>
-                    <input
-                        type="file"
-                        onChange={handleImageChange}
-                        className="w-full mt-2 text-sm text-white"
-                    />
-                    {image && (
-                        <div className="mt-2">
-                            <Image
-                                src={URL.createObjectURL(image)}
-                                alt="Prévisualisation"
-                                className="w-32 h-32 rounded-full object-cover"
+            <div className="relative z-10 bg-gray-900 bg-opacity-60 p-8 rounded-lg shadow-lg w-96 text-menthe bottom-20">
+                <h2 className="text-xl font-bold text-center mb-6">Mon Profil</h2>
+                {user ? (
+                    <>
+                        <div className="mb-4">
+                            <label htmlFor="name" className="block mb-2">Nom</label>
+                            <input
+                                type="text"
+                                id="name"
+                                value={user.name}
+                                readOnly
+                                className="w-full p-2 rounded bg-gray-800 text-white"
                             />
                         </div>
-                    )}
-                </div>
-
-                <button type="submit" className="bg-bleuDiamant text-white w-full p-2 rounded mt-4">
-                    Mettre à jour
-                </button>
-            </form>
+                        <div className="mb-4">
+                            <label htmlFor="email" className="block mb-2">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                value={user.email}
+                                readOnly
+                                className="w-full p-2 rounded bg-gray-800 text-white"
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="dob" className="block mb-2">Date de naissance</label>
+                            <input
+                                type="text"
+                                id="dob"
+                                value={user.dob}
+                                readOnly
+                                className="w-full p-2 rounded bg-gray-800 text-white"
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="birthCity" className="block mb-2">Ville de naissance</label>
+                            <input
+                                type="text"
+                                id="birthCity"
+                                value={user.birthCity}
+                                readOnly
+                                className="w-full p-2 rounded bg-gray-800 text-white"
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="postalCode" className="block mb-2">Code Postal</label>
+                            <input
+                                type="text"
+                                id="postalCode"
+                                value={user.postalCode}
+                                readOnly
+                                className="w-full p-2 rounded bg-gray-800 text-white"
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="gender" className="block mb-2">Sexe</label>
+                            <input
+                                type="text"
+                                id="gender"
+                                value={user.gender}
+                                readOnly
+                                className="w-full p-2 rounded bg-gray-800 text-white"
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="country" className="block mb-2">Pays</label>
+                            <input
+                                type="text"
+                                id="country"
+                                value={user.country}
+                                readOnly
+                                className="w-full p-2 rounded bg-gray-800 text-white"
+                            />
+                        </div>
+                        <Link href="/profile/update">
+                            <button className="bg-bleuDiamant text-white hover:bg-bleuTurquoise hover:text-black w-full p-2 rounded mt-4">
+                                Mettre à jour mes informations
+                            </button>
+                        </Link>
+                    </>
+                ) : (
+                    <p>Utilisateur non trouvé</p>
+                )}
+            </div>
         </div>
     );
 };

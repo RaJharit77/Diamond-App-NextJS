@@ -21,14 +21,12 @@ export async function POST(req: Request) {
             const fileName = `${uuidv4()}-${image.name}`;
             const uploadPath = path.join(process.cwd(), "public/uploads", fileName);
 
-            // Sauvegarder l'image dans le répertoire public/uploads
             await fs.writeFile(uploadPath, buffer);
             imagePath = `/uploads/${fileName}`;
         }
 
-        // Mettre à jour l'utilisateur dans la base de données (exemple pour l'utilisateur avec ID 1)
         const updatedUser = await prisma.user.update({
-            where: { id: 1 }, // Changez pour un ID dynamique
+            where: { id: 1 },
             data: {
                 name,
                 ...(imagePath && { image: imagePath }),

@@ -28,6 +28,7 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
+    const [notification, setNotification] = useState<string | null>(null);
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
@@ -35,6 +36,11 @@ const Navbar = () => {
             try {
                 const parsedUser = JSON.parse(storedUser);
                 setUser(parsedUser);
+                setNotification(`Bienvenue, ${parsedUser.name}!`);
+                // Disparition de la notification après 7 secondes
+                setTimeout(() => {
+                    setNotification(null);
+                }, 7000);
             } catch (error) {
                 console.error("Erreur lors de l'analyse des données utilisateur:", error);
                 localStorage.removeItem('user');
@@ -42,7 +48,7 @@ const Navbar = () => {
         } else {
             setUser(null);
         }
-        setLoading(false);  // Désactive le chargement après récupération
+        setLoading(false);
 
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
@@ -55,7 +61,8 @@ const Navbar = () => {
     const handleLogout = () => {
         localStorage.removeItem('user');
         setUser(null);
-        window.location.href = '/login'; 
+        setNotification(null);
+        window.location.href = '/login';
     };
 
     const links = [
@@ -66,22 +73,6 @@ const Navbar = () => {
         { href: "/autres", label: "Autres", icon: <FaGripHorizontal /> },
         { href: "/contact", label: "Contact", icon: <FaPhoneAlt /> },
     ];
-
-    if (loading) {
-        return (
-            <nav className="bg-gray-950 text-white p-5 sticky top-0 z-50 shadow-lg">
-                <div className="max-w-7xl mx-auto flex justify-between items-center">
-                    <div className="flex items-center space-x-4 cursor-pointer">
-                        <div className="w-16 h-16 bg-gray-700 rounded-full animate-pulse" />
-                        <div className="text-xl font-bold">Diamond Store®</div>
-                    </div>
-                    <div className="flex items-center space-x-4">
-                        <div className="w-10 h-10 bg-gray-700 rounded-full animate-pulse" />
-                    </div>
-                </div>
-            </nav>
-        );
-    }
 
     return (
         <nav className={`${isScrolled ? "bg-black" : "bg-gray-950"} text-white p-5 sticky top-0 z-50 shadow-lg transition-all duration-300 ease-in-out`}>
@@ -100,15 +91,23 @@ const Navbar = () => {
                     <div className="text-xl font-bold text-neon-animation">Diamond Store®</div>
                 </div>
 
-                {/* Vérification de l'utilisateur connecté */}
-                {user && !loading && (
+                {notification && (
+                    <div className="mt-20 absolute left-0 right-0 flex justify-center p-4 bg-green-600 text-white rounded-md">
+                        <span>{notification}</span>
+                    </div>
+                )}
+
+                {/**{user && !loading && (
                     <div className="absolute top-0 left-0 right-0 flex justify-end p-4">
                         <div className="flex items-center text-white space-x-2">
                             <span>{user.name}</span>
+                            <Link href="/profile" className="text-blue-500 hover:underline">
+                                Profil
+                            </Link>
                             <FaUser className="text-white" />
                         </div>
                     </div>
-                )}
+                )}*/}
 
                 <ul className="hidden md:flex space-x-6 items-center ml-auto">
                     {links.map(({ href, label, icon }, index) => (
