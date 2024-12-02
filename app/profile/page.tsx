@@ -3,18 +3,31 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+interface User {
+    name: string;
+    email: string;
+    dob: string;
+    birthCity: string;
+    postalCode: string;
+    gender: string;
+    country: string;
+}
+
 const ProfilePage = () => {
-    const [user, setUser] = useState<any>(null);
+    const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
         if (storedUser) {
-            setUser(JSON.parse(storedUser));
+            setUser(JSON.parse(storedUser) as User);
         }
     }, []);
 
     return (
-        <div className="flex justify-center items-center h-screen bg-cover bg-center text-white relative" style={{ backgroundImage: 'url(/img/bgProfile.jpg)' }}>
+        <div
+            className="flex justify-center items-center h-screen bg-cover bg-center text-white relative"
+            style={{ backgroundImage: 'url(/img/bgProfile.jpg)' }}
+        >
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
             <div className="relative z-10 bg-gray-900 bg-opacity-60 p-8 rounded-lg shadow-lg w-[40rem] bottom-12">
                 <h2 className="text-2xl font-bold text-center mb-6 text-white">Mon Profil</h2>

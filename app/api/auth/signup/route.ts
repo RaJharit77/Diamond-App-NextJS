@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
         });
 
         return NextResponse.json({ message: "Inscription réussie." });
-    } catch (error) {
+    } catch {
         return NextResponse.json({ message: "Erreur lors de l'inscription." }, { status: 500 });
     }
 }

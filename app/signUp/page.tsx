@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export default function SignupPage() {
+function SignupPage() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -23,22 +23,27 @@ export default function SignupPage() {
 
             if (!res.ok) {
                 const data = await res.json();
-                setError(data.message || "Erreur lors de l'inscription.");
+                setErrorMessage(data.message || "Erreur lors de l'inscription.");
                 return;
             }
 
             window.location.href = "/login";
-        } catch (error) {
-            setError("Erreur lors de l'inscription. Veuillez réessayer.");
+        } catch {
+            setErrorMessage("Erreur lors de l'inscription. Veuillez réessayer.");
         }
     };
 
     return (
-        <div className="relative bg-cover bg-center min-h-screen flex items-center justify-center" style={{ backgroundImage: "url('/img/bgSignup.jpg')" }}>
-
+        <div
+            className="relative bg-cover bg-center min-h-screen flex items-center justify-center"
+            style={{ backgroundImage: "url('/img/bgSignup.jpg')" }}
+        >
             <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
-            <form onSubmit={handleSubmit} className="relative bg-gray-900 bg-opacity-50 p-6 rounded-lg shadow-lg w-96 z-10 bottom-14 text-menthe">
+            <form
+                onSubmit={handleSubmit}
+                className="relative bg-gray-900 bg-opacity-50 p-6 rounded-lg shadow-lg w-96 z-10 bottom-14 text-menthe"
+            >
                 <h2 className="text-2xl font-bold mb-4 text-center">Créer un compte</h2>
                 <div className="mb-4">
                     <label className="block mb-2">Nom</label>
@@ -70,9 +75,11 @@ export default function SignupPage() {
                         required
                     />
                 </div>
-                {error && <div className="text-red-500 mb-4">{error}</div>}
-                <button className="w-full bg-bleuDiamant hover:bg-bleuTurquoise text-white hover:text-black px-4 py-2 rounded-lg">
-                    S'inscrire
+                {errorMessage && <div className="text-red-500 mb-4">{errorMessage}</div>}
+                <button
+                    className="w-full bg-bleuDiamant hover:bg-bleuTurquoise text-white hover:text-black px-4 py-2 rounded-lg"
+                >
+                    S&apos;inscrire
                 </button>
                 <p className="mt-4 text-center">
                     Déjà un compte ?{" "}
@@ -84,3 +91,5 @@ export default function SignupPage() {
         </div>
     );
 }
+
+export default SignupPage;

@@ -37,7 +37,6 @@ const Navbar = () => {
                 const parsedUser = JSON.parse(storedUser);
                 setUser(parsedUser);
                 setNotification(`Bienvenue, ${parsedUser.name}!`);
-                // Disparition de la notification après 7 secondes
                 setTimeout(() => {
                     setNotification(null);
                 }, 7000);
@@ -97,17 +96,11 @@ const Navbar = () => {
                     </div>
                 )}
 
-                {/**{user && !loading && (
-                    <div className="absolute top-0 left-0 right-0 flex justify-end p-4">
-                        <div className="flex items-center text-white space-x-2">
-                            <span>{user.name}</span>
-                            <Link href="/profile" className="text-blue-500 hover:underline">
-                                Profil
-                            </Link>
-                            <FaUser className="text-white" />
-                        </div>
+                {loading && (
+                    <div className="flex justify-center items-center">
+                        <span>Chargement...</span>
                     </div>
-                )}*/}
+                )}
 
                 <ul className="hidden md:flex space-x-6 items-center ml-auto">
                     {links.map(({ href, label, icon }, index) => (

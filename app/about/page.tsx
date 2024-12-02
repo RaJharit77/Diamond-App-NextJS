@@ -37,7 +37,7 @@ export default function AboutPage() {
                         Fournir une expérience d&apos;achat en ligne inégalée en mettant l&apos;accent sur l&apos;innovation, l&apos;élégance et le style. Nous croyons en la simplicité et en la clarté, en offrant une plateforme intuitive qui permet à nos utilisateurs de naviguer facilement entre nos produits.
                     </p>
                     <p className="text-lg leading-7 text-gray-300">
-                        Notre objectif est d'apporter à chacun une expérience de shopping immersive et personnalisée. Nous combinons technologie et art pour offrir à nos utilisateurs un accès privilégié à des produits qui incarnent l'excellence.
+                        Notre objectif est d&apos;apporter à chacun une expérience de shopping immersive et personnalisée. Nous combinons technologie et art pour offrir à nos utilisateurs un accès privilégié à des produits qui incarnent l&apos;excellence.
                     </p>
                 </div>
 
