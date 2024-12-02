@@ -14,6 +14,7 @@ export const metadata = {
   icons: {
     icon: "/assets/diamond_blue.jpg",
   },
+  type: "image/svg+xml",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

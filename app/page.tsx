@@ -45,7 +45,7 @@ export default function HomePage() {
           </p>
           <a
             href="#promotion"
-            className="inline-block bg-bleuDiamant text-white px-6 py-2 rounded-lg text-lg hover:bg-bleuTurquoise transition-all"
+            className="inline-block bg-bleuDiamant text-white px-6 py-2 rounded-lg text-lg hover:bg-bleuTurquoise hover:text-black transition-all"
             data-aos="fade-up"
           >
             Explorez les produits

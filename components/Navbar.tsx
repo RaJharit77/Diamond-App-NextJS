@@ -90,14 +90,16 @@ const Navbar = () => {
                     <div className="text-xl font-bold text-neon-animation">Diamond Store®</div>
                 </div>
 
+                {/**Notification*/}
                 {notification && (
-                    <div className="mt-20 absolute left-0 right-0 flex justify-center p-4 bg-green-600 text-white rounded-md">
+                    <div className="mt-36 absolute left-0 right-0 flex justify-center p-4 bg-menthe text-black rounded-sm">
                         <span>{notification}</span>
                     </div>
                 )}
 
+                {/**Chargement*/}
                 {loading && (
-                    <div className="flex justify-center items-center">
+                    <div className="flex justify-center items-center fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 text-menthe">
                         <span>Chargement...</span>
                     </div>
                 )}
