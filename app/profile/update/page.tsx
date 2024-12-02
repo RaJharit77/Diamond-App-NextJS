@@ -22,7 +22,6 @@ const ProfilePageUpdate = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-    
         const storedEmail = localStorage.getItem("userEmail");
         if (!storedEmail) {
             alert("Email non trouvé.");
@@ -44,14 +43,13 @@ const ProfilePageUpdate = () => {
                 window.location.href = "/profile";
             } else {
                 const errorData = await res.json();
-                console.error("Erreur lors de la mise à jour :", errorData.message);
                 alert(errorData.message || "Une erreur s'est produite.");
             }
         } catch (error) {
             console.error("Erreur réseau :", error);
             alert("Une erreur réseau s'est produite.");
         }
-    };    
+    };
 
     return (
         <div className="flex justify-center items-center h-screen bg-cover bg-center relative" style={{ backgroundImage: 'url(/img/bgUpdate.jpg)' }}>

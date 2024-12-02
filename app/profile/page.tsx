@@ -19,9 +19,35 @@ const ProfilePage = () => {
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
         if (storedUser) {
-            setUser(JSON.parse(storedUser) as User);
+            const parsedUser = JSON.parse(storedUser) as User;
+            setUser(parsedUser);
+            localStorage.setItem("userEmail", parsedUser.email);
         }
-    }, []);
+
+        const fetchUser = async () => {
+            const email = localStorage.getItem("userEmail");
+            if (!email) {
+                alert("Email non trouvé.");
+                return;
+            }
+    
+            try {
+                const res = await fetch("/api/user", {
+                    headers: { Authorization: `Bearer ${email}` },
+                });
+                if (res.ok) {
+                    const userData = await res.json();
+                    setUser(userData);
+                } else {
+                    alert("Utilisateur non trouvé.");
+                }
+            } catch (error) {
+                console.error("Erreur réseau :", error);
+            }
+        };
+    
+        fetchUser();
+    }, []);    
 
     return (
         <div

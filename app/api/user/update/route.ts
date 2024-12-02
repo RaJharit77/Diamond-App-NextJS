@@ -9,16 +9,9 @@ export async function POST(req: Request) {
             return NextResponse.json({ message: "L'email est requis." }, { status: 400 });
         }
 
-        const data: any = { name };
-        if (dob) data.dob = dob;
-        if (birthCity) data.birthCity = birthCity;
-        if (postalCode) data.postalCode = postalCode;
-        if (gender) data.gender = gender;
-        if (country) data.country = country;
-
         const updatedUser = await prisma.user.update({
             where: { email },
-            data,
+            data: { name, dob, birthCity, postalCode, gender, country },
         });
 
         return NextResponse.json(updatedUser, { status: 200 });
