@@ -1,44 +1,29 @@
 import prisma from "@/lib/prisma";
-import { promises as fs } from "fs";
 import { NextResponse } from "next/server";
-import path from "path";
-import { v4 as uuidv4 } from "uuid";
 
 export async function POST(req: Request) {
     try {
-        const formData = await req.formData();
+        const { email, name, dob, birthCity, postalCode, gender, country } = await req.json();
 
-        const name = formData.get("name")?.toString() || "";
-        const image = formData.get("image") as File | null;
-
-        if (!name) {
-            return NextResponse.json({ message: "Le nom est requis." }, { status: 400 });
+        if (!email) {
+            return NextResponse.json({ message: "L'email est requis." }, { status: 400 });
         }
 
-        let imagePath = null;
-        if (image) {
-            const buffer = Buffer.from(await image.arrayBuffer());
-            const fileName = `${uuidv4()}-${image.name}`;
-            const uploadPath = path.join(process.cwd(), "public/uploads", fileName);
-
-            await fs.writeFile(uploadPath, buffer);
-            imagePath = `/uploads/${fileName}`;
-        }
+        const data: any = { name };
+        if (dob) data.dob = dob;
+        if (birthCity) data.birthCity = birthCity;
+        if (postalCode) data.postalCode = postalCode;
+        if (gender) data.gender = gender;
+        if (country) data.country = country;
 
         const updatedUser = await prisma.user.update({
-            where: { id: 1 },
-            data: {
-                name,
-                ...(imagePath && { image: imagePath }),
-            },
+            where: { email },
+            data,
         });
 
         return NextResponse.json(updatedUser, { status: 200 });
-    } catch (error) {
-        console.error(error);
-        return NextResponse.json(
-            { message: "Erreur lors de la mise à jour du profil." },
-            { status: 500 }
-        );
+    } catch (error: any) {
+        console.error("Erreur serveur :", error.message || error);
+        return NextResponse.json({ message: "Erreur serveur." }, { status: 500 });
     }
 }
