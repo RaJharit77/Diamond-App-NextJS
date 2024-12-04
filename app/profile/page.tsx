@@ -60,7 +60,7 @@ const ProfilePage = () => {
                                     id="name"
                                     value={user?.name || ""}
                                     readOnly
-                                    className="w-full p-2 rounded bg-gray-800 text-white"
+                                    className="w-full p-2 rounded-md bg-gray-800 text-white"
                                 />
                             </div>
                             <div className="w-1/2 pl-4">
@@ -70,7 +70,7 @@ const ProfilePage = () => {
                                     id="email"
                                     value={user.email}
                                     readOnly
-                                    className="w-full p-2 rounded bg-gray-800 text-white"
+                                    className="w-full p-2 rounded-md bg-gray-800 text-white"
                                 />
                             </div>
                         </div>
@@ -82,7 +82,7 @@ const ProfilePage = () => {
                                     id="dob"
                                     value={user.dob}
                                     readOnly
-                                    className="w-full p-2 rounded bg-gray-800 text-white"
+                                    className="w-full p-2 rounded-md bg-gray-800 text-white"
                                 />
                             </div>
                             <div className="w-1/2 pl-4">
@@ -92,7 +92,7 @@ const ProfilePage = () => {
                                     id="birthCity"
                                     value={user.birthCity}
                                     readOnly
-                                    className="w-full p-2 rounded bg-gray-800 text-white"
+                                    className="w-full p-2 rounded-md bg-gray-800 text-white"
                                 />
                             </div>
                         </div>
@@ -104,7 +104,7 @@ const ProfilePage = () => {
                                     id="postalCode"
                                     value={user.postalCode}
                                     readOnly
-                                    className="w-full p-2 rounded bg-gray-800 text-white"
+                                    className="w-full p-2 rounded-md bg-gray-800 text-white"
                                 />
                             </div>
                             <div className="w-1/2 pl-4">
@@ -114,7 +114,7 @@ const ProfilePage = () => {
                                     id="gender"
                                     value={user.gender}
                                     readOnly
-                                    className="w-full p-2 rounded bg-gray-800 text-white"
+                                    className="w-full p-2 rounded-md bg-gray-800 text-white"
                                 />
                             </div>
                         </div>
@@ -125,14 +125,21 @@ const ProfilePage = () => {
                                 id="country"
                                 value={user.country}
                                 readOnly
-                                className="w-full p-2 rounded bg-gray-800 text-white"
+                                className="w-full p-2 rounded-md bg-gray-800 text-white"
                             />
                         </div>
-                        <Link href="/profile/update">
-                            <button className="bg-bleuDiamant text-white hover:bg-bleuTurquoise hover:text-black w-full p-2 rounded mt-7">
-                                Mettre à jour mes informations
-                            </button>
-                        </Link>
+                        <div className="flex justify-between items-center space-x-3">
+                            <Link href="/profile/update">
+                                <button className="bg-bleuDiamant text-white hover:bg-bleuTurquoise hover:text-black w-full p-2 rounded-lg mr-3">
+                                    Mettre à jour mes informations
+                                </button>
+                            </Link>
+                            <Link href="/">
+                                <button className="bg-bleuDiamant text-white hover:bg-bleuTurquoise hover:text-black w-full p-2 rounded-lg mr-20">
+                                    Annuler la mise à jour
+                                </button>
+                            </Link>
+                        </div>
                     </div>
                 ) : (
                     <p className="text-center text-white">Utilisateur non trouvé</p>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const ProfilePageUpdate = () => {
@@ -18,31 +19,31 @@ const ProfilePageUpdate = () => {
         setPostalCode(storedUser.postalCode || "08007");
         setGender(storedUser.gender || "Femme");
         setCountry(storedUser.country || "Espagne");
-    }, []);    
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-    
+
         if (!name || !dob || !birthCity || !postalCode || !gender || !country) {
             alert("Veuillez remplir tous les champs obligatoires.");
             return;
         }
-    
+
         const storedEmail = localStorage.getItem("userEmail");
         if (!storedEmail) {
             alert("Email non trouvé.");
             return;
         }
-    
+
         const updatedUser = { email: storedEmail, name, dob, birthCity, postalCode, gender, country };
-    
+
         try {
             const res = await fetch("/api/user/update", {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(updatedUser),
             });
-    
+
             if (res.ok) {
                 const user = await res.json();
                 localStorage.setItem("user", JSON.stringify(user));
@@ -56,7 +57,7 @@ const ProfilePageUpdate = () => {
             console.error("Erreur réseau :", error);
             alert("Une erreur réseau s'est produite.");
         }
-    };    
+    };
 
     return (
         <div className="flex justify-center items-center h-screen bg-cover bg-center relative" style={{ backgroundImage: 'url(/img/bgUpdate.jpg)' }}>
@@ -135,9 +136,18 @@ const ProfilePageUpdate = () => {
                         </div>
                     </div>
 
-                    <button type="submit" className="bg-bleuDiamant text-gray-200 hover:bg-bleuTurquoise hover:text-black w-full p-2 rounded mt-4">
-                        Mettre à jour
-                    </button>
+                    <div className="flex justify-between items-center space-x-7 relative">
+                        <Link href="/profile/update">
+                            <button className="bg-bleuDiamant text-white hover:bg-bleuTurquoise hover:text-black w-full p-2 rounded-lg mr-7">
+                                Mettre à jour mon profil
+                            </button>
+                        </Link>
+                        <Link href="/">
+                            <button className="bg-bleuDiamant text-white hover:bg-bleuTurquoise hover:text-black w-full p-2 rounded-lg mr-8"> 
+                                Annuler la mise à jour
+                            </button>
+                        </Link>
+                    </div>
                 </form>
             </div>
         </div>
