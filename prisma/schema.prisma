@@ -17,4 +17,5 @@ model User {
     postalCode  String?
     gender      String?
     country     String?
+    address     String?
 }

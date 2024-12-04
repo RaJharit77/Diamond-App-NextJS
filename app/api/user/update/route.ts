@@ -5,9 +5,9 @@ export async function PUT(req: Request) {
     try {
         const updatedUser = await req.json();  
         
-        const { email, name, dob, birthCity, postalCode, gender, country } = updatedUser;
+        const { email, name, dob, birthCity, postalCode, gender, country, address } = updatedUser;
 
-        if (!email || !name || !dob || !birthCity || !postalCode || !gender || !country) {
+        if (!email || !name || !dob || !birthCity || !postalCode || !gender || !country || !address) {
             return NextResponse.json({ message: "All fields are required" }, { status: 400 });
         }
 
@@ -30,6 +30,7 @@ export async function PUT(req: Request) {
                 postalCode,
                 gender,
                 country,
+                address,
             },
         });
 

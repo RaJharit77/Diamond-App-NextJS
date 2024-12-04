@@ -10,6 +10,7 @@ const ProfilePageUpdate = () => {
     const [postalCode, setPostalCode] = useState<string>("08007");
     const [gender, setGender] = useState<string>("Femme");
     const [country, setCountry] = useState<string>("Espagne");
+    const [address, setAddress] = useState<string>("Carrer de Pau Claris, Barcelona");
 
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
@@ -19,12 +20,13 @@ const ProfilePageUpdate = () => {
         setPostalCode(storedUser.postalCode || "08007");
         setGender(storedUser.gender || "Femme");
         setCountry(storedUser.country || "Espagne");
+        setAddress(storedUser.address || "Carrer de Pau Claris, Barcelona");
     }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!name || !dob || !birthCity || !postalCode || !gender || !country) {
+        if (!name || !dob || !birthCity || !postalCode || !gender || !country || !address) {
             alert("Veuillez remplir tous les champs obligatoires.");
             return;
         }
@@ -35,7 +37,7 @@ const ProfilePageUpdate = () => {
             return;
         }
 
-        const updatedUser = { email: storedEmail, name, dob, birthCity, postalCode, gender, country };
+        const updatedUser = { email: storedEmail, name, dob, birthCity, postalCode, gender, country, address };
 
         try {
             const res = await fetch("/api/user/update", {
@@ -62,7 +64,7 @@ const ProfilePageUpdate = () => {
     return (
         <div className="flex justify-center items-center h-screen bg-cover bg-center relative" style={{ backgroundImage: 'url(/img/bgUpdate.jpg)' }}>
 
-            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-70"></div>
 
             <div className="relative z-10 bg-gray-950 bg-opacity-60 p-8 rounded-lg shadow-lg w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 bottom-12">
                 <h1 className="text-2xl font-bold text-menthe mb-4 text-center">Éditer votre profil</h1>
@@ -134,17 +136,25 @@ const ProfilePageUpdate = () => {
                                 placeholder="Votre pays"
                             />
                         </div>
+                        <div className="w-full pl-2">
+                            <label className="block text-menthe">Adresse</label>
+                            <input
+                                type="text"
+                                value={address}
+                                onChange={(e) => setAddress(e.target.value)}
+                                className="w-full p-2 mt-2 bg-gray-800 rounded-md text-gray-200"
+                                placeholder="Votre adresse"
+                            />
+                        </div>
                     </div>
 
-                    <div className="flex justify-between items-center space-x-7 relative">
-                        <Link href="/profile/update">
-                            <button className="bg-bleuDiamant text-white hover:bg-bleuTurquoise hover:text-black w-full p-2 rounded-lg mr-7">
-                                Mettre à jour mon profil
-                            </button>
-                        </Link>
-                        <Link href="/">
-                            <button className="bg-bleuDiamant text-white hover:bg-bleuTurquoise hover:text-black w-full p-2 rounded-lg mr-8"> 
-                                Annuler la mise à jour
+                    <div className="flex justify-between items-center space-x-3 relative">
+                        <button type="submit" className="bg-bleuDiamant text-white hover:bg-bleuTurquoise hover:text-black w-1/2 p-2 rounded-lg mr-0">
+                            Mettre à jour mon profil
+                        </button>
+                        <Link href="/profile">
+                            <button className="bg-bleuDiamant text-white hover:bg-bleuTurquoise hover:text-black w-full p-2 rounded-lg mr-28">
+                                Annuler
                             </button>
                         </Link>
                     </div>
