@@ -14,40 +14,33 @@ interface User {
 }
 
 const ProfilePage = () => {
-    const [user, setUser] = useState<User | null>(null);
+    const defaultUser: User = {
+        name: "",
+        email: "",
+        dob: "05/08/2004",
+        birthCity: "Barcelone",
+        postalCode: "08007",
+        gender: "Femme",
+        country: "Espagne",
+    };
+
+    const [user, setUser] = useState<User | null>(defaultUser);
 
     useEffect(() => {
-        const storedUser = localStorage.getItem("user");
-        if (storedUser) {
-            const parsedUser = JSON.parse(storedUser) as User;
-            setUser(parsedUser);
-            localStorage.setItem("userEmail", parsedUser.email);
-        }
-
-        const fetchUser = async () => {
-            const email = localStorage.getItem("userEmail");
-            if (!email) {
-                alert("Email non trouvé.");
-                return;
-            }
-    
+        if (typeof window !== "undefined") {
             try {
-                const res = await fetch("/api/user", {
-                    headers: { Authorization: `Bearer ${email}` },
+                const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
+                setUser({
+                    ...defaultUser,
+                    ...storedUser,
                 });
-                if (res.ok) {
-                    const userData = await res.json();
-                    setUser(userData);
-                } else {
-                    alert("Utilisateur non trouvé.");
-                }
-            } catch (error) {
-                console.error("Erreur réseau :", error);
+                localStorage.setItem("userEmail", storedUser.email || "");
+            } catch (e) {
+                console.error("Erreur de parsing JSON :", e);
+                setUser(defaultUser);
             }
-        };
-    
-        fetchUser();
-    }, []);    
+        }
+    }, []);
 
     return (
         <div
@@ -65,7 +58,7 @@ const ProfilePage = () => {
                                 <input
                                     type="text"
                                     id="name"
-                                    value={user.name}
+                                    value={user?.name || ""}
                                     readOnly
                                     className="w-full p-2 rounded bg-gray-800 text-white"
                                 />

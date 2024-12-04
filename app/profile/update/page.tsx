@@ -4,24 +4,30 @@ import { useEffect, useState } from "react";
 
 const ProfilePageUpdate = () => {
     const [name, setName] = useState<string>("");
-    const [dob, setDob] = useState<string>("");
-    const [birthCity, setBirthCity] = useState<string>("");
-    const [postalCode, setPostalCode] = useState<string>("");
-    const [gender, setGender] = useState<string>("");
-    const [country, setCountry] = useState<string>("");
+    const [dob, setDob] = useState<string>("05/08/2004");
+    const [birthCity, setBirthCity] = useState<string>("Barcelone");
+    const [postalCode, setPostalCode] = useState<string>("08007");
+    const [gender, setGender] = useState<string>("Femme");
+    const [country, setCountry] = useState<string>("Espagne");
 
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
         setName(storedUser.name || "");
-        setDob(storedUser.dob || "");
-        setBirthCity(storedUser.birthCity || "");
-        setPostalCode(storedUser.postalCode || "");
-        setGender(storedUser.gender || "");
-        setCountry(storedUser.country || "");
-    }, []);
+        setDob(storedUser.dob || "05/08/2004");
+        setBirthCity(storedUser.birthCity || "Barcelone");
+        setPostalCode(storedUser.postalCode || "08007");
+        setGender(storedUser.gender || "Femme");
+        setCountry(storedUser.country || "Espagne");
+    }, []);    
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+    
+        if (!name || !dob || !birthCity || !postalCode || !gender || !country) {
+            alert("Veuillez remplir tous les champs obligatoires.");
+            return;
+        }
+    
         const storedEmail = localStorage.getItem("userEmail");
         if (!storedEmail) {
             alert("Email non trouvé.");
@@ -32,9 +38,9 @@ const ProfilePageUpdate = () => {
     
         try {
             const res = await fetch("/api/user/update", {
-                method: "POST",
-                body: JSON.stringify(updatedUser),
+                method: "PUT",
                 headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(updatedUser),
             });
     
             if (res.ok) {
@@ -42,14 +48,15 @@ const ProfilePageUpdate = () => {
                 localStorage.setItem("user", JSON.stringify(user));
                 window.location.href = "/profile";
             } else {
-                const errorData = await res.json();
+                const errorData = await res.json().catch(() => ({}));
                 alert(errorData.message || "Une erreur s'est produite.");
+                console.error('Erreur API:', errorData);
             }
         } catch (error) {
             console.error("Erreur réseau :", error);
             alert("Une erreur réseau s'est produite.");
         }
-    };
+    };    
 
     return (
         <div className="flex justify-center items-center h-screen bg-cover bg-center relative" style={{ backgroundImage: 'url(/img/bgUpdate.jpg)' }}>
