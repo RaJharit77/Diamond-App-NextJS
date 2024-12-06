@@ -19,3 +19,12 @@ model User {
     country     String?
     address     String?
 }
+
+model Purchase {
+    id         Int      @id @default(autoincrement())
+    email      String   @unique
+    productId  Int
+    productName String
+    productPrice String
+    createdAt  DateTime @default(now())
+}

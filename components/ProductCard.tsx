@@ -16,7 +16,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
     const toggleLike = () => {
         setLiked(!liked);
-        const favorites = JSON.parse(localStorage.getItem('favorites') || '[]'); // Déclarer avec const
+        const favorites = JSON.parse(localStorage.getItem('favorites') || '[]'); 
         if (!liked) {
             favorites.push(product);
             localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -29,7 +29,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
     const toggleCart = () => {
         setInCart(!inCart);
-        const cart = JSON.parse(localStorage.getItem('cart') || '[]'); // Déclarer avec const
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
         if (!inCart) {
             cart.push(product);
             localStorage.setItem('cart', JSON.stringify(cart));
@@ -41,16 +41,17 @@ export default function ProductCard({ product }: { product: Product }) {
     };
 
     const handleBuy = () => {
-        const cart = JSON.parse(localStorage.getItem('cart') || '[]'); // Déclarer avec const
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]'); 
         cart.push(product);
         localStorage.setItem('cart', JSON.stringify(cart));
-        const isPurchaseSuccessful = Math.random() > 0.5;
+        window.location.href = "/achat";
+        /**const isPurchaseSuccessful = Math.random() > 0.5;
         if (isPurchaseSuccessful) {
             setMessage('Achat effectué avec succès !');
         } else {
             setMessage('Échec de l\'achat. Veuillez réessayer.');
         }
-        setTimeout(() => setMessage(null), 3000);
+        setTimeout(() => setMessage(null), 3000);*/
     };
 
     return (
