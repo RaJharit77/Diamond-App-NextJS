@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 interface User {
     name: string;
@@ -15,7 +15,7 @@ interface User {
 }
 
 const ProfilePage = () => {
-    const defaultUser: User = {
+    const defaultUser = useMemo(() => ({
         name: "",
         email: "",
         dob: "05/08/2004",
@@ -24,7 +24,7 @@ const ProfilePage = () => {
         gender: "Femme",
         country: "Espagne",
         address: "Carrer de Pau Claris, Barcelona",
-    };
+    }), []);
 
     const [user, setUser] = useState<User | null>(defaultUser);
 
@@ -42,7 +42,7 @@ const ProfilePage = () => {
                 setUser(defaultUser);
             }
         }
-    }, []);
+    }, [defaultUser]);
 
     return (
         <div
