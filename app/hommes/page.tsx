@@ -54,7 +54,9 @@ export default function ProductsPage() {
                 backgroundImage: `url('/img/bgMale.jpg')`,
             }}
         >
+
             <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+
             <div className="relative max-w-6xl mx-auto p-6">
                 <h1 className="text-4xl font-bold mb-6 text-center text-menthe">Hommes</h1>
                 {error && <div className="text-red-500 text-center mb-4">{error}</div>}

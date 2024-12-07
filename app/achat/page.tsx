@@ -10,16 +10,26 @@ type CartItem = {
 export default function AchatPage() {
     const [cart, setCart] = useState<CartItem[]>([]);
     const [email, setEmail] = useState("");
+    const [cardNumber, setCardNumber] = useState("");
+    const [phone, setPhone] = useState("");
+    const [city, setCity] = useState("");
+    const [address, setAddress] = useState("");
+    const [country, setCountry] = useState("");
     const [message, setMessage] = useState("");
 
     useEffect(() => {
         const cartItems: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
         setCart(cartItems);
+
+        const storedUserEmail = localStorage.getItem("userEmail");
+        if (storedUserEmail) {
+            setEmail(storedUserEmail);
+        }
     }, []);
 
     const handlePurchase = async () => {
-        if (!email) {
-            setMessage("Veuillez entrer un email pour effectuer l'achat.");
+        if (!email || !cardNumber || !phone || !city || !address || !country) {
+            setMessage("Veuillez remplir tous les champs pour effectuer l'achat.");
             return;
         }
 
@@ -27,7 +37,7 @@ export default function AchatPage() {
             const response = await fetch("/api/achat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, cart }),
+                body: JSON.stringify({ email, cardNumber, phone, city, address, country, cart }),
             });
 
             const data = await response.json();
@@ -51,40 +61,91 @@ export default function AchatPage() {
     };
 
     return (
-        <div className="p-8">
-            <h1 className="text-2xl font-bold mb-4">Page Achat</h1>
+        <div
+            className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+            style={{ backgroundImage: "url('/img/bgAchat.jpg')" }}
+        >
 
-            <input
-                type="email"
-                placeholder="Entrez votre email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="border p-2 rounded w-full mb-4"
-            />
+            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-            <ul className="border p-4 rounded mb-4">
-                {cart.map((item, index) => (
-                    <li key={index} className="flex justify-between mb-2">
-                        <span>{item.name}</span>
-                        <span>{item.price}</span>
-                    </li>
-                ))}
-            </ul>
+            <form className="bg-gray-900 bg-opacity-70 p-8 rounded-lg shadow-lg w-full max-w-lg mb-20 z-10">
+                <h1 className="text-2xl font-bold mb-6 text-center text-menthe">Achat de vos articles</h1>
 
-            <button
-                onClick={handlePurchase}
-                className="bg-blue-500 text-white py-2 px-4 rounded mr-4"
-            >
-                Achèter
-            </button>
-            <button
-                onClick={handleCancel}
-                className="bg-red-500 text-white py-2 px-4 rounded"
-            >
-                Annuler
-            </button>
+                <input
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="border p-2 rounded-md w-full mb-4 bg-gray-800 text-gray-100"
+                    readOnly
+                />
 
-            {message && <p className="mt-4 text-red-600">{message}</p>}
+                <input
+                    type="text"
+                    placeholder="Numéro de carte Visa/Mastercard"
+                    value={cardNumber}
+                    onChange={(e) => setCardNumber(e.target.value)}
+                    className="border p-2 rounded-md w-full mb-4 bg-gray-800 text-gray-100"
+                />
+
+                <input
+                    type="tel"
+                    placeholder="Numéro de téléphone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="border p-2 rounded-md w-full mb-4 bg-gray-800 text-gray-100"
+                />
+
+                <input
+                    type="text"
+                    placeholder="Ville"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    className="border p-2 rounded-md w-full mb-4 bg-gray-800 text-gray-100"
+                />
+
+                <input
+                    type="text"
+                    placeholder="Adresse"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    className="border p-2 rounded-md w-full mb-4 bg-gray-800 text-gray-100"
+                />
+
+                <input
+                    type="text"
+                    placeholder="Pays"
+                    value={country}
+                    onChange={(e) => setCountry(e.target.value)}
+                    className="border p-2 rounded w-full mb-4 bg-gray-800 text-gray-100"
+                />
+
+                <ul className="border p-4 rounded-md mb-4 bg-gray-800 text-gray-100">
+                    {cart.map((item, index) => (
+                        <li key={index} className="flex justify-between mb-2">
+                            <span>{item.name}</span>
+                            <span>{item.price}</span>
+                        </li>
+                    ))}
+                </ul>
+
+                <div className="flex justify-between mt-7">
+                    <button
+                        onClick={handlePurchase}
+                        className="bg-bleuDiamant text-white py-2 px-7 ml-24 rounded-lg hover:bg-bleuTurquoise hover:text-black"
+                    >
+                        Achèter
+                    </button>
+                    <button
+                        onClick={handleCancel}
+                        className="bg-bleuDiamant text-white py-2 px-7 mr-20 rounded-lg hover:bg-bleuTurquoise hover:text-black"
+                    >
+                        Annuler
+                    </button>
+                </div>
+
+                {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
+            </form>
         </div>
     );
 }

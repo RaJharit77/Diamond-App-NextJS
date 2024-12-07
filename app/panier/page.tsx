@@ -27,31 +27,30 @@ export default function PanierPage() {
     };
 
     const handleBuy = (product: Product) => {
-        setMessage(`Achat du produit ${product.name} effectué !`);
+        window.location.href = "/achat";
+        setMessage(`Produit ${product.name} bien ajouté !`);
     };
 
     return (
-        <div
-            className="p-8 bg-cover bg-center bg-black bg-opacity-50"
-            style={{ backgroundImage: "url('/img/bgPanier.jpg')" }}
-        >
-            <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div className="relative p-8 bg-cover bg-center min-h-screen" style={{ backgroundImage: "url('/img/bgPanier.jpg')" }}>
 
-            <div className="text-center text-corail">
-                <h1 className="text-4xl font-bold mb-4 ">Mon Panier</h1>
+            <div className="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
+
+            <div className="relative z-10 text-center text-corail">
+                <h1 className="text-4xl font-bold mb-4">Mon Panier</h1>
                 <p>Liste des produits ajoutés à votre panier.</p>
             </div>
 
             {message && (
-                <div className="mt-4 text-center text-menthe font-semibold">{message}</div>
+                <div className="relative z-10 mt-4 text-center text-menthe font-semibold">{message}</div>
             )}
 
             {cart.length === 0 ? (
-                <div className="text-center text-gray-900 mt-20 text-2xl mb-20">
+                <div className="relative z-50 text-center text-menthe mt-20 text-2xl mb-20">
                     Votre panier est vide !
                 </div>
             ) : (
-                <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="relative z-10 mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {cart.map((product) => (
                         <div
                             key={product.id}
@@ -71,13 +70,13 @@ export default function PanierPage() {
                                     onClick={() => handleBuy(product)}
                                     className="py-2 px-4 bg-gray-900 text-white rounded-md hover:bg-gray-950"
                                 >
-                                    Acheter
+                                    Achat du produit
                                 </button>
                                 <button
                                     onClick={() => removeFromCart(product.id)}
                                     className="py-2 px-4 bg-gray-900 text-red-500 rounded-md hover:bg-red-500 hover:text-gray-900"
                                 >
-                                    Supprimer
+                                    Suppression du produit
                                 </button>
                             </div>
                         </div>
