@@ -72,8 +72,8 @@ const Footer: React.FC = () => {
                 </div>
             </div>
 
-            <div className="text-center mt-6">
-                <h3 className="text-lg font-semibold text-bleuDiamant mb-4">Moyen de Paiement</h3>
+            <div className="text-center mt-7">
+                <h3 className="text-lg font-semibold text-bleuDiamant mb-4">Moyens de Paiement</h3>
                 <div className="flex justify-center space-x-6">
                     <a
                         href="https://www.visa.com/"
