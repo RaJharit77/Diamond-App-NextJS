@@ -70,7 +70,7 @@ const Navbar = () => {
         { href: "/femmes", label: "Femmes", icon: <FaFemale /> },
         { href: "/enfants", label: "Enfants", icon: <FaChild /> },
         { href: "/autres", label: "Autres", icon: <FaGripHorizontal /> },
-        { href: "/contact", label: "Contact", icon: <FaPhoneAlt /> },
+        { href: "/contacts", label: "Contact", icon: <FaPhoneAlt /> },
     ];
 
     return (

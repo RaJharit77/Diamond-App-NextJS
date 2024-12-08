@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
                 </div>
             </div>
 
-            <div className="text-center mt-7">
+            <div className="text-center mt-3">
                 <h3 className="text-lg font-semibold text-bleuDiamant mb-4">Moyens de Paiement</h3>
                 <div className="flex justify-center space-x-6">
                     <a
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
                 </div>
             </div>
 
-            <div className="text-center mt-6 px-4">
+            <div className="text-center mt-7 px-4">
                 <div className="flex flex-wrap justify-center gap-4">
                     <Link href="/" className="text-bleuDiamant hover:text-bleuTurquoise hover:underline">
                         Accueil
@@ -122,13 +122,13 @@ const Footer: React.FC = () => {
                     <Link href="/autres" className="text-bleuDiamant hover:text-bleuTurquoise hover:underline">
                         Autres
                     </Link>
-                    <Link href="/contact" className="text-bleuDiamant hover:text-bleuTurquoise hover:underline">
+                    <Link href="/contacts" className="text-bleuDiamant hover:text-bleuTurquoise hover:underline">
                         Prendre contact
                     </Link>
                 </div>
             </div>
 
-            <div className="w-full text-center bg-black py-3 mt-6">
+            <div className="w-full text-center bg-black py-3 mt-7">
                 <p className="text-bleuDiamant">
                     &copy; {new Date().getFullYear()} Diamond Store®. Created by RaJharit77. All rights reserved.
                 </p>
