@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { FaCcMastercard, FaCcVisa } from 'react-icons/fa';
 import { FaFacebook, FaInstagram, FaLinkedinIn, FaWhatsapp, FaXTwitter } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
+import { SiMastercard } from "react-icons/si";
 
 const Footer: React.FC = () => {
     return (
@@ -66,6 +68,36 @@ const Footer: React.FC = () => {
                         className="text-bleuDiamant hover:text-bleuTurquoise"
                     >
                         <MdEmail size={30} />
+                    </a>
+                </div>
+            </div>
+
+            <div className="text-center mt-6">
+                <h3 className="text-lg font-semibold text-bleuDiamant mb-4">Moyen de Paiement</h3>
+                <div className="flex justify-center space-x-6">
+                    <a
+                        href="https://www.visa.com/"
+                        className="text-bleuDiamant hover:text-bleuTurquoise"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <FaCcVisa size={40} />
+                    </a>
+                    <a
+                        href="https://www.mastercard.com/"
+                        className="text-bleuDiamant hover:text-bleuTurquoise"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <FaCcMastercard size={40} />
+                    </a>
+                    <a
+                        href="https://www.mastercard.com/"
+                        className="text-bleuDiamant hover:text-bleuTurquoise"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <SiMastercard size={40} />
                     </a>
                 </div>
             </div>
