@@ -16,7 +16,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
     const toggleLike = () => {
         setLiked(!liked);
-        const favorites = JSON.parse(localStorage.getItem('favorites') || '[]'); 
+        const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
         if (!liked) {
             favorites.push(product);
             localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -24,6 +24,8 @@ export default function ProductCard({ product }: { product: Product }) {
         } else {
             setMessage('Produit retiré des favoris.');
         }
+        
+        window.dispatchEvent(new Event("storage-update"));
         setTimeout(() => setMessage(null), 3000);
     };
 
@@ -37,21 +39,16 @@ export default function ProductCard({ product }: { product: Product }) {
         } else {
             setMessage('Produit retiré du panier.');
         }
+
+        window.dispatchEvent(new Event("storage-update"));
         setTimeout(() => setMessage(null), 3000);
     };
 
     const handleBuy = () => {
-        const cart = JSON.parse(localStorage.getItem('cart') || '[]'); 
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
         cart.push(product);
         localStorage.setItem('cart', JSON.stringify(cart));
         window.location.href = "/achat";
-        /**const isPurchaseSuccessful = Math.random() > 0.5;
-        if (isPurchaseSuccessful) {
-            setMessage('Achat effectué avec succès !');
-        } else {
-            setMessage('Échec de l\'achat. Veuillez réessayer.');
-        }
-        setTimeout(() => setMessage(null), 3000);*/
     };
 
     return (
@@ -61,7 +58,7 @@ export default function ProductCard({ product }: { product: Product }) {
                     {message}
                 </div>
             )}
-            
+
             <div className="rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-200 bg-bleuDiamant">
                 <Image
                     src={product.image}
@@ -89,8 +86,8 @@ export default function ProductCard({ product }: { product: Product }) {
                         <span>{inCart ? "Dans le panier" : "Ajout au panier"}</span>
                     </button>
 
-                    <button 
-                        onClick={handleBuy} 
+                    <button
+                        onClick={handleBuy}
                         className="py-2 px-4 bg-gray-900 text-white rounded-md hover:bg-gray-950 hover:text-menthe"
                     >
                         Achèter

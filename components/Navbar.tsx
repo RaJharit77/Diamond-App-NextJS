@@ -29,6 +29,8 @@ const Navbar = () => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
     const [notification, setNotification] = useState<string | null>(null);
+    const [favoritesCount, setFavoritesCount] = useState(0);
+    const [cartCount, setCartCount] = useState(0);
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
@@ -47,14 +49,28 @@ const Navbar = () => {
         } else {
             setUser(null);
         }
+
         setLoading(false);
 
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
         };
-
         window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+
+        const updateCounts = () => {
+            const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+            setFavoritesCount(favorites.length);
+            setCartCount(cart.length);
+        };
+
+        updateCounts();
+        window.addEventListener("storage", updateCounts);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("storage", updateCounts);
+        };
     }, []);
 
     const handleLogout = () => {
@@ -63,6 +79,23 @@ const Navbar = () => {
         setNotification(null);
         window.location.href = '/login';
     };
+
+    useEffect(() => {
+        const handleStorageUpdate = () => {
+            const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+            setFavoritesCount(favorites.length);
+            setCartCount(cart.length);
+        };
+    
+        window.addEventListener("storage-update", handleStorageUpdate);
+    
+        handleStorageUpdate();
+    
+        return () => {
+            window.removeEventListener("storage-update", handleStorageUpdate);
+        };
+    }, []);    
 
     const links = [
         { href: "/", label: "Accueil", icon: <FaHome /> },
@@ -90,14 +123,12 @@ const Navbar = () => {
                     <div className="text-xl font-bold text-neon-animation">Diamond Store®</div>
                 </div>
 
-                {/**Notification*/}
                 {notification && (
                     <div className="mt-36 absolute left-0 right-0 flex justify-center p-4 bg-menthe text-black rounded-sm">
                         <span>{notification}</span>
                     </div>
                 )}
 
-                {/**Chargement*/}
                 {loading && (
                     <div className="flex justify-center items-center fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 text-menthe">
                         <span>Chargement...</span>
@@ -114,15 +145,25 @@ const Navbar = () => {
                             </Link>
                         </li>
                     ))}
-                    <li>
+                    <li className="relative">
                         <Link href="/favoris" className="flex items-center hover:text-bleuDiamant">
                             <FaHeart className="mr-1" />
                         </Link>
+                        {favoritesCount >= 0 && (
+                            <span className="absolute top-[-10px] right-[-10px] bg-bleuDiamant text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                                {favoritesCount}
+                            </span>
+                        )}
                     </li>
-                    <li>
+                    <li className="relative">
                         <Link href="/panier" className="flex items-center hover:text-bleuDiamant">
                             <FaShoppingCart className="mr-1" />
                         </Link>
+                        {cartCount >= 0 && (
+                            <span className="absolute top-[-10px] right-[-10px] bg-bleuDiamant text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                                {cartCount}
+                            </span>
+                        )}
                     </li>
                 </ul>
 
@@ -148,36 +189,6 @@ const Navbar = () => {
                     {isMenuOpen ? <FaTimes /> : <FaBars />}
                 </button>
             </div>
-
-            {isMenuOpen && (
-                <ul className="md:hidden mt-4 flex flex-col space-y-4 items-center bg-gray-950 p-4 rounded-lg shadow-lg">
-                    {links.map(({ href, label, icon }, index) => (
-                        <li key={index}>
-                            <Link href={href} className="flex items-center text-white hover:text-bleuDiamant" onClick={() => setIsMenuOpen(false)}>
-                                <span className="mr-2">{icon}</span>
-                                {label}
-                            </Link>
-                        </li>
-                    ))}
-                    <li>
-                        <Link href="/favoris" className="flex items-center text-white hover:text-bleuDiamant" onClick={() => setIsMenuOpen(false)}>
-                            <FaHeart className="mr-1" />
-                            Favoris
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/panier" className="flex items-center text-white hover:text-bleuDiamant" onClick={() => setIsMenuOpen(false)}>
-                            <FaShoppingCart className="mr-1" />
-                            Panier
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/login" className="bg-bleuDiamant w-12 h-12 rounded-full flex items-center justify-center text-white hover:bg-bleuTurquoise transition-all duration-500 ease-in-out">
-                            <FaUser className="text-xl" />
-                        </Link>
-                    </li>
-                </ul>
-            )}
         </nav>
     );
 };
