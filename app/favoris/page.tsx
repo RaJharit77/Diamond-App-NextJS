@@ -38,6 +38,20 @@ export default function FavoritesPage() {
         showMessage(`Produit ${product.name} ajouté au panier !`);
     };
 
+    useEffect(() => {
+        const updatedFavorites = () => {
+            const storedFavorites = JSON.parse(localStorage.getItem("cart") || "[]");
+            setFavorites(storedFavorites);
+        };
+
+        updatedFavorites();
+        window.addEventListener("storage-update", updatedFavorites);
+
+        return () => {
+            window.removeEventListener("storage-update", updatedFavorites);
+        };
+    }, []);
+
     return (
         <div className="relative p-6 bg-cover bg-center min-h-screen" style={{ backgroundImage: "url('/img/bgFavoris.jpg')" }}>
 

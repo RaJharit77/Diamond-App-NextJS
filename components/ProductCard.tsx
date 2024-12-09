@@ -22,9 +22,12 @@ export default function ProductCard({ product }: { product: Product }) {
             localStorage.setItem('favorites', JSON.stringify(favorites));
             setMessage('Produit ajouté aux favoris !');
         } else {
-            setMessage('Produit retiré des favoris.');
+            const updatedFavorites = favorites.filter((fav: Product) => fav.id !== product.id);
+            localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+            setMessage("Produit retiré des favoris.");
         }
-        
+
+        setLiked(!liked);
         window.dispatchEvent(new Event("storage-update"));
         setTimeout(() => setMessage(null), 3000);
     };
@@ -37,9 +40,12 @@ export default function ProductCard({ product }: { product: Product }) {
             localStorage.setItem('cart', JSON.stringify(cart));
             setMessage('Produit ajouté au panier !');
         } else {
-            setMessage('Produit retiré du panier.');
+            const updatedCart = cart.filter((item: Product) => item.id !== product.id);
+            localStorage.setItem("cart", JSON.stringify(updatedCart));
+            setMessage("Produit retiré du panier.");
         }
 
+        setInCart(!inCart);
         window.dispatchEvent(new Event("storage-update"));
         setTimeout(() => setMessage(null), 3000);
     };

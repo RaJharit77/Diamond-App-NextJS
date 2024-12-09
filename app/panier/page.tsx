@@ -31,6 +31,20 @@ export default function PanierPage() {
         setMessage(`Produit ${product.name} bien ajouté !`);
     };
 
+    useEffect(() => {
+        const updateCart = () => {
+            const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+            setCart(storedCart);
+        };
+    
+        updateCart();
+        window.addEventListener("storage-update", updateCart);
+    
+        return () => {
+            window.removeEventListener("storage-update", updateCart);
+        };
+    }, []);    
+
     return (
         <div className="relative p-8 bg-cover bg-center min-h-screen" style={{ backgroundImage: "url('/img/bgPanier.jpg')" }}>
 
