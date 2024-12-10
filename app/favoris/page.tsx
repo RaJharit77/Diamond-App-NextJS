@@ -28,6 +28,9 @@ export default function FavoritesPage() {
         const updatedFavorites = favorites.filter((product) => product.id !== id);
         setFavorites(updatedFavorites);
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+
+        window.dispatchEvent(new Event("storage-update"));
+
         showMessage('Produit supprimé des favoris.');
     };
 

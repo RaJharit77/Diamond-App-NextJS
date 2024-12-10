@@ -23,6 +23,8 @@ export default function PanierPage() {
         const updatedCart = cart.filter((product) => product.id !== id);
         setCart(updatedCart);
         localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+        window.dispatchEvent(new Event("storage-update"));
         setMessage("Produit supprimé du panier.");
     };
 
