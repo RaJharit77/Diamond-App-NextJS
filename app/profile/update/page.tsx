@@ -11,6 +11,7 @@ const ProfilePageUpdate = () => {
     const [gender, setGender] = useState<string>("Femme");
     const [country, setCountry] = useState<string>("Espagne");
     const [address, setAddress] = useState<string>("Carrer de Pau Claris, Barcelona");
+    const [timezone, setTimezone] = useState<string>("");
 
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
@@ -21,7 +22,20 @@ const ProfilePageUpdate = () => {
         setGender(storedUser.gender || "Femme");
         setCountry(storedUser.country || "Espagne");
         setAddress(storedUser.address || "Carrer de Pau Claris, Barcelona");
+
+        const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        setTimezone(userTimezone);
     }, []);
+
+    const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const date = e.target.value;
+        setDob(formatDateToDMY(date));
+    };
+
+    const formatDateToDMY = (date: string): string => {
+        const [year, month, day] = date.split("-");
+        return `${day}/${month}/${year}`;
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -37,7 +51,7 @@ const ProfilePageUpdate = () => {
             return;
         }
 
-        const updatedUser = { email: storedEmail, name, dob, birthCity, postalCode, gender, country, address };
+        const updatedUser = { email: storedEmail, name, dob: convertDMYtoDate(dob), birthCity, postalCode, gender, country, address };
 
         try {
             const res = await fetch("/api/user/update", {
@@ -61,11 +75,14 @@ const ProfilePageUpdate = () => {
         }
     };
 
+    const convertDMYtoDate = (date: string): string => {
+        const [day, month, year] = date.split("/");
+        return `${year}-${month}-${day}`;
+    };
+
     return (
         <div className="flex justify-center items-center h-screen bg-cover bg-center relative" style={{ backgroundImage: 'url(/img/bgUpdate.jpg)' }}>
-
             <div className="absolute inset-0 bg-black bg-opacity-70"></div>
-
             <div className="relative z-10 bg-gray-950 bg-opacity-60 p-8 rounded-lg shadow-lg w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 bottom-12">
                 <h1 className="text-2xl font-bold text-menthe mb-4 text-center">Éditer votre profil</h1>
                 <form onSubmit={handleSubmit} className="w-full">
@@ -84,8 +101,8 @@ const ProfilePageUpdate = () => {
                             <label className="block text-menthe">Date de naissance</label>
                             <input
                                 type="date"
-                                value={dob}
-                                onChange={(e) => setDob(e.target.value)}
+                                value={convertDMYtoDate(dob)}
+                                onChange={handleDateChange}
                                 className="w-full p-2 mt-2 bg-gray-800 rounded-md text-gray-200"
                             />
                         </div>

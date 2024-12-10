@@ -1,151 +1,167 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
-type CartItem = {
+interface User {
     name: string;
-    price: string;
-};
+    email: string;
+    dob: string;
+    birthCity: string;
+    postalCode: string;
+    gender: string;
+    country: string;
+    address: string;
+}
 
-export default function AchatPage() {
-    const [cart, setCart] = useState<CartItem[]>([]);
-    const [email, setEmail] = useState("");
-    const [cardNumber, setCardNumber] = useState("");
-    const [phone, setPhone] = useState("");
-    const [city, setCity] = useState("");
-    const [address, setAddress] = useState("");
-    const [country, setCountry] = useState("");
-    const [message, setMessage] = useState("");
+const ProfilePage = () => {
+    const defaultUser: User = {
+        name: "",
+        email: "",
+        dob: "05/08/2004",
+        birthCity: "Barcelone",
+        postalCode: "08007",
+        gender: "Femme",
+        country: "Espagne",
+        address: "Carrer de Pau Claris, Barcelona",
+    };
+
+    const [user, setUser] = useState<User | null>(defaultUser);
 
     useEffect(() => {
-        const cartItems: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
-        setCart(cartItems);
-
-        const storedUserEmail = localStorage.getItem("userEmail");
-        if (storedUserEmail) {
-            setEmail(storedUserEmail);
+        if (typeof window !== "undefined") {
+            try {
+                const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
+                setUser({
+                    ...defaultUser,
+                    ...storedUser,
+                });
+                localStorage.setItem("userEmail", storedUser.email || "");
+            } catch (e) {
+                console.error("Erreur de parsing JSON :", e);
+                setUser(defaultUser);
+            }
         }
     }, []);
 
-    const handlePurchase = async () => {
-        if (!email || !cardNumber || !phone || !city || !address || !country) {
-            setMessage("Veuillez remplir tous les champs pour effectuer l'achat.");
-            return;
-        }
-
-        try {
-            const response = await fetch("/api/achat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, cardNumber, phone, city, address, country, cart }),
-            });
-
-            const data = await response.json();
-            if (response.ok) {
-                setMessage("Achat effectué avec succès !");
-                localStorage.removeItem("cart");
-                setCart([]);
-            } else {
-                setMessage(`Erreur : ${data.message}`);
-            }
-        } catch (error) {
-            console.error(error);
-            setMessage("Une erreur est survenue. Veuillez réessayer.");
-        }
-    };
-
-    const handleCancel = () => {
-        localStorage.removeItem("cart");
-        setCart([]);
-        setMessage("Achat annulé avec succès.");
-    };
-
     return (
         <div
-            className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
-            style={{ backgroundImage: "url('/img/bgAchat.jpg')" }}
+            className="flex justify-center items-center h-screen bg-cover bg-center text-white relative"
+            style={{ backgroundImage: 'url(/img/bgProfile.jpg)' }}
         >
-
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div className="relative z-10 bg-gray-900 bg-opacity-60 p-8 rounded-lg shadow-lg w-[40rem] bottom-12">
+                <h2 className="text-2xl font-bold text-center mb-6 text-menthe">Mon Profil</h2>
+                {user ? (
+                    <div className="space-y-6">
+                        <div className="flex">
+                            <div className="w-1/2 pr-4">
+                                <label htmlFor="name" className="block mb-2 text-menthe">Nom</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    value={user?.name || ""}
+                                    readOnly
+                                    className="w-full p-2 rounded-md bg-gray-800 text-gray-200"
+                                />
+                            </div>
+                            <div className="w-1/2 pl-4">
+                                <label htmlFor="email" className="block mb-2 text-menthe">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    value={user.email}
+                                    readOnly
+                                    className="w-full p-2 rounded-md bg-gray-800 text-gray-200"
+                                />
+                            </div>
+                        </div>
+                        <div className="flex">
+                            <div className="w-1/2 pr-4">
+                                <label htmlFor="dob" className="block mb-2 text-menthe">Date de naissance</label>
+                                <input
+                                    type="text"
+                                    id="dob"
+                                    value={user.dob}
+                                    readOnly
+                                    className="w-full p-2 rounded-md bg-gray-800 text-gray-200"
+                                />
+                            </div>
+                            <div className="w-1/2 pl-4">
+                                <label htmlFor="birthCity" className="block mb-2 text-menthe">Ville de naissance</label>
+                                <input
+                                    type="text"
+                                    id="birthCity"
+                                    value={user.birthCity}
+                                    readOnly
+                                    className="w-full p-2 rounded-md bg-gray-800 text-gray-200"
+                                />
+                            </div>
+                        </div>
+                        <div className="flex">
+                            <div className="w-1/2 pr-4">
+                                <label htmlFor="postalCode" className="block mb-2 text-menthe">Code Postal</label>
+                                <input
+                                    type="text"
+                                    id="postalCode"
+                                    value={user.postalCode}
+                                    readOnly
+                                    className="w-full p-2 rounded-md bg-gray-800 text-gray-200"
+                                />
+                            </div>
+                            <div className="w-1/2 pl-4">
+                                <label htmlFor="gender" className="block mb-2 text-menthe">Sexe</label>
+                                <input
+                                    type="text"
+                                    id="gender"
+                                    value={user.gender}
+                                    readOnly
+                                    className="w-full p-2 rounded-md bg-gray-800 text-gray-200"
+                                />
+                            </div>
+                        </div>
+                        <div className="flex">
+                            <div className="w-1/2 pr-4">
+                                <label htmlFor="country" className="block mb-2 text-menthe">Pays</label>
+                                <input
+                                    type="text"
+                                    id="country"
+                                    value={user.country}
+                                    readOnly
+                                    className="w-full p-2 rounded-md bg-gray-800 text-gray-200"
+                                />
+                            </div>
+                            <div className="w-1/2 pl-4">
+                                <label htmlFor="address" className="block mb-2 text-menthe">Adresse</label>
+                                <input
+                                    type="text"
+                                    id="address"
+                                    value={user.address}
+                                    readOnly
+                                    className="w-full p-2 rounded-md bg-gray-800 text-gray-200"
+                                />
+                            </div>
+                        </div>
 
-            <div className="relative bg-gray-900 bg-opacity-50 p-8 rounded-lg shadow-lg w-full max-w-lg mb-16">
-                <h1 className="text-2xl font-bold mb-6 text-center text-menthe">Page Achat</h1>
-
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="border p-2 rounded-md w-full mb-4 bg-gray-800 text-gray-100"
-                    readOnly
-                />
-
-                <input
-                    type="text"
-                    placeholder="Numéro de carte Visa/Mastercard"
-                    value={cardNumber}
-                    onChange={(e) => setCardNumber(e.target.value)}
-                    className="border p-2 rounded-md w-full mb-4 bg-gray-800 text-gray-100"
-                />
-
-                <input
-                    type="tel"
-                    placeholder="Numéro de téléphone"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="border p-2 rounded-md w-full mb-4 bg-gray-800 text-gray-100"
-                />
-
-                <input
-                    type="text"
-                    placeholder="Ville"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    className="border p-2 rounded-md w-full mb-4 bg-gray-800 text-gray-100"
-                />
-
-                <input
-                    type="text"
-                    placeholder="Adresse"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    className="border p-2 rounded-md w-full mb-4 bg-gray-800 text-gray-100"
-                />
-
-                <input
-                    type="text"
-                    placeholder="Pays"
-                    value={country}
-                    onChange={(e) => setCountry(e.target.value)}
-                    className="border p-2 rounded w-full mb-4 bg-gray-800 text-gray-100"
-                />
-
-                <ul className="border p-4 rounded-md mb-4 bg-gray-800 text-gray-100">
-                    {cart.map((item, index) => (
-                        <li key={index} className="flex justify-between mb-2">
-                            <span>{item.name}</span>
-                            <span>{item.price}</span>
-                        </li>
-                    ))}
-                </ul>
-
-                <div className="flex justify-between">
-                    <button
-                        onClick={handlePurchase}
-                        className="bg-bleuDiamant text-white py-2 px-4 rounded-lg hover:bg-bleuTurquoise hover:text-black"
-                    >
-                        Achèter
-                    </button>
-                    <button
-                        onClick={handleCancel}
-                        className="bg-bleuDiamant text-white py-2 px-4 rounded-lg hover:bg-bleuTurquoise hover:text-black"
-                    >
-                        Annuler
-                    </button>
-                </div>
-
-                {message && <p className="mt-4 text-red-600 text-center">{message}</p>}
+                        <div className="flex justify-between items-center space-x-3">
+                            <Link href="/profile/update">
+                                <button className="bg-bleuDiamant text-white hover:bg-bleuTurquoise hover:text-black w-full p-2 rounded-lg mr-3">
+                                    Mettre à jour mes informations
+                                </button>
+                            </Link>
+                            <Link href="/">
+                                <button className="bg-bleuDiamant text-white hover:bg-bleuTurquoise hover:text-black w-full p-2 rounded-lg mr-20">
+                                    Annuler la mise à jour
+                                </button>
+                            </Link>
+                        </div>
+                    </div>
+                ) : (
+                    <p className="text-center text-white">Utilisateur non trouvé</p>
+                )}
             </div>
         </div>
     );
-}
+};
+
+export default ProfilePage;
