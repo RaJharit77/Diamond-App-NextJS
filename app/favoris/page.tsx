@@ -35,12 +35,15 @@ export default function FavoritesPage() {
         const cart = JSON.parse(localStorage.getItem('cart') || '[]');
         cart.push(product);
         localStorage.setItem('cart', JSON.stringify(cart));
+
+        window.dispatchEvent(new Event('storage-update'));
+
         showMessage(`Produit ${product.name} ajouté au panier !`);
     };
 
     useEffect(() => {
         const updatedFavorites = () => {
-            const storedFavorites = JSON.parse(localStorage.getItem("cart") || "[]");
+            const storedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
             setFavorites(storedFavorites);
         };
 

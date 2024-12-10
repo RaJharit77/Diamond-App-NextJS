@@ -138,9 +138,9 @@ const ProfilePageUpdate = () => {
                                 className="w-full p-2 mt-2 bg-gray-800 text-gray-200 rounded-md"
                             >
                                 <option value="">Sélectionner</option>
-                                <option value="Male">Homme</option>
-                                <option value="Female">Femme</option>
-                                <option value="Other">Autre</option>
+                                <option value="Homme">Homme</option>
+                                <option value="Femme">Femme</option>
+                                <option value="Autre">Autre</option>
                             </select>
                         </div>
                         <div className="w-full md:w-1/2 pl-2">
