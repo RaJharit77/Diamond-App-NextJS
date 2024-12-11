@@ -93,7 +93,7 @@ export default function AchatPage() {
                 />
                 <input
                     type="text"
-                    placeholder="Numéro de carte Visa/Mastercard"
+                    placeholder="Numéro de carte Visa/Mastercard/PayPal"
                     value={cardNumber}
                     onChange={(e) => setCardNumber(e.target.value)}
                     className="border p-2 rounded-md w-full mb-4 bg-gray-800 text-gray-100"

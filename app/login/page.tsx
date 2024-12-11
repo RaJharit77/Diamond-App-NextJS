@@ -53,6 +53,7 @@ const LoginPage = () => {
                     <input
                         type="email"
                         id="email"
+                        placeholder="john.doe@gmail.com"
                         className="w-full p-2 rounded-md bg-gray-800 text-white"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}

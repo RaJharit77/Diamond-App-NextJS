@@ -46,9 +46,10 @@ function SignupPage() {
             >
                 <h2 className="text-2xl font-bold mb-4 text-center">Créer un compte</h2>
                 <div className="mb-4">
-                    <label className="block mb-2">Nom</label>
+                    <label className="block mb-2">Nom complet</label>
                     <input
                         type="text"
+                        placeholder="John Doe"
                         className="w-full px-4 py-2 border rounded-md bg-gray-800"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -59,6 +60,7 @@ function SignupPage() {
                     <label className="block mb-2">Email</label>
                     <input
                         type="email"
+                        placeholder="john.doe@gmail.com"
                         className="w-full px-4 py-2 border rounded-md bg-gray-800"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
