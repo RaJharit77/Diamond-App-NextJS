@@ -28,7 +28,7 @@ export default function PanierPage() {
         setMessage("Produit supprimé du panier.");
     };
 
-    const handleBuy = (product: Product) => {
+    const handleBasket = (product: Product) => {
         window.location.href = "/achat";
         setMessage(`Produit ${product.name} bien ajouté !`);
     };
@@ -83,7 +83,7 @@ export default function PanierPage() {
                             <p>{product.price}</p>
                             <div className="mt-2 flex justify-between items-center">
                                 <button
-                                    onClick={() => handleBuy(product)}
+                                    onClick={() => handleBasket(product)}
                                     className="py-2 px-4 bg-gray-900 text-white rounded-md hover:bg-gray-950"
                                 >
                                     Achat du produit

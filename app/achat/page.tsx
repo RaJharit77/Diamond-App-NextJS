@@ -17,7 +17,7 @@ export default function AchatPage() {
     const [address, setAddress] = useState("");
     const [country, setCountry] = useState("");
     const [message, setMessage] = useState("");
-    const [messageType, setMessageType] = useState<"success" | "error" | "">("");
+    const [messageType, setMessageType] = useState<"success" | "cancel" | "error" | "">("");
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -67,8 +67,9 @@ export default function AchatPage() {
     const handleCancel = () => {
         localStorage.removeItem("cart");
         setCart([]);
-        setMessage("Achat annulé avec succès.");
-        setMessageType("success");
+        window.dispatchEvent(new Event("storage-update"));
+        setMessage("Achat des articles annulé.");
+        setMessageType("cancel");
     };
 
     return (
@@ -138,7 +139,7 @@ export default function AchatPage() {
                         type="submit"
                         className="bg-bleuDiamant text-white py-2 px-7 ml-24 rounded-lg hover:bg-bleuTurquoise hover:text-black"
                     >
-                        Acheter
+                        Achèter
                     </button>
                     <button
                         type="button"
