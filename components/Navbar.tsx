@@ -38,7 +38,7 @@ const Navbar = () => {
             try {
                 const parsedUser = JSON.parse(storedUser);
                 setUser(parsedUser);
-                setNotification(`Bienvenue, ${parsedUser.name}!`);
+                setNotification(`Bienvenue, M. ${parsedUser.name}!`);
                 setTimeout(() => {
                     setNotification(null);
                 }, 7000);
