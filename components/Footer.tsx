@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { FaCcMastercard, FaCcVisa } from 'react-icons/fa';
+import { FaCcMastercard, FaCcVisa, FaPaypal } from 'react-icons/fa';
 import { FaFacebook, FaInstagram, FaLinkedinIn, FaWhatsapp, FaXTwitter } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
-import { SiMastercard } from "react-icons/si";
 
 const Footer: React.FC = () => {
     return (
@@ -92,12 +91,12 @@ const Footer: React.FC = () => {
                         <FaCcMastercard size={40} />
                     </a>
                     <a
-                        href="https://www.mastercard.com/"
+                        href="https://www.paypal.com/"
                         className="text-bleuDiamant hover:text-bleuTurquoise"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <SiMastercard size={40} />
+                        <FaPaypal size={40} />
                     </a>
                 </div>
             </div>
