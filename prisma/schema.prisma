@@ -21,10 +21,15 @@ model User {
 }
 
 model Purchase {
-    id         Int      @id @default(autoincrement())
-    email      String   @unique
-    productId  Int
-    productName String
-    productPrice String
-    createdAt  DateTime @default(now())
+    id            Int      @id @default(autoincrement())
+    email         String
+    productId     Int
+    productName   String
+    productPrice  String
+    cardNumber    String?  
+    phone         String?  
+    city          String?  
+    address       String?  
+    country       String?  
+    createdAt     DateTime @default(now())
 }
