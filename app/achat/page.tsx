@@ -17,6 +17,7 @@ export default function AchatPage() {
     const [address, setAddress] = useState("");
     const [country, setCountry] = useState("");
     const [message, setMessage] = useState("");
+    const [messageType, setMessageType] = useState<"success" | "error" | "">("");
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -32,37 +33,42 @@ export default function AchatPage() {
 
     const handlePurchase = async (e: React.FormEvent) => {
         e.preventDefault();
-    
+
         if (!email || !cardNumber || !phone || !city || !address || !country || cart.length === 0) {
             setMessage("Veuillez remplir tous les champs pour effectuer l'achat.");
+            setMessageType("error");
             return;
         }
-    
+
         try {
             const response = await fetch("/api/achat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, cardNumber, phone, city, address, country, cart }),
             });
-    
+
             const data = await response.json();
             if (response.ok) {
                 setMessage("Achat effectué avec succès !");
+                setMessageType("success");
                 localStorage.removeItem("cart");
                 setCart([]);
             } else {
                 setMessage(`Erreur : ${data.message}`);
+                setMessageType("error");
             }
         } catch (error) {
             console.error("Erreur lors de l'achat:", error);
             setMessage("Une erreur est survenue. Veuillez réessayer.");
+            setMessageType("error");
         }
-    };    
+    };
 
     const handleCancel = () => {
         localStorage.removeItem("cart");
         setCart([]);
         setMessage("Achat annulé avec succès.");
+        setMessageType("success");
     };
 
     return (
@@ -142,7 +148,11 @@ export default function AchatPage() {
                         Annuler
                     </button>
                 </div>
-                {message && <p className="mt-4 text-menthe text-center">{message}</p>}
+                {message && (
+                    <p className={`mt-4 text-center ${messageType === "success" ? "text-menthe" : "text-red-500"}`}>
+                        {message}
+                    </p>
+                )}
             </form>
         </div>
     );
