@@ -11,7 +11,6 @@ const ProfilePageUpdate = () => {
     const [gender, setGender] = useState<string>("Femme");
     const [country, setCountry] = useState<string>("Espagne");
     const [address, setAddress] = useState<string>("Carrer de Pau Claris, Barcelona");
-    const [timezone, setTimezone] = useState<string>("");
 
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
@@ -23,8 +22,6 @@ const ProfilePageUpdate = () => {
         setCountry(storedUser.country || "Espagne");
         setAddress(storedUser.address || "Carrer de Pau Claris, Barcelona");
 
-        const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        setTimezone(userTimezone);
     }, []);
 
     const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
