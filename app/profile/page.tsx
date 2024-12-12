@@ -42,7 +42,7 @@ const ProfilePage = () => {
                 setUser(defaultUser);
             }
         }
-    }, [defaultUser]);
+    }, []);
 
     return (
         <div
