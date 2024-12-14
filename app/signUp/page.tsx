@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 function SignupPage() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [showPassword, setShowPassword] = useState<boolean>(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -50,7 +52,7 @@ function SignupPage() {
                     <input
                         type="text"
                         placeholder="John Doe"
-                        className="w-full px-4 py-2 border rounded-md bg-gray-800"
+                        className="w-full px-4 py-2 border-gray-800 rounded-md bg-gray-800"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
@@ -61,21 +63,29 @@ function SignupPage() {
                     <input
                         type="email"
                         placeholder="john.doe@gmail.com"
-                        className="w-full px-4 py-2 border rounded-md bg-gray-800"
+                        className="w-full px-4 py-2 border-gray-800 rounded-md bg-gray-800"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
                 </div>
-                <div className="mb-4">
+                <div className="mb-4 relative">
                     <label className="block mb-2">Mot de passe</label>
                     <input
-                        type="password"
-                        className="w-full px-4 py-2 border rounded-md bg-gray-800"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="votre mot de passe"
+                        className="w-full px-4 py-2 border-gray-800 rounded-md bg-gray-800 pr-10"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                    <button
+                        type="button"
+                        className="absolute top-3/4 right-3 transform -translate-y-1/2 text-gray-300 hover:text-gray-100"
+                        onClick={() => setShowPassword(!showPassword)}
+                    >
+                        {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+                    </button>
                 </div>
                 {errorMessage && <div className="text-red-500 mb-4">{errorMessage}</div>}
                 <button

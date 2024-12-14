@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const LoginPage = () => {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [errorMessage, setErrorMessage] = useState<string>("");
+    const [showPassword, setShowPassword] = useState<boolean>(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -39,7 +41,6 @@ const LoginPage = () => {
             className="relative bg-cover bg-center min-h-screen flex items-center justify-center"
             style={{ backgroundImage: "url('/img/bgLogin.jpg')" }}
         >
-
             <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
             <form
@@ -59,15 +60,23 @@ const LoginPage = () => {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
-                <div className="mb-4">
+                <div className="mb-4 relative">
                     <label htmlFor="password" className="block mb-2">Mot de passe</label>
                     <input
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         id="password"
-                        className="w-full p-2 rounded-md bg-gray-800 text-white"
+                        placeholder="votre mot de passe"
+                        className="w-full p-2 rounded-md bg-gray-800 text-white pr-10"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
+                    <button
+                        type="button"
+                        className="absolute top-3/4 right-3 transform -translate-y-1/2 text-gray-300 hover:text-gray-100"
+                        onClick={() => setShowPassword(!showPassword)}
+                    >
+                        {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+                    </button>
                 </div>
                 <button
                     type="submit"
