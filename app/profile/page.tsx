@@ -32,11 +32,15 @@ const ProfilePage = () => {
         if (typeof window !== "undefined") {
             try {
                 const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
-                setUser({
-                    ...defaultUser,
-                    ...storedUser,
-                });
-                localStorage.setItem("userEmail", storedUser.email || "");
+                const previousUser = JSON.parse(localStorage.getItem("previousUser") || "{}");
+
+                if (!storedUser.email && previousUser.email) {
+                    setUser({ ...defaultUser, ...previousUser });
+                } else {
+                    setUser({ ...defaultUser, ...storedUser });
+                }
+
+                localStorage.setItem("userEmail", storedUser.email || previousUser.email || "");
             } catch (e) {
                 console.error("Erreur de parsing JSON :", e);
                 setUser(defaultUser);
