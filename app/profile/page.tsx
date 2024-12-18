@@ -48,6 +48,33 @@ const ProfilePage = () => {
         }
     }, []);
 
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const storedEmail = localStorage.getItem("userEmail");
+    
+            if (!storedEmail) {
+                alert("Utilisateur non connecté");
+                return;
+            }
+    
+            fetch(`/api/user?userEmail=${storedEmail}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.email) {
+                        setUser(data);
+                        localStorage.setItem("user", JSON.stringify(data));
+                    } else {
+                        alert("Utilisateur non trouvé");
+                    }
+                })
+                .catch(() => alert("Erreur de récupération des données"));
+        }
+    }, []);    
+
+    if (!user) {
+        return <p>Chargement...</p>;
+    }
+
     return (
         <div
             className="flex justify-center items-center h-screen bg-cover bg-center text-white relative"

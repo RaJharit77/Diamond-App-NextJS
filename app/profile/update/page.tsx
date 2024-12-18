@@ -14,14 +14,25 @@ const ProfilePageUpdate = () => {
 
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
-        setName(storedUser.name || "");
-        setDob(storedUser.dob || "05/08/2004");
-        setBirthCity(storedUser.birthCity || "Barcelone");
-        setPostalCode(storedUser.postalCode || "08007");
-        setGender(storedUser.gender || "Femme");
-        setCountry(storedUser.country || "Espagne");
-        setAddress(storedUser.address || "Carrer de Pau Claris, Barcelona");
+        const previousUser = JSON.parse(localStorage.getItem("previousUser") || "{}");
 
+        if (storedUser.email) {
+            setName(storedUser.name || "");
+            setDob(storedUser.dob || "05/08/2004");
+            setBirthCity(storedUser.birthCity || "Barcelone");
+            setPostalCode(storedUser.postalCode || "08007");
+            setGender(storedUser.gender || "Femme");
+            setCountry(storedUser.country || "Espagne");
+            setAddress(storedUser.address || "Carrer de Pau Claris, Barcelona");
+        } else if (previousUser.email) {
+            setName(previousUser.name || "");
+            setDob(previousUser.dob || "05/08/2004");
+            setBirthCity(previousUser.birthCity || "Barcelone");
+            setPostalCode(previousUser.postalCode || "08007");
+            setGender(previousUser.gender || "Femme");
+            setCountry(previousUser.country || "Espagne");
+            setAddress(previousUser.address || "Carrer de Pau Claris, Barcelona");
+        }
     }, []);
 
     const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,15 +70,14 @@ const ProfilePageUpdate = () => {
 
             if (res.ok) {
                 const user = await res.json();
-                localStorage.setItem("user", JSON.stringify(user));
+                localStorage.setItem("user", JSON.stringify(user)); 
+                localStorage.setItem("previousUser", JSON.stringify(user));
                 window.location.href = "/profile";
             } else {
                 const errorData = await res.json().catch(() => ({}));
                 alert(errorData.message || "Une erreur s'est produite.");
-                console.error('Erreur API:', errorData);
             }
         } catch (error) {
-            console.error("Erreur réseau :", error);
             alert("Une erreur réseau s'est produite.");
         }
     };
@@ -92,6 +102,7 @@ const ProfilePageUpdate = () => {
                                 onChange={(e) => setName(e.target.value)}
                                 className="w-full p-2 mt-2 bg-gray-800 rounded-md text-gray-200"
                                 placeholder="Votre nom"
+                                required
                             />
                         </div>
                         <div className="w-full md:w-1/2 pl-2">
@@ -101,6 +112,7 @@ const ProfilePageUpdate = () => {
                                 value={convertDMYtoDate(dob)}
                                 onChange={handleDateChange}
                                 className="w-full p-2 mt-2 bg-gray-800 rounded-md text-gray-200"
+                                required
                             />
                         </div>
                     </div>
@@ -113,6 +125,7 @@ const ProfilePageUpdate = () => {
                                 onChange={(e) => setBirthCity(e.target.value)}
                                 className="w-full p-2 mt-2 bg-gray-800 rounded-md text-gray-200"
                                 placeholder="Votre ville de naissance"
+                                required
                             />
                         </div>
                         <div className="w-full md:w-1/2 pl-2">
@@ -123,6 +136,7 @@ const ProfilePageUpdate = () => {
                                 onChange={(e) => setPostalCode(e.target.value)}
                                 className="w-full p-2 mt-2 bg-gray-800 rounded-md text-gray-200"
                                 placeholder="Votre code postal"
+                                required
                             />
                         </div>
                     </div>
@@ -133,6 +147,7 @@ const ProfilePageUpdate = () => {
                                 value={gender}
                                 onChange={(e) => setGender(e.target.value)}
                                 className="w-full p-2 mt-2 bg-gray-800 text-gray-200 rounded-md"
+                                required
                             >
                                 <option value="">Sélectionner</option>
                                 <option value="Homme">Homme</option>
@@ -148,6 +163,7 @@ const ProfilePageUpdate = () => {
                                 onChange={(e) => setCountry(e.target.value)}
                                 className="w-full p-2 mt-2 bg-gray-800 text-gray-200 rounded-md"
                                 placeholder="Votre pays"
+                                required
                             />
                         </div>
                         <div className="w-full pl-2">
@@ -158,6 +174,7 @@ const ProfilePageUpdate = () => {
                                 onChange={(e) => setAddress(e.target.value)}
                                 className="w-full p-2 mt-2 bg-gray-800 rounded-md text-gray-200"
                                 placeholder="Votre adresse"
+                                required
                             />
                         </div>
                     </div>

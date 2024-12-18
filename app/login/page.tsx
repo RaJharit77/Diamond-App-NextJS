@@ -12,13 +12,13 @@ const LoginPage = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-    
+
         const existingUser = JSON.parse(localStorage.getItem("user") || "{}");
         if (existingUser && existingUser.email) {
             localStorage.setItem("previousUser", JSON.stringify(existingUser));
             localStorage.removeItem("user");
         }
-    
+
         try {
             const res = await fetch("/api/auth/login", {
                 method: "POST",
@@ -27,21 +27,29 @@ const LoginPage = () => {
                 },
                 body: JSON.stringify({ email, password }),
             });
-    
+
             if (!res.ok) {
                 const data = await res.json();
                 setErrorMessage(data.message || "Erreur lors de la connexion");
                 return;
             }
-    
+
             const data = await res.json();
+
+            const modifiedUser = JSON.parse(localStorage.getItem("modifiedUser") || "{}");
+            if (modifiedUser.email === email) {
+                localStorage.setItem("user", JSON.stringify(modifiedUser));
+            } else {
+                localStorage.setItem("user", JSON.stringify(data.user));
+            }
+
             localStorage.setItem("user", JSON.stringify(data.user));
             localStorage.removeItem("previousUser");
             window.location.href = "/profile";
         } catch {
             setErrorMessage("Erreur lors de la connexion");
         }
-    };    
+    };
 
     return (
         <div
@@ -79,7 +87,7 @@ const LoginPage = () => {
                     />
                     <button
                         type="button"
-                        className="absolute top-3/4 right-3 transform -translate-y-1/2 text-gray-300 hover:text-gray-100"
+                        className="absolute top-3/4 right-3 transform -translate-y-3/4 text-gray-300 hover:text-gray-100"
                         onClick={() => setShowPassword(!showPassword)}
                     >
                         {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}

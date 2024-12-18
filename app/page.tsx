@@ -64,7 +64,7 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
         <div
-          className="relative z-10 text-left max-w-md w-full text-white"
+          className="relative z-10 text-left max-w-md w-full text-gray-100"
           data-aos="fade-up"
         >
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">
@@ -75,7 +75,7 @@ export default function HomePage() {
           </p>
           <a
             href="#products"
-            className="inline-block bg-bleuDiamant text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-all"
+            className="inline-block bg-bleuDiamant text-white px-6 py-3 rounded-lg hover:bg-menthe hover:text-black transition-all"
           >
             Découvrir maintenant
           </a>

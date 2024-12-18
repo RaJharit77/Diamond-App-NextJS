@@ -12,9 +12,7 @@ export async function PUT(req: Request) {
         }
 
         const existingUser = await prisma.user.findUnique({
-            where: {
-                email: email,
-            },
+            where: { email },
         });
 
         if (!existingUser) {
@@ -25,7 +23,7 @@ export async function PUT(req: Request) {
             where: { email },
             data: {
                 name,
-                dob: new Date(dob), 
+                dob: new Date(dob),
                 birthCity,
                 postalCode,
                 gender,

@@ -2,8 +2,9 @@ import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
-    const userEmail = req.headers.get('userEmail');  
-    
+    const url = new URL(req.url);
+    const userEmail = url.searchParams.get("userEmail");
+
     if (!userEmail) {
         return NextResponse.json({ message: "Email not provided" }, { status: 400 });
     }

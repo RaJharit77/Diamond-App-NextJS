@@ -21,6 +21,12 @@ import {
 interface User {
     name: string;
     email: string;
+    dob: string;
+    birthCity: string;
+    postalCode: string;
+    gender: string;
+    country: string;
+    address: string;
 }
 
 const Navbar = () => {
@@ -74,9 +80,22 @@ const Navbar = () => {
     }, []);
 
     const handleLogout = () => {
+        if (user) {
+            const userToSave = {
+                name: user.name,
+                email: user.email,
+                dob: user.dob,
+                birthCity: user.birthCity,
+                postalCode: user.postalCode,
+                gender: user.gender,
+                country: user.country,
+                address: user.address,
+            };
+            localStorage.setItem('previousUser', JSON.stringify(userToSave));
+        }
+
         localStorage.removeItem('user');
         setUser(null);
-        setNotification(null);
         window.location.href = '/login';
     };
 
@@ -87,15 +106,15 @@ const Navbar = () => {
             setFavoritesCount(favorites.length);
             setCartCount(cart.length);
         };
-    
+
         window.addEventListener("storage-update", handleStorageUpdate);
-    
+
         handleStorageUpdate();
-    
+
         return () => {
             window.removeEventListener("storage-update", handleStorageUpdate);
         };
-    }, []);    
+    }, []);
 
     const links = [
         { href: "/", label: "Accueil", icon: <FaHome /> },
@@ -174,8 +193,8 @@ const Navbar = () => {
                             <Link href="/profile" className="bg-bleuDiamant w-10 h-10 rounded-full flex items-center justify-center hover:bg-bleuTurquoise relative group transition-all duration-500 ease-in-out glow-effect">
                                 <FaUser className="text-white text-lg group-hover:text-black" />
                             </Link>
-                            <button onClick={handleLogout} className="bg-bleuDiamant w-10 h-10 rounded-full flex items-center justify-center hover:bg-bleuTurquoise">
-                                <FaSignOutAlt className="text-white text-lg" />
+                            <button onClick={handleLogout} className="bg-bleuDiamant w-10 h-10 rounded-full flex items-center justify-center hover:bg-bleuTurquoise relative group transition-all duration-500 ease-in-out glow-effect">
+                                <FaSignOutAlt className="text-white text-lg group-hover:text-black" />
                             </button>
                         </div>
                     ) : (
