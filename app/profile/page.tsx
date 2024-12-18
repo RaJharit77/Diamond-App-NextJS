@@ -27,6 +27,12 @@ const ProfilePage = () => {
     };
 
     const [user, setUser] = useState<User | null>(defaultUser);
+    const [notification, setNotification] = useState<string | null>(null);
+
+    const showNotification = (message: string) => {
+        setNotification(message);
+        setTimeout(() => setNotification(null), 7000);
+    };
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -51,12 +57,12 @@ const ProfilePage = () => {
     useEffect(() => {
         if (typeof window !== "undefined") {
             const storedEmail = localStorage.getItem("userEmail");
-    
+
             if (!storedEmail) {
-                alert("Utilisateur non connecté");
+                showNotification("Utilisateur non connecté");
                 return;
             }
-    
+
             fetch(`/api/user?userEmail=${storedEmail}`)
                 .then((res) => res.json())
                 .then((data) => {
@@ -64,12 +70,12 @@ const ProfilePage = () => {
                         setUser(data);
                         localStorage.setItem("user", JSON.stringify(data));
                     } else {
-                        alert("Utilisateur non trouvé");
+                        showNotification("Utilisateur non trouvé");
                     }
                 })
-                .catch(() => alert("Erreur de récupération des données"));
+                .catch(() => showNotification("Erreur de récupération des données"));
         }
-    }, []);    
+    }, []);
 
     if (!user) {
         return <p>Chargement...</p>;
@@ -80,6 +86,14 @@ const ProfilePage = () => {
             className="flex justify-center items-center h-screen bg-cover bg-center text-white relative"
             style={{ backgroundImage: 'url(/img/bgProfile.jpg)' }}
         >
+
+            {/* Notification */}
+            {notification && (
+                <div className="absolute top-5 left-1/2 transform -translate-x-1/2 bg-red-500 text-white p-3 rounded shadow-lg">
+                    {notification}
+                </div>
+            )}
+
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
             <div className="relative z-10 bg-gray-900 bg-opacity-60 p-8 rounded-lg shadow-lg w-[40rem] bottom-12">
                 <h2 className="text-2xl font-bold text-center mb-6 text-menthe">Mon Profil</h2>

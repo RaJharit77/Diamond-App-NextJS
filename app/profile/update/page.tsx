@@ -11,6 +11,14 @@ const ProfilePageUpdate = () => {
     const [gender, setGender] = useState<string>("Femme");
     const [country, setCountry] = useState<string>("Espagne");
     const [address, setAddress] = useState<string>("Carrer de Pau Claris, Barcelona");
+    const [notifications, setNotifications] = useState<string[]>([]);
+
+    const addNotification = (message: string) => {
+        setNotifications((prev) => [...prev, message]);
+        setTimeout(() => {
+            setNotifications((prev) => prev.filter((m) => m !== message));
+        }, 7000);
+    };
 
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
@@ -49,13 +57,13 @@ const ProfilePageUpdate = () => {
         e.preventDefault();
 
         if (!name || !dob || !birthCity || !postalCode || !gender || !country || !address) {
-            alert("Veuillez remplir tous les champs obligatoires.");
+            addNotification("Veuillez remplir tous les champs obligatoires.");
             return;
         }
 
         const storedEmail = localStorage.getItem("userEmail");
         if (!storedEmail) {
-            alert("Email non trouvé.");
+            addNotification("Email non trouvé.");
             return;
         }
 
@@ -70,15 +78,15 @@ const ProfilePageUpdate = () => {
 
             if (res.ok) {
                 const user = await res.json();
-                localStorage.setItem("user", JSON.stringify(user)); 
+                localStorage.setItem("user", JSON.stringify(user));
                 localStorage.setItem("previousUser", JSON.stringify(user));
                 window.location.href = "/profile";
             } else {
                 const errorData = await res.json().catch(() => ({}));
-                alert(errorData.message || "Une erreur s'est produite.");
+                addNotification(errorData.message || "Une erreur s'est produite.");
             }
         } catch (error) {
-            alert("Une erreur réseau s'est produite.");
+            addNotification("Une erreur réseau s'est produite.");
         }
     };
 
@@ -190,6 +198,19 @@ const ProfilePageUpdate = () => {
                         </Link>
                     </div>
                 </form>
+
+                {/* Notifications */}
+                <div className="absolute top-5 right-5 space-y-2">
+                    {notifications.map((message, index) => (
+                        <div
+                            key={index}
+                            className="bg-red-500 text-white p-3 rounded-lg shadow-md"
+                        >
+                            {message}
+                        </div>
+                    ))}
+                </div>
+
             </div>
         </div>
     );
