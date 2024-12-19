@@ -22,7 +22,7 @@ model User {
 
 model Purchase {
     id            Int      @id @default(autoincrement())
-    email         String
+    email         String   @unique
     productId     Int
     productName   String
     productPrice  String

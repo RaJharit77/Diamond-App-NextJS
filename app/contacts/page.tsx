@@ -11,7 +11,7 @@ export default function ContactPage() {
         subject: "",
         message: "",
     });
-    const [status, setStatus] = useState("");
+    const [status, setStatus] = useState<{ message: string; type: "success" | "error" } | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -22,7 +22,7 @@ export default function ContactPage() {
         e.preventDefault();
 
         try {
-            const response = await fetch("/api/contact", {
+            const response = await fetch("/api/contacts", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export default function ContactPage() {
             const result = await response.json();
 
             if (response.ok) {
-                setStatus("Message envoyé avec succès !");
+                setStatus({ message: "Message envoyé avec succès !", type: "success" });
                 setFormData({
                     name: "",
                     email: "",
@@ -41,10 +41,10 @@ export default function ContactPage() {
                     message: "",
                 });
             } else {
-                setStatus(result.error || "Erreur lors de l'envoi.");
+                setStatus({ message: result.error || "Erreur lors de l'envoi.", type: "error" });
             }
         } catch {
-            setStatus("Erreur serveur. Réessayez plus tard.");
+            setStatus({ message: "Erreur serveur. Réessayez plus tard.", type: "error" });
         }
     };
 
@@ -99,7 +99,15 @@ export default function ContactPage() {
                             Envoyer
                         </button>
                     </form>
-                    {status && <p className="text-center mt-4 text-red-500">{status}</p>}
+                    {status && (
+                        <p
+                            className={`text-center mt-4 ${
+                                status.type === "success" ? "text-menthe" : "text-red-500"
+                            }`}
+                        >
+                            {status.message}
+                        </p>
+                    )}
                 </div>
                 <div className="bg-gray-900 bg-opacity-70 rounded-lg shadow-lg w-full lg:w-1/2 p-6 lg:p-10">
                     <h2 className="text-2xl font-bold text-center text-bleuDiamant mb-6">
