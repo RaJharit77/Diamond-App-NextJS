@@ -15,7 +15,7 @@ import {
     FaShoppingCart,
     FaSignOutAlt,
     FaTimes,
-    FaUser
+    FaUser,
 } from "react-icons/fa";
 
 interface User {
@@ -39,7 +39,7 @@ const Navbar = () => {
     const [cartCount, setCartCount] = useState(0);
 
     useEffect(() => {
-        const storedUser = localStorage.getItem('user');
+        const storedUser = localStorage.getItem("user");
         if (storedUser && storedUser !== "undefined") {
             try {
                 const parsedUser = JSON.parse(storedUser);
@@ -50,7 +50,7 @@ const Navbar = () => {
                 }, 7000);
             } catch (error) {
                 console.error("Erreur lors de l'analyse des données utilisateur:", error);
-                localStorage.removeItem('user');
+                localStorage.removeItem("user");
             }
         } else {
             setUser(null);
@@ -91,30 +91,13 @@ const Navbar = () => {
                 country: user.country,
                 address: user.address,
             };
-            localStorage.setItem('previousUser', JSON.stringify(userToSave));
+            localStorage.setItem("previousUser", JSON.stringify(userToSave));
         }
 
-        localStorage.removeItem('user');
+        localStorage.removeItem("user");
         setUser(null);
-        window.location.href = '/login';
+        window.location.href = "/login";
     };
-
-    useEffect(() => {
-        const handleStorageUpdate = () => {
-            const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-            setFavoritesCount(favorites.length);
-            setCartCount(cart.length);
-        };
-
-        window.addEventListener("storage-update", handleStorageUpdate);
-
-        handleStorageUpdate();
-
-        return () => {
-            window.removeEventListener("storage-update", handleStorageUpdate);
-        };
-    }, []);
 
     const links = [
         { href: "/", label: "Accueil", icon: <FaHome /> },
@@ -126,7 +109,10 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`${isScrolled ? "bg-black" : "bg-gray-950"} text-white p-5 sticky top-0 z-50 shadow-lg transition-all duration-300 ease-in-out`}>
+        <nav
+            className={`${isScrolled ? "bg-black" : "bg-gray-950"
+                } text-white p-5 sticky top-0 z-50 shadow-lg transition-all duration-300 ease-in-out`}
+        >
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 <div className="flex items-center space-x-4 cursor-pointer">
                     <Link href="/">
@@ -139,7 +125,9 @@ const Navbar = () => {
                             priority
                         />
                     </Link>
-                    <div className="text-xl font-bold text-neon-animation">Diamond Store®</div>
+                    <div className="text-xl font-bold text-neon-animation">
+                        Diamond Store®
+                    </div>
                 </div>
 
                 {/**Notifications*/}
@@ -206,9 +194,72 @@ const Navbar = () => {
                     )}
                 </div>
 
-                <button className="block md:hidden text-2xl" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                <button
+                    className={`block md:hidden text-2xl z-50 ${isMenuOpen ? "rotate-90" : "rotate-0"
+                        } transition-transform duration-500`}
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                >
                     {isMenuOpen ? <FaTimes /> : <FaBars />}
                 </button>
+
+                <div
+                    className={`fixed top-0 right-0 h-full w-2/3 bg-black shadow-lg transform transition-transform duration-500 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+                        }`}
+                >
+                    <ul className="flex flex-col space-y-6 p-6">
+                        {links.map(({ href, label, icon }, index) => (
+                            <li key={index}>
+                                <Link
+                                    href={href}
+                                    className="flex items-center text-white hover:text-bleuDiamant"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    <span className="mr-2 text-bleuDiamant">{icon}</span>
+                                    {label}
+                                </Link>
+                            </li>
+                        ))}
+                        <li className="relative">
+                            <Link href="/favoris" className="flex items-center hover:text-bleuDiamant">
+                                <FaHeart className="mr-1" />
+                            </Link>
+                            {favoritesCount >= 0 && (
+                                <span className="absolute top-[-10px] left-3 bg-bleuDiamant text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
+                                    {favoritesCount}
+                                </span>
+                            )}
+                        </li>
+                        <li className="relative">
+                            <Link href="/panier" className="flex items-center hover:text-bleuDiamant">
+                                <FaShoppingCart className="mr-1" />
+                            </Link>
+                            {cartCount >= 0 && (
+                                <span className="absolute top-[-10px] left-3 bg-bleuDiamant text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
+                                    {cartCount}
+                                </span>
+                            )}
+                        </li>
+                        <li>
+                            {user ? (
+                                <div className="flex items-left flex-col space-y-4">
+                                    <span className="text-white">{user.name}</span>
+                                    <div className="flex flex-col items-left space-y-2">
+                                        <Link href="/profile" className="bg-bleuDiamant w-10 h-10 rounded-full flex items-center justify-center hover:bg-bleuTurquoise relative group transition-all duration-500 ease-in-out glow-effect">
+                                            <FaUser className="text-white text-lg group-hover:text-black" />
+                                        </Link>
+                                        <button onClick={handleLogout} className="bg-bleuDiamant w-10 h-10 rounded-full flex items-center justify-center hover:bg-bleuTurquoise relative group transition-all duration-500 ease-in-out glow-effect">
+                                            <FaSignOutAlt className="text-white text-lg group-hover:text-black" />
+                                        </button>
+                                    </div>
+                                </div>
+                            ) : (
+                                <Link href="/login" className="bg-bleuDiamant w-10 h-10 rounded-full flex items-center justify-center hover:bg-bleuTurquoise relative group transition-all duration-500 ease-in-out glow-effect">
+                                    <FaUser className="text-white text-lg group-hover:text-black" />
+                                </Link>
+                            )}
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     );

@@ -14,9 +14,12 @@ export async function GET() {
         { id: 10, name: "Hummel First Performance Baselayer manches longues blanc pointures X_large", price: "58€", image: "/img/homme_10.jpg" },
         { id: 11, name: "Hummel Denmark PREGAME - Valsts izlases Frejas Sal black and white", price: "27€", image: "/img/homme_11.jpg" },
         { id: 12, name: "Hummel hive Sport shirt Football with Sidelinerd FC XXL black and red", price: "45€", image: "/img/homme_12.jpg" },
-        { id: 13, name: "Hummel", price: "88€", image: "/img/homme_13.jpg" },
-        { id: 14, name: "Hummel", price: "77€", image: "/img/homme_14.jpg" },
-        { id: 15, name: "Hummel", price: "65€", image: "/img/homme_15.jpg" },
+        { id: 13, name: "Hummel Sweat à capuche à logo Blue Marine", price: "88€", image: "/img/homme_13.jpg" },
+        { id: 14, name: "Hummel Sweat shirt Classique à chevrons Noir", price: "77€", image: "/img/homme_14.jpg" },
+        { id: 15, name: "Hummel T-Shirt classique à chevrons Blanc", price: "65€", image: "/img/homme_15.jpg" },
+        { id: 16, name: "Hummel Virgil T-Shirt Noir L/S/XL/M", price: "80€", image: "/img/homme_16.jpg" },
+        { id: 17, name: "Hummel CORE Kit Black & Yellow Sport", price: "73€", image: "/img/homme_17.jpg" },
+        { id: 18, name: "Hummel Denmark away Kit 2016-17 released", price: "60€", image: "/img/homme_18.jpg" },
     ];
 
     return NextResponse.json(products);
