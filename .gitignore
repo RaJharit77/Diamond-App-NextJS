@@ -41,6 +41,7 @@ next-env.d.ts
 
 #data
 /public/data/
+/public/images/
 
 #infos
 /app/api/auth/info.ts

@@ -19,10 +19,19 @@ export async function GET() {
         { id: 15, name: "Hummel T-Shirt classique à chevrons Blanc", price: "65€", image: "/img/homme_15.jpg" },
         { id: 16, name: "Hummel Virgil T-Shirt Noir L/S/XL/M", price: "80€", image: "/img/homme_16.jpg" },
         { id: 17, name: "Hummel CORE Kit Black & Yellow Sport", price: "73€", image: "/img/homme_17.jpg" },
-        { id: 18, name: "Hummel Denmark away Kit 2016-17 released", price: "60€", image: "/img/homme_18.jpg" },
+        { id: 18, name: "Hummel Denmark Kit Away 2016-2017 released", price: "60€", image: "/img/homme_18.jpg" },
         { id: 19, name: "Hummel Everton Kit Third Shirt gray", price: "75.55€", image: "/img/homme_19.jpg" },
         { id: 20, name: "Hummel HMLISAM 20 T-Shirt print Black", price: "63.77€", image: "/img/homme_20.jpg" },
         { id: 21, name: "Hummel Denmark Diversity T-Shirt 2024", price: "66.43€", image: "/img/homme_21.jpg" },
+        { id: 22, name: "Hummel Denmark Sweat à Capuche Travel World Cup 2022 Noir XX_Large", price: "45.55€", image: "/img/homme_22.jpg" },
+        { id: 23, name: "Hummel Denmark T-Shirt Fan Football Black & Red 2022 pointure Small", price: "53.77€", image: "/img/homme_23.jpg" },
+        { id: 24, name: "Hummel Denmark Euro 2020 Home Kit 2021-2022 Long Sleeve Red & White", price: "76.43€", image: "/img/homme_24.jpg" },
+        { id: 25, name: "Hummel Denmark Home Kit Red 134 years of the DBU", price: "75.55€", image: "/img/homme_25.jpg" },
+        { id: 26, name: "Hummel HMLISAM 2.0 T-Shirt imprimé true Blue", price: "33.77€", image: "/img/homme_26.jpg" },
+        { id: 27, name: "Hummel CIMA XK T-Shirt imprimé Black", price: "46.43€", image: "/img/homme_27.jpg" },
+        { id: 28, name: "Hummel CORE L/S POLY Red Jersey Jacket", price: "57.35€", image: "/img/homme_28.jpg" },
+        { id: 29, name: "Hummel CORE Maillot Bordeaux pointure XX_Large", price: "23.77€", image: "/img/homme_29.jpg" },
+        { id: 30, name: "Hummel CORE SPRAY Training true Blue", price: "37.83€", image: "/img/homme_30.jpg" },
     ];
 
     return NextResponse.json(products);

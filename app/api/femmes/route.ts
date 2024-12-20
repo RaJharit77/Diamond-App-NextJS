@@ -93,7 +93,7 @@ const products = [
     { id: 90, name: "Hummel Lmove Sweatshirt classic femmme", price: "57.37€", image: "/img/femme_90.jpg" },
     { id: 91, name: "Hummel FIRST Seamless T-shirt à manches longues vintage indigo", price: "80.70€", image: "/img/femme_91.jpg" },
     { id: 92, name: "Hummel Football Kit Doré Standard de Liège Concept Pro League", price: "83.06€", image: "/img/femme_92.jpg" },
-    { id: 93, name: "Diamond Seamless sport athletic sans coûture grise dryFit", price: "95.37€", image: "/img/femme_93.jpg" },
+    { id: 93, name: "Diamond DMDSeamless sport athletic sans coûture grise Dri-Fit L/S/M", price: "95.37€", image: "/img/femme_93.jpg" },
 ];
 
 export async function GET() {
