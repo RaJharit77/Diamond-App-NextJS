@@ -32,6 +32,15 @@ export async function GET() {
         { id: 28, name: "Hummel CORE L/S POLY Red Jersey Jacket", price: "57.35€", image: "/img/homme_28.jpg" },
         { id: 29, name: "Hummel CORE Maillot Bordeaux pointure XX_Large", price: "23.77€", image: "/img/homme_29.jpg" },
         { id: 30, name: "Hummel CORE SPRAY Training true Blue", price: "37.83€", image: "/img/homme_30.jpg" },
+        { id: 31, name: "Hummel HMLAUTHENTIC Sweat_Shirt true Red", price: "47.75€", image: "/img/homme_31.jpg" },
+        { id: 32, name: "Hummel HMLLEAD Poly Zip Jacket true Red", price: "35.60€", image: "/img/homme_32.jpg" },
+        { id: 33, name: "Hummel HMLTRES T-Shirt with Kinder Geib Yellow", price: "26.89€", image: "/img/homme_33.jpg" },
+        { id: 34, name: "Hummel Classic logo T-Shirt in Bright White", price: "30.75€", image: "/img/homme_34.jpg" },
+        { id: 35, name: "Hummel Core XK Micro Training Kinder Marken & Hersteller Black", price: "42.60€", image: "/img/homme_35.jpg" },
+        { id: 36, name: "Hummel Core XK Polyesterhose Herren Black Handball sport", price: "71.89€", image: "/img/homme_36.jpg" },
+        { id: 37, name: "Hummel CORE XK Poly Zip Sweat Black", price: "61.33€", image: "/img/homme_37.jpg" },
+        { id: 38, name: "Hummel LEAD T-Shirt de Sport White", price: "50.03€", image: "/img/homme_38.jpg" },
+        { id: 39, name: "Hummel Liverpool Shirt L/M VolleyBall Shirt Orange", price: "70.07€", image: "/img/homme_39.jpg" },
     ];
 
     return NextResponse.json(products);

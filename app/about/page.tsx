@@ -19,7 +19,7 @@ export default function AboutPage() {
 
             <div className="relative z-10 max-w-4xl mx-auto text-center px-4 py-12">
                 <h1 className="text-5xl font-bold mb-6 tracking-wider leading-tight text-corail">
-                    À propos de Diamond
+                    À propos de Diamond Store
                 </h1>
                 <p className="text-lg leading-8 mb-8 text-gray-300">
                     Diamond est une plateforme dédiée à la présentation de produits exclusifs. 
