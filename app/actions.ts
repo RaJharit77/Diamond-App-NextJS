@@ -3,7 +3,7 @@
 import { neon } from "@neondatabase/serverless";
 
 export async function getData() {
-    const databaseUrl = process.env.DATABASE_URL;
+    const databaseUrl = process.env.DATABASE_URL_NEON;
     
     if (!databaseUrl) {
         throw new Error("DATABASE_URL is not defined");
