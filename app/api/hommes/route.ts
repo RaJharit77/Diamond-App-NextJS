@@ -53,6 +53,9 @@ export async function GET() {
         { id: 49, name: "Hummel Werder Bremen Third Kit football Noir 2024-25", price: "26.30€", image: "/img/homme_49.jpg" },
         { id: 50, name: "Hummel TOPAZ T-Shirt Imprimé Black", price: "87.03€", image: "/img/homme_50.jpg" },
         { id: 51, name: "Hummel Zeno Limited Shirt Bleu turquoise", price: "56.09€", image: "/img/homme_51.jpg" },
+        { id: 52, name: "Hummel Spodnji deli trenirk black", price: "17.77€", image: "/img/homme_52.jpg" },
+        { id: 53, name: "Hummel Tech Gold KM XXL Green & Black", price: "29.83€", image: "/img/homme_53.jpg" },
+        { id: 54, name: "Hummel MONSUN Tex Veste impermeable olive night", price: "41.79€", image: "/img/homme_54.jpg" },
     ];
 
     return NextResponse.json(products);
