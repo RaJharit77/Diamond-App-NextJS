@@ -8,8 +8,8 @@ export async function GET() {
         { id: 4, name: "Hummel brassard Storrelse One Size til holdsport Gris", price: "70€", image: "/img/autre_4.jpg" },
         { id: 5, name: "Hummel Core - Sweat short Unisexe Black", price: "60.77€", image: "/img/autre_5.jpg" },
         { id: 6, name: "Hummel Chaussettes Elite Indoor Low Black - Red", price: "29€", image: "/img/autre_6.jpg" },
-        { id: 7, name: "Hummel Unisex Core Armelloses Jersey TragerTop Black", price: "25€", image: "/img/autre_7.jpg" },
-        { id: 8, name: "Hummel Thor Baskets Unisexes Gris", price: "20.77€", image: "/img/autre_8.jpg" },
+        { id: 7, name: "Hummel Unisex Core Armelloses Jersey TragerTop", price: "25€", image: "/img/autre_7.jpg" },
+        { id: 8, name: "Hummel Thor Baskets Unisexes Gray", price: "20.77€", image: "/img/autre_8.jpg" },
         { id: 9, name: "Hummel LEGACY T-Shirt à manches longues Blue nights", price: "38€", image: "/img/autre_9.jpg" },
         { id: 10, name: "Hummel NET Browse sportwear White", price: "21€", image: "/img/autre_10.jpg" },
         { id: 11, name: "Hummel NET Browse sportwear sweat Gray", price: "20.57€", image: "/img/autre_11.jpg" },
@@ -17,6 +17,9 @@ export async function GET() {
         { id: 13, name: "Hummel Ballon Blade Pro Match FIFA Quality Pro Blanc_Noir_Doré Taille Ball SZ", price: "32.77€", image: "/img/autre_13.jpg" },
         { id: 14, name: "Hummel 4Pack Triple Stripe CREW SportSocken Blue & Red & Yellow & Green", price: "15.57€", image: "/img/autre_14.jpg" },
         { id: 15, name: "Hummel 7Pack Triple Stripe CREW SportSocken Green & Blue & Red & Yellow", price: "27.33€", image: "/img/autre_15.jpg" },
+        { id: 16, name: "Hummel Legacy Sweat à chevron noir Black", price: "52.87€", image: "/img/autre_16.jpg" },
+        { id: 17, name: "Hummel Chaussure aero Fly Blanc & Rosé", price: "65.87€", image: "/img/autre_17.jpg" },
+        { id: 18, name: "Hummel HMLPRECISION football White and Green", price: "19.43€", image: "/img/autre_18.jpg" },
     ];
 
     return NextResponse.json(products);
