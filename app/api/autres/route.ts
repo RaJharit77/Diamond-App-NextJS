@@ -18,11 +18,11 @@ export async function GET() {
         { id: 14, name: "Hummel 4Pack Triple Stripe CREW SportSocken Blue & Red & Yellow & Green", price: "15.57€", image: "/img/autre_14.jpg" },
         { id: 15, name: "Hummel 7Pack Triple Stripe CREW SportSocken Green & Blue & Red & Yellow", price: "27.33€", image: "/img/autre_15.jpg" },
         { id: 16, name: "Hummel Legacy Sweat à chevron noir Black", price: "52.87€", image: "/img/autre_16.jpg" },
-        { id: 17, name: "Hummel Chaussure aero Fly Blanc & Rosé", price: "65.87€", image: "/img/autre_17.jpg" },
+        { id: 17, name: "Hummel Chaussure aeroFly Blanc & Grisé_orangé", price: "65.87€", image: "/img/autre_17.jpg" },
         { id: 18, name: "Hummel HMLPRECISION football White and Green", price: "19.43€", image: "/img/autre_18.jpg" },
-        { id: 19, name: "Hummel ", price: "52.87€", image: "/img/autre_19.jpg" },
-        { id: 20, name: "Hummel ", price: "65.87€", image: "/img/autre_20.jpg" },
-        { id: 21, name: "Hummel ", price: "19.43€", image: "/img/autre_21.jpg" },
+        { id: 19, name: "Hummel Handball chaussures Algiz White", price: "53.78€", image: "/img/autre_19.jpg" },
+        { id: 20, name: "Hummel HMLAEROFLY Light 290 Pink & Black", price: "21.87€", image: "/img/autre_20.jpg" },
+        { id: 21, name: "Hummel Home Kit Football Vitality Black & Yellow", price: "69.79€", image: "/img/autre_21.jpg" },
     ];
 
     return NextResponse.json(products);
