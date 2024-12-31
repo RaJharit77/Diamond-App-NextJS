@@ -20,6 +20,9 @@ export async function GET() {
         { id: 16, name: "Hummel Legacy Sweat à chevron noir Black", price: "52.87€", image: "/img/autre_16.jpg" },
         { id: 17, name: "Hummel Chaussure aero Fly Blanc & Rosé", price: "65.87€", image: "/img/autre_17.jpg" },
         { id: 18, name: "Hummel HMLPRECISION football White and Green", price: "19.43€", image: "/img/autre_18.jpg" },
+        { id: 19, name: "Hummel ", price: "52.87€", image: "/img/autre_19.jpg" },
+        { id: 20, name: "Hummel ", price: "65.87€", image: "/img/autre_20.jpg" },
+        { id: 21, name: "Hummel ", price: "19.43€", image: "/img/autre_21.jpg" },
     ];
 
     return NextResponse.json(products);
