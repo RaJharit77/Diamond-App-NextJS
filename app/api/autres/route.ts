@@ -23,6 +23,15 @@ export async function GET() {
         { id: 19, name: "Hummel Handball chaussures Algiz White", price: "53.78€", image: "/img/autre_19.jpg" },
         { id: 20, name: "Hummel HMLAEROFLY Light 290 Pink & Black", price: "21.87€", image: "/img/autre_20.jpg" },
         { id: 21, name: "Hummel Home Kit Football Vitality Black & Yellow", price: "69.79€", image: "/img/autre_21.jpg" },
+        { id: 22, name: "Hummel CORE Sac à dos biking red_rasperry sorbet", price: "15.13€", image: "/img/autre_22.jpg" },
+        { id: 23, name: "Hummel Slimmer Stadil Baskets basses unisexes Noir", price: "33.80€", image: "/img/autre_23.jpg" },
+        { id: 24, name: "Hummel CORE BALL Sac à dos true blue and black", price: "19.99€", image: "/img/autre_24.jpg" },
+        { id: 25, name: "Hummel Home Kit Collection Football Vitality Black & Yellow", price: "87.87€", image: "/img/autre_25.jpg" },
+        { id: 26, name: "Hummel Vintage Football boots Black and Yellow", price: "63.09€", image: "/img/autre_26.jpg" },
+        { id: 27, name: "Hummel Home Kit, Away Kit & Third Kit Football  Blue, Marina Blue & Purple", price: "25.69€", image: "/img/autre_27.jpg" },
+        { id: 28, name: "Hummel Chaussette Football Stanno Victory VBLK Black", price: "37.37€", image: "/img/autre_28.jpg" },
+        { id: 29, name: "Hummel Valise à roulettes pour voyage Noire", price: "73.78€", image: "/img/autre_29.jpg" },
+        { id: 30, name: "Hummel CORE Sac de Sport biking red_rasperry sorbet", price: "50.50€", image: "/img/autre_30.jpg" },
     ];
 
     return NextResponse.json(products);
