@@ -93,7 +93,13 @@ const products = [
     { id: 90, name: "Hummel Lmove Sweatshirt classic femmme", price: "57.37€", image: "/img/femme_90.jpg" },
     { id: 91, name: "Hummel FIRST Seamless T-shirt à manches longues vintage indigo", price: "80.70€", image: "/img/femme_91.jpg" },
     { id: 92, name: "Hummel Football Kit Doré Standard de Liège Concept Pro League", price: "83.06€", image: "/img/femme_92.jpg" },
-    { id: 93, name: "Diamond DMDSeamless sport athletic sans coûture grise Dri-Fit L/S/M", price: "95.37€", image: "/img/femme_93.jpg" },
+    { id: 93, name: "Hummel Denmark Veste d'entraînement Line Up Euro Féminin 2022 Rouge Large", price: "75€", image: "/img/femme_93.jpg" },
+    { id: 94, name: "Diamond DMDSeamless sport athletic sans coûture grise Dri-Fit L/S/M", price: "95.37€", image: "/img/femme_94.jpg" },
+    { id: 95, name: "Diamond DMDFIT Sportive woman cocktail gradient Dri-Fit L/S/M", price: "55.56€", image: "/img/femme_95.jpg" },
+    { id: 96, name: "Diamond DMDTRAINING Legging crop fit female sportive wear Black", price: "68.07€", image: "/img/femme_96.jpg" },
+    { id: 97, name: "Diamond DMDAuthentic legging Sport athletic edition Gray and Blue", price: "48.53€", image: "/img/femme_97.jpg" },
+    { id: 98, name: "Diamond TIF basic sport woman dressed active Wear true beige", price: "43.31€", image: "/img/femme_98.jpg" },
+    { id: 99, name: "Diamond DMDLTE Woman Sportwear fitness driftwood true Black", price: "70.39€", image: "/img/femme_99.jpg" },
 ];
 
 export async function GET() {
