@@ -34,7 +34,14 @@ model Purchase {
     createdAt     DateTime @default(now())
 }
 
-model Product {
+model Femmes {
+  id     Int     @id @default(autoincrement())
+  name   String
+  price  String
+  image  String
+}
+
+model Hommes {
   id     Int     @id @default(autoincrement())
   name   String
   price  String

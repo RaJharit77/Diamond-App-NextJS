@@ -3441,6 +3441,11 @@ negotiator@0.6.3:
   resolved "https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
 
+neon@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/neon/-/neon-2.0.0.tgz"
+  integrity sha512-maODYM+0IkYDPOD0VAuptjrAXowLAPLpRuBdTroj29ZpQWwtwehXAI6nQvb4+10qipE0ZwweVv2F0tuQvpIVFA==
+
 next-auth@*, next-auth@^4.24.10:
   version "4.24.10"
   resolved "https://registry.npmjs.org/next-auth/-/next-auth-4.24.10.tgz"
@@ -4821,6 +4826,11 @@ ts-node@^10.9.2, ts-node@>=9.0.0:
     make-error "^1.1.1"
     v8-compile-cache-lib "^3.0.1"
     yn "3.1.1"
+
+tsc@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/tsc/-/tsc-2.0.4.tgz"
+  integrity sha512-fzoSieZI5KKJVBYGvwbVZs/J5za84f2lSTLPYf6AGiIf43tZ3GNrI1QzTLcjtyDDP4aLxd46RTZq1nQxe7+k5Q==
 
 tsconfig-paths@^3.15.0:
   version "3.15.0"
