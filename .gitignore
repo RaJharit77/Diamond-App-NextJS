@@ -50,3 +50,15 @@ next-env.d.ts
 /prisma/dev.db
 /prisma/prisma-save/
 /prisma/data
+
+#scripts
+/scripts/seed_hommes_save.ts
+/scripts/seed_femmes_save.ts
+/scripts/seed_enfants_save.ts
+/scripts/seed_autres_save.ts
+/scripts/route_femmes.ts
+/scripts/route_hommes.ts
+/scripts/route_enfants.ts
+/scripts/route_autres.ts
+/scripts/route_neonDB_hommes.ts
+/scripts/route_neonDB_femmes.ts

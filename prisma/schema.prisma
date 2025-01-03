@@ -47,3 +47,17 @@ model Hommes {
   price  String
   image  String
 }
+
+model Enfants {
+  id     Int     @id @default(autoincrement())
+  name   String
+  price  String
+  image  String
+}
+
+model Autres {
+  id     Int     @id @default(autoincrement())
+  name   String
+  price  String
+  image  String
+}
