@@ -62,3 +62,6 @@ next-env.d.ts
 /scripts/route_autres.ts
 /scripts/route_neonDB_hommes.ts
 /scripts/route_neonDB_femmes.ts
+/scripts/route_neonDB_enfants.ts
+/scripts/route_neonDB_autres.ts
+/scripts/diamond-store credentials.txt

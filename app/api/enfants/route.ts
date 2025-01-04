@@ -14,6 +14,18 @@ export async function GET() {
         { id: 10, name: "Hummel CLUB L_S Sport shirt kids Maat 116 Black", price: "16.17€", image: "/img/enfant_10.jpg" },
         { id: 11, name: "Hummel CLUB S_S Sport shirt kids Maat 164 Green", price: "17.07€", image: "/img/enfant_11.jpg" },
         { id: 12, name: "Hummel Denmark DBU Pro Kids Valsts Marina Blue", price: "29.29€", image: "/img/enfant_12.jpg" },
+        { id: 13, name: "Hummel Promo Poly sweat à capuche Bleu Enfant", price: "36.10€", image: "/img/enfant_13.jpg" },
+        { id: 14, name: "Hummel Paris Sport shirt kids Maat 116 Red", price: "20.70€", image: "/img/enfant_14.jpg" },
+        { id: 15, name: "Hummel Paris TTS Top Full Zip Sport vest Maat 128 Kids Yellow", price: "21.55€", image: "/img/enfant_15.jpg" },
+        { id: 16, name: "Hummel Lead Maillot orange Enfant pointure 140cm", price: "17.17€", image: "/img/enfant_16.jpg" },
+        { id: 17, name: "Hummel Lead Sweat à Capuche Rouge enfant pointure 128cm", price: "25.25€", image: "/img/enfant_17.jpg" },
+        { id: 18, name: "Hummel Lead Veste & Capuche FZ Rouge Enfant pointure 128cm", price: "21.01€", image: "/img/enfant_18.jpg" },
+        { id: 19, name: "Hummel Leeds S_S Sport shirt Kids Maat 164", price: "37.78€", image: "/img/enfant_19.jpg" },
+        { id: 20, name: "Hummel Maillot Core Vert_blanc Enfant 176cm", price: "20.70€", image: "/img/enfant_20.jpg" },
+        { id: 21, name: "Hummel hmlCORE XK Poly zip Blue Marine Enfant", price: "28.55€", image: "/img/enfant_21.jpg" },
+        { id: 22, name: "Hummel ", price: "37.78€", image: "/img/enfant_22.jpg" },
+        { id: 23, name: "Hummel ", price: "20.70€", image: "/img/enfant_23.jpg" },
+        { id: 24, name: "Hummel ", price: "28.55€", image: "/img/enfant_24.jpg" },
     ];
 
     return NextResponse.json(products);

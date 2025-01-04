@@ -32,6 +32,9 @@ export async function GET() {
         { id: 28, name: "Hummel Chaussette Football Stanno Victory VBLK Black", price: "37.37€", image: "/img/autre_28.jpg" },
         { id: 29, name: "Hummel Valise à roulettes pour voyage Noire", price: "73.78€", image: "/img/autre_29.jpg" },
         { id: 30, name: "Hummel CORE Sac de Sport biking red_rasperry sorbet", price: "50.50€", image: "/img/autre_30.jpg" },
+        { id: 31, name: "Hummel CORE Short Unisexe Rouge", price: "42.51€", image: "/img/autre_31.jpg" },
+        { id: 32, name: "Hummel ", price: "32.72€", image: "/img/autre_32.jpg" },
+        { id: 33, name: "Hummel ", price: "62.62€", image: "/img/autre_33.jpg" },
     ];
 
     return NextResponse.json(products);
