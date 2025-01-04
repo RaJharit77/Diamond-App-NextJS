@@ -23,9 +23,9 @@ export async function GET() {
         { id: 19, name: "Hummel Leeds S_S Sport shirt Kids Maat 164", price: "37.78€", image: "/img/enfant_19.jpg" },
         { id: 20, name: "Hummel Maillot Core Vert_blanc Enfant 176cm", price: "20.70€", image: "/img/enfant_20.jpg" },
         { id: 21, name: "Hummel hmlCORE XK Poly zip Blue Marine Enfant", price: "28.55€", image: "/img/enfant_21.jpg" },
-        { id: 22, name: "Hummel ", price: "37.78€", image: "/img/enfant_22.jpg" },
-        { id: 23, name: "Hummel ", price: "20.70€", image: "/img/enfant_23.jpg" },
-        { id: 24, name: "Hummel ", price: "28.55€", image: "/img/enfant_24.jpg" },
+        { id: 22, name: "Hummel ", price: "33.30€", image: "/img/enfant_22.jpg" },
+        { id: 23, name: "Hummel ", price: "18.98€", image: "/img/enfant_23.jpg" },
+        { id: 24, name: "Hummel ", price: "48.48€", image: "/img/enfant_24.jpg" },
     ];
 
     return NextResponse.json(products);
