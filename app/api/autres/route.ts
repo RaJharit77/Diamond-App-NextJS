@@ -19,7 +19,7 @@ export async function GET() {
         { id: 15, name: "Hummel 7Pack Triple Stripe CREW SportSocken Green & Blue & Red & Yellow", price: "27.33€", image: "/img/autre_15.jpg" },
         { id: 16, name: "Hummel Legacy Sweat à chevron noir Black", price: "52.87€", image: "/img/autre_16.jpg" },
         { id: 17, name: "Hummel Chaussure aeroFly Blanc & Grisé_orangé", price: "65.87€", image: "/img/autre_17.jpg" },
-        { id: 18, name: "Hummel HMLPRECISION football White and Green", price: "19.43€", image: "/img/autre_18.jpg" },
+        { id: 18, name: "Hummel HMLPRECISION Light 350 football White_Green", price: "19.43€", image: "/img/autre_18.jpg" },
         { id: 19, name: "Hummel Handball chaussures Algiz White", price: "53.78€", image: "/img/autre_19.jpg" },
         { id: 20, name: "Hummel HMLAEROFLY Light 290 Pink & Black", price: "21.87€", image: "/img/autre_20.jpg" },
         { id: 21, name: "Hummel Home Kit Football Vitality Black & Yellow", price: "69.79€", image: "/img/autre_21.jpg" },
@@ -34,7 +34,7 @@ export async function GET() {
         { id: 30, name: "Hummel CORE Sac de Sport biking red_rasperry sorbet", price: "50.50€", image: "/img/autre_30.jpg" },
         { id: 31, name: "Hummel CORE Short Unisexe Rouge", price: "42.51€", image: "/img/autre_31.jpg" },
         { id: 32, name: "Hummel Denmark DBU Away Kids Unisex White", price: "62.72€", image: "/img/autre_32.jpg" },
-        { id: 33, name: "Hummel HMLEASY Kids Blue and White", price: "32.62€", image: "/img/autre_33.jpg" },
+        { id: 33, name: "Hummel HMLEASY Kids Blue and White active play pro", price: "32.62€", image: "/img/autre_33.jpg" },
     ];
 
     return NextResponse.json(products);
