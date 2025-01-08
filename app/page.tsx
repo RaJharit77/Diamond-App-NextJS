@@ -33,8 +33,10 @@ export default function HomePage() {
           backgroundImage: `url('/img/diamant.jpg')`,
         }}
       >
-
-        <div className="absolute inset-0 bg-gray-950 bg-opacity-80" style={{ backgroundColor: `rgba(0, 0, 0, ${opacity})` }}></div>
+        <div
+          className="absolute inset-0 bg-gray-950 bg-opacity-80"
+          style={{ backgroundColor: `rgba(0, 0, 0, ${opacity})` }}
+        ></div>
 
         <div className="relative text-center text-menthe space-y-5 px-4 z-10 w-full h-full">
           <h1 className="text-4xl sm:text-4xl font-bold" data-aos="fade-down">
@@ -117,13 +119,19 @@ export default function HomePage() {
               <a
                 key={index}
                 href={category.link}
-                className="relative w-full bg-cover bg-center rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-500 ease-in-out cursor-pointer flex items-center justify-center"
+                className="relative w-full bg-cover bg-center rounded-xl shadow-lg overflow-hidden transform transition-all duration-500 ease-in-out cursor-pointer flex items-center justify-center"
                 style={{
                   backgroundImage: `url(${category.image})`,
                   height: "500px",
                 }}
                 data-aos="flip-up"
                 data-aos-delay={`${index * 100}`}
+                onMouseEnter={(e) =>
+                  e.currentTarget.setAttribute("data-aos", "zoom-in")
+                }
+                onMouseLeave={(e) =>
+                  e.currentTarget.setAttribute("data-aos", "flip-up")
+                }
               >
                 <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                 <h3 className="relative text-menthe text-xl font-bold z-10">

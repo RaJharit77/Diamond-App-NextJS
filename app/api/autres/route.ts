@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-    const products = [
+    const autres = [
         { id: 1, name: "Hummel CORE - Sporta soma Marina Blue & Sky blue", price: "49€", image: "/img/autre_1.jpg" },
         { id: 2, name: "Hummel ballon de Handball Bleu marine étoilé", price: "59€", image: "/img/autre_2.jpg" },
         { id: 3, name: "Hummel Baskets Rouge et Or pointure 27 à 43", price: "89€", image: "/img/autre_3.jpg" },
@@ -28,14 +28,35 @@ export async function GET() {
         { id: 24, name: "Hummel CORE BALL Sac à dos true blue and black", price: "19.99€", image: "/img/autre_24.jpg" },
         { id: 25, name: "Hummel Home Kit Collection Football Vitality Black & Yellow", price: "87.87€", image: "/img/autre_25.jpg" },
         { id: 26, name: "Hummel Vintage Football boots Black and Yellow", price: "63.09€", image: "/img/autre_26.jpg" },
-        { id: 27, name: "Hummel Home Kit, Away Kit & Third Kit Football  Blue, Marina Blue & Purple", price: "25.69€", image: "/img/autre_27.jpg" },
+        { id: 27, name: "Hummel Kilmarnock F.C Football Kit 2020", price: "25.69€", image: "/img/autre_27.jpg" },
         { id: 28, name: "Hummel Chaussette Football Stanno Victory VBLK Black", price: "37.37€", image: "/img/autre_28.jpg" },
         { id: 29, name: "Hummel Valise à roulettes pour voyage Noire", price: "73.78€", image: "/img/autre_29.jpg" },
         { id: 30, name: "Hummel CORE Sac de Sport biking red_rasperry sorbet", price: "50.50€", image: "/img/autre_30.jpg" },
         { id: 31, name: "Hummel CORE Short Unisexe Rouge", price: "42.51€", image: "/img/autre_31.jpg" },
         { id: 32, name: "Hummel Denmark DBU Away Kids Unisex White", price: "62.72€", image: "/img/autre_32.jpg" },
         { id: 33, name: "Hummel HMLEASY Kids Blue and White active play pro", price: "32.62€", image: "/img/autre_33.jpg" },
+        { id: 34, name: "Hummel Power Play pink", price: "12.50€", image: "/img/autre_34.jpg" },
+        { id: 35, name: "Hummel VM78 CPH Blue", price: "18.07€", image: "/img/autre_35.jpg" },
+        { id: 36, name: "Hummel AEROFLY Light 350", price: "28.06€", image: "/img/autre_36.jpg" },
+        { id: 37, name: "Hummel Monaco 86 Baskets de course noir", price: "77.77€", image: "/img/autre_37.jpg" },
+        { id: 38, name: "Hummel Chaussette de Football blanc 35-38", price: "59.70€", image: "/img/autre_38.jpg" },
+        { id: 39, name: "Hummel FireBall football Noir & Blanc", price: "46.60€", image: "/img/autre_39.jpg" },
+        { id: 40, name: "Hummel HMLEASY rokomet orange_white", price: "17.70€", image: "/img/autre_40.jpg" },
+        { id: 41, name: "Hummel Sneaker Low asphalt black", price: "28.23€", image: "/img/autre_41.jpg" },
+        { id: 42, name: "Hummel Baskets de course noir", price: "31.31€", image: "/img/autre_42.jpg" },
+        { id: 43, name: "Hummel HATTRICK chaussure de foot à crampons rouge", price: "23.23€", image: "/img/autre_43.jpg" },
+        { id: 44, name: "Hummel Chaussure VM78 CPH Nylon Noir_Blanc pointure 45", price: "36.27€", image: "/img/autre_44.jpg" },
+        { id: 45, name: "Hummel Slimmer Stadil Baskets basses unisexes Blanc", price: "40.40€", image: "/img/autre_45.jpg" },
+        { id: 46, name: "Hummel Fallon Baskets Bleu Marine & Rouge", price: "13.23€", image: "/img/autre_46.jpg" },
+        { id: 47, name: "Hummel Hive Power Play Baskets Blanc", price: "41.03€", image: "/img/autre_47.jpg" },
+        { id: 48, name: "Hummel Monaco 86 Lark Net Golden", price: "26.07€", image: "/img/autre_48.jpg" },
+        { id: 49, name: "Hummel HMLenergizer Football White & Blue", price: "12.22€", image: "/img/autre_49.jpg" },
+        { id: 50, name: "Hummel MULTIPLAY FLEX Basket basses black", price: "68.18€", image: "/img/autre_50.jpg" },
+        { id: 51, name: "Hummel VM78 CPH Nylon Blanc & Bleu Marine", price: "50.01€", image: "/img/autre_51.jpg" },
+        { id: 52, name: "Hummel Chaussure de foot à crampons marshmallow", price: "37.29€", image: "/img/autre_52.jpg" },
+        { id: 53, name: "Hummel Concept Pro Handball Gray Match ball", price: "19.03€", image: "/img/autre_53.jpg" },
+        { id: 54, name: "Hummel Chaussette Voetbalsokken black & golden", price: "27.01€", image: "/img/autre_54.jpg" },
     ];
 
-    return NextResponse.json(products);
+    return NextResponse.json(autres);
 }

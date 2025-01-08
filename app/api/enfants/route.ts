@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-    const products = [
+    const enfants = [
         { id: 1, name: "Hummel sweat pour enfant avec un tennis offert", price: "77€", image: "/img/enfant_1.jpg" },
         { id: 2, name: "Hummel Pullover taille S kapuco black", price: "47€", image: "/img/enfant_2.jpg" },
         { id: 3, name: "Maillot d'entraînement diamond taille S bleu diamant", price: "27.33€", image: "/img/enfant_3.jpg" },
@@ -28,5 +28,5 @@ export async function GET() {
         { id: 24, name: "Hummel ", price: "48.48€", image: "/img/enfant_24.jpg" },
     ];
 
-    return NextResponse.json(products);
+    return NextResponse.json(enfants);
 }

@@ -1,0 +1,8 @@
+{
+  "/api/autres/route": "app/api/autres/route.js",
+  "/favoris/page": "app/favoris/page.js",
+  "/page": "app/page.js",
+  "/profile/update/page": "app/profile/update/page.js",
+  "/autres/page": "app/autres/page.js",
+  "/profile/page": "app/profile/page.js"
+}
