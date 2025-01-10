@@ -124,7 +124,7 @@ export default function ProductCard({ product }: { product: Product }) {
                             onClick={handleBuy}
                             className="py-2 px-4 bg-gray-900 text-white rounded-md hover:bg-gray-950 hover:text-menthe"
                         >
-                            Acheter
+                            Achèter
                         </button>
                     </div>
                 </div>
