@@ -56,6 +56,21 @@ export async function GET() {
         { id: 52, name: "Hummel Chaussure de foot à crampons marshmallow", price: "37.29€", image: "/img/autre_52.jpg" },
         { id: 53, name: "Hummel Concept Pro Handball Gray Match ball", price: "19.03€", image: "/img/autre_53.jpg" },
         { id: 54, name: "Hummel Chaussette Voetbalsokken black & golden", price: "27.01€", image: "/img/autre_54.jpg" },
+        { id: 55, name: "Hummel Chaussure Coupe du monde 1986 Gris_blanc_bleu", price: "87.03€", image: "/img/autre_55.jpg" },
+        { id: 56, name: "Hummel Chaussure Marathon Reach LX Tonal Noir", price: "21.07€", image: "/img/autre_56.jpg" },
+        { id: 57, name: "Hummel Ballon energizer Blanc_ Noir_Bleu Ball SZ", price: "10.99€", image: "/img/autre_57.jpg" },
+        { id: 58, name: "Hummel Sportsocken kurz Unisex Reflector Tech black", price: "12.83€", image: "/img/autre_58.jpg" },
+        { id: 59, name: "Hummel Unisex sneackers Reach LX 800 Block Weiss", price: "25.05€", image: "/img/autre_59.jpg" },
+        { id: 60, name: "Hummel Sportschuh Jungen Grobe one size Red", price: "47.88€", image: "/img/autre_60.jpg" },
+        { id: 61, name: "Hummel Baskets basses pompeian Red", price: "45.58€", image: "/img/autre_61.jpg" },
+        { id: 62, name: "Hummel Baskets Green & White", price: "33.23€", image: "/img/autre_62.jpg" },
+        { id: 63, name: "Hummel BrandAlley Black & White", price: "29.29€", image: "/img/autre_63.jpg" },
+        { id: 64, name: "Hummel Root Elite Kinderen Laces sport Volleyball gray", price: "58.58€", image: "/img/autre_64.jpg" },
+        { id: 65, name: "Hummel Chaussette de football Noir pointure 46 à 49", price: "11.20€", image: "/img/autre_65.jpg" },
+        { id: 66, name: "Hummel X vitalamaz retro-sneaker mit PowerPlay Beige", price: "89.89€", image: "/img/autre_66.jpg" },
+        { id: 67, name: "Hummel STAR Nogometni Black & Yellow", price: "33.03€", image: "/img/autre_67.jpg" },
+        { id: 68, name: "Hummel Slimmer Stadi High White", price: "48.48€", image: "/img/autre_68.jpg" },
+        { id: 69, name: "Hummel Baskets de course Noir & Blanc", price: "25.40€", image: "/img/autre_69.jpg" },
     ];
 
     return NextResponse.json(autres);
