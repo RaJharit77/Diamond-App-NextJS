@@ -20,7 +20,7 @@
     "@mui/styles": "^6.2.1",
     "@mui/system": "^6.1.8",
     "@neondatabase/serverless": "^0.10.4",
-    "@prisma/client": "^6.1.0",
+    "@prisma/client": "^6.2.1",
     "@types/next-auth": "^3.15.0",
     "alasql": "^4.5.2",
     "aos": "^2.3.4",
@@ -57,7 +57,7 @@
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "postcss": "^8.4.49",
-    "prisma": "^6.1.0",
+    "prisma": "^6.2.1",
     "tailwindcss": "^3.4.15",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
