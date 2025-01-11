@@ -52,7 +52,7 @@ const ProfilePage = () => {
                 setUser(defaultUser);
             }
         }
-    }, []);
+    }, [defaultUser]);
 
     useEffect(() => {
         if (typeof window !== "undefined") {

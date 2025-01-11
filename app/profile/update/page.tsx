@@ -85,7 +85,7 @@ const ProfilePageUpdate = () => {
                 const errorData = await res.json().catch(() => ({}));
                 addNotification(errorData.message || "Une erreur s'est produite.");
             }
-        } catch (error) {
+        } catch {
             addNotification("Une erreur réseau s'est produite.");
         }
     };
