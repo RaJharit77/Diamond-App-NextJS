@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run prisma:generate && next build",
+    "build": "npx prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "prisma:generate": "prisma generate",
+    "generate": "prisma generate",
     "postinstall": "prisma generate",
     "seed:femmes": "ts-node scripts/seed_femmes.ts",
     "seed:hommes": "ts-node scripts/seed_hommes.ts"
