@@ -1,5 +1,6 @@
 "use client";
 
+import { Card, CardActionArea } from "@mui/material";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
@@ -116,28 +117,44 @@ export default function HomePage() {
                 link: "/autres",
               },
             ].map((category, index) => (
-              <a
+              <Card
                 key={index}
+                component="a"
                 href={category.link}
-                className="relative w-full bg-cover bg-center rounded-xl shadow-lg overflow-hidden transform transition-all duration-500 ease-in-out cursor-pointer flex items-center justify-center"
-                style={{
+                sx={{
                   backgroundImage: `url(${category.image})`,
-                  height: "500px",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  height: 500,
+                  borderRadius: "20px",
+                  overflow: "hidden",
+                  position: "relative",
+                  transition: "transform 0.5s ease, box-shadow 0.5s ease",
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                    boxShadow: "0 8px 20px rgba(0, 0, 0, 0.3)",
+                  },
                 }}
                 data-aos="flip-up"
                 data-aos-delay={`${index * 100}`}
-                onMouseEnter={(e) =>
-                  e.currentTarget.setAttribute("data-aos", "zoom-in")
-                }
-                onMouseLeave={(e) =>
-                  e.currentTarget.setAttribute("data-aos", "flip-up")
-                }
               >
-                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-                <h3 className="relative text-menthe text-xl font-bold z-10">
-                  {category.title}
-                </h3>
-              </a>
+                <CardActionArea
+                  sx={{
+                    height: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "rgba(0, 0, 0, 0.3)",
+                    "&:hover": {
+                      backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    },
+                  }}
+                >
+                  <h3 className="relative text-menthe text-xl font-bold z-10">
+                    {category.title}
+                  </h3>
+                </CardActionArea>
+              </Card>
             ))}
           </div>
         </div>
