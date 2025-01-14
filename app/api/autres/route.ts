@@ -77,12 +77,12 @@ export async function GET() {
         { id: 73, name: "Hummel Chaussure ST_Power Play CI Blanc & Bleu", price: "72.77€", image: "/img/autre_73.jpg" },
         { id: 74, name: "Hummel Chaussure ST_Power Play RT Blanc & Bleu Marine", price: "83.83€", image: "/img/autre_74.jpg" },
         { id: 75, name: "Hummel Chaussure ST_Power Play RT Blanc & Vert", price: "90.90€", image: "/img/autre_75.jpg" },
-        { id: 76, name: "Hummel Mens Essen Low Top Canvas Casual and fashion Sneakers 6 White & Black", price: "72.77€", image: "/img/autre_76.jpg" },
-        { id: 77, name: "Hummel Professional Chaussettes de Football Noir pointure 46 à 48", price: "83.83€", image: "/img/autre_77.jpg" },
-        { id: 78, name: "Hummel STADIL Flash UNISEX chaussures pour le premier pas earth Red", price: "90.90€", image: "/img/autre_78.jpg" },
-        { id: 79, name: "Hummel ", price: "72.77€", image: "/img/autre_79.jpg" },
-        { id: 80, name: "Hummel ", price: "83.83€", image: "/img/autre_80.jpg" },
-        { id: 81, name: "Hummel ", price: "90.90€", image: "/img/autre_81.jpg" },
+        { id: 76, name: "Hummel Mens Essen Low Top Canvas Casual and fashion Sneakers 6 White & Black", price: "66.81€", image: "/img/autre_76.jpg" },
+        { id: 77, name: "Hummel Professional Chaussettes de Football Noir pointure 46 à 48", price: "23.89€", image: "/img/autre_77.jpg" },
+        { id: 78, name: "Hummel STADIL Flash UNISEX chaussures pour le premier pas earth Red", price: "35.55€", image: "/img/autre_78.jpg" },
+        { id: 79, name: "Hummel 471TECSN sac de sport pour femme", price: "64.74€", image: "/img/autre_79.jpg" },
+        { id: 80, name: "Hummel Basket Stadil Pro pour enfant Blue Marine", price: "53.53€", image: "/img/autre_80.jpg" },
+        { id: 81, name: "Hummel Basket blanc à lacets & à bande contrastante", price: "57.97€", image: "/img/autre_81.jpg" },
     ];
 
     return NextResponse.json(autres);
