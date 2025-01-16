@@ -32,9 +32,15 @@ export async function GET() {
         { id: 28, name: "Hummel HMLLongrid t-shirt multisport enfiler noir pour enfant", price: "20.10€", image: "/img/enfant_28.jpg" },
         { id: 29, name: "Hummel HMLCORE XK sweatshirt à capuche pour enfant Blue", price: "30.40€", image: "/img/enfant_29.jpg" },
         { id: 30, name: "Hummel HMLEssential sweatshirt multisport unisex vert pour enfant", price: "22.59€", image: "/img/enfant_30.jpg" },
-        { id: 31, name: "Hummel ", price: "20.10€", image: "/img/enfant_31.jpg" },
-        { id: 32, name: "Hummel ", price: "30.40€", image: "/img/enfant_32.jpg" },
-        { id: 33, name: "Hummel ", price: "22.59€", image: "/img/enfant_33.jpg" },
+        { id: 31, name: "Hummel HMLAUTHENTIC T-shirt multisport pour enfant Jaune & Bleu", price: "35.12€", image: "/img/enfant_31.jpg" },
+        { id: 32, name: "Hummel HMLEssential T-shirt multisport unisex pour enfant Gris", price: "29.29€", image: "/img/enfant_32.jpg" },
+        { id: 33, name: "Hummel HMLEssential T-shirt multisport unisex pour enfant Vert", price: "32.50€", image: "/img/enfant_33.jpg" },
+        { id: 34, name: "Hummel HMLLogo Kids unisex T-shirt Black", price: "27.55€", image: "/img/enfant_34.jpg" },
+        { id: 35, name: "Hummel HMLRUNNER Zip unisex sweat Black", price: "37.99€", image: "/img/enfant_35.jpg" },
+        { id: 36, name: "Hummel HMLSET survêtement sport Black", price: "32.50€", image: "/img/enfant_36.jpg" },
+        { id: 37, name: "Hummel ", price: "27.55€", image: "/img/enfant_37.jpg" },
+        { id: 38, name: "Hummel ", price: "37.99€", image: "/img/enfant_38.jpg" },
+        { id: 39, name: "Hummel ", price: "32.50€", image: "/img/enfant_39.jpg" },
     ];
 
     return NextResponse.json(enfants);
