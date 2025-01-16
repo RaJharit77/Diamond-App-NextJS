@@ -23,9 +23,18 @@ export async function GET() {
         { id: 19, name: "Hummel Leeds S_S Sport shirt Kids Maat 164", price: "37.78€", image: "/img/enfant_19.jpg" },
         { id: 20, name: "Hummel Maillot Core Vert_blanc Enfant 176cm", price: "20.70€", image: "/img/enfant_20.jpg" },
         { id: 21, name: "Hummel hmlCORE XK Poly zip Blue Marine Enfant", price: "28.55€", image: "/img/enfant_21.jpg" },
-        { id: 22, name: "Hummel ", price: "33.30€", image: "/img/enfant_22.jpg" },
-        { id: 23, name: "Hummel ", price: "18.98€", image: "/img/enfant_23.jpg" },
-        { id: 24, name: "Hummel ", price: "48.48€", image: "/img/enfant_24.jpg" },
+        { id: 22, name: "Hummel HMLSET Polo & short 100% polyester Bleu turquoise & Bleu Marine", price: "63.30€", image: "/img/enfant_22.jpg" },
+        { id: 23, name: "Hummel HMLLogo t-shirt multisport unisex pour enfant Vert emeraude", price: "67.23€", image: "/img/enfant_23.jpg" },
+        { id: 24, name: "Hummel HMLRun t-shirt de course pour enfant Bleu diamant 100% coton lèger", price: "88.48€", image: "/img/enfant_24.jpg" },
+        { id: 25, name: "Hummel HMLAUTHENTIC sweat pour enfant Bleu cyan", price: "33.47€", image: "/img/enfant_25.jpg" },
+        { id: 26, name: "Hummel HMLCORE T-shirt pour enfant volley-ball Blanc", price: "27.80€", image: "/img/enfant_26.jpg" },
+        { id: 27, name: "Hummel HMLStaltic T-shirt en coton pour enfant Bleu Marine", price: "40.40€", image: "/img/enfant_27.jpg" },
+        { id: 28, name: "Hummel HMLLongrid t-shirt multisport enfiler noir pour enfant", price: "20.10€", image: "/img/enfant_28.jpg" },
+        { id: 29, name: "Hummel HMLCORE XK sweatshirt à capuche pour enfant Blue", price: "30.40€", image: "/img/enfant_29.jpg" },
+        { id: 30, name: "Hummel HMLEssential sweatshirt multisport unisex vert pour enfant", price: "22.59€", image: "/img/enfant_30.jpg" },
+        { id: 31, name: "Hummel ", price: "20.10€", image: "/img/enfant_31.jpg" },
+        { id: 32, name: "Hummel ", price: "30.40€", image: "/img/enfant_32.jpg" },
+        { id: 33, name: "Hummel ", price: "22.59€", image: "/img/enfant_33.jpg" },
     ];
 
     return NextResponse.json(enfants);
