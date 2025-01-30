@@ -53,6 +53,21 @@ export async function GET() {
         { id: 49, name: "Hummel HMLSET Pantalon Treningas Noir", price: "17.27€", image: "/img/enfant_49.jpg" },
         { id: 50, name: "Hummel Leeds S_S SportShirt Kids Maat 164", price: "34.32€", image: "/img/enfant_50.jpg" },
         { id: 51, name: "Hummel HMLSET Sweatshirt Treningas WoodRose", price: "21.09€", image: "/img/enfant_51.jpg" },
+        { id: 52, name: "Hummel BILLE SET Trenirka olive night", price: "22.12€", image: "/img/enfant_52.jpg" },
+        { id: 53, name: "Hummel BILLE SET Trenirka rose brown", price: "30.30€", image: "/img/enfant_53.jpg" },
+        { id: 54, name: "Hummel HMLGAIL Sport novice Black", price: "23.90€", image: "/img/enfant_54.jpg" },
+        { id: 55, name: "Hummel HML CORE XK POLY Jersey S_S Camiseta deportiva black", price: "40.11€", image: "/img/enfant_55.jpg" },
+        { id: 56, name: "Hummel HML CORE XK POLY Jersey S_S Sport t-shirt candy pink", price: "38.59€", image: "/img/enfant_56.jpg" },
+        { id: 57, name: "Hummel HMLGG12 Sweat à capuche pour enfant Bleu Turquoise", price: "35.35€", image: "/img/enfant_57.jpg" },
+        { id: 58, name: "Hummel XK SUBLIMA Kids UNISEX T-shirt print black", price: "31.99€", image: "/img/enfant_58.jpg" },
+        { id: 59, name: "Hummel Leeds S_S sportshirt Kids Maat 140 black", price: "50.10€", image: "/img/enfant_59.jpg" },
+        { id: 60, name: "Hummel PROMO KIDS Football PANT UNISEX Bleu Marine", price: "52.88€", image: "/img/enfant_60.jpg" },
+        { id: 61, name: "Hummel HMLMurphy T-shirt Manches Longues Enfant grise", price: "44.27€", image: "/img/enfant_61.jpg" },
+        { id: 62, name: "Hummel HMLLogo Kids T-shirt cotton S_S jaune", price: "25.67€", image: "/img/enfant_62.jpg" },
+        { id: 63, name: "Hummel HMLLogo Unisex Kinder jersey S_S kids", price: "35.35€", image: "/img/enfant_63.jpg" },
+        { id: 64, name: "Hummel Maillot Core Rouge Enfant 140cm", price: "29.87€", image: "/img/enfant_64.jpg" },
+        { id: 65, name: "Hummel Jogging Bleu Marine pour enfant", price: "40.30€", image: "/img/enfant_65.jpg" },
+        { id: 66, name: "Hummel Maillot Core Striped Noir_Jaune 116cm", price: "31.65€", image: "/img/enfant_66.jpg" },
     ];
 
     return NextResponse.json(enfants);
