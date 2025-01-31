@@ -68,6 +68,9 @@ export async function GET() {
         { id: 64, name: "Hummel Maillot Core Rouge Enfant 140cm", price: "29.87€", image: "/img/enfant_64.jpg" },
         { id: 65, name: "Hummel Jogging Bleu Marine pour enfant", price: "40.30€", image: "/img/enfant_65.jpg" },
         { id: 66, name: "Hummel Maillot Core Striped Noir_Jaune 116cm", price: "31.65€", image: "/img/enfant_66.jpg" },
+        { id: 67, name: "Hummel Lyon sportShirt kids Maat 164", price: "27.49€", image: "/img/enfant_67.jpg" },
+        { id: 68, name: "Hummel Perston S_S sportShirt Kids Maat 116", price: "23.87€", image: "/img/enfant_68.jpg" },
+        { id: 69, name: "Hummel Preston S_S SportShirt Kids Maat 152", price: "24.22€", image: "/img/enfant_69.jpg" },
     ];
 
     return NextResponse.json(enfants);
