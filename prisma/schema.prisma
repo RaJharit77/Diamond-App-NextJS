@@ -1,6 +1,6 @@
 datasource db {
-  provider  = "postgresql"
-  url  	    = env("DATABASE_URL_RENDER")
+  provider = "sqlite"
+  url      = env("DATABASE_URL_SQLITE")
 }
 
 generator client {
@@ -8,56 +8,56 @@ generator client {
 }
 
 model User {
-    id          Int      @id @default(autoincrement())
-    email       String   @unique
-    name        String
-    password    String  
-    dob         DateTime?  
-    birthCity   String?
-    postalCode  String?
-    gender      String?
-    country     String?
-    address     String?
+  id         Int       @id @default(autoincrement())
+  email      String    @unique
+  name       String
+  password   String
+  dob        DateTime?
+  birthCity  String?
+  postalCode String?
+  gender     String?
+  country    String?
+  address    String?
 }
 
 model Purchase {
-    id            Int      @id @default(autoincrement())
-    email         String   @unique
-    productId     Int
-    productName   String
-    productPrice  String
-    cardNumber    String?  
-    phone         String?  
-    city          String?  
-    address       String?  
-    country       String?  
-    createdAt     DateTime @default(now())
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  productId    Int
+  productName  String
+  productPrice String
+  cardNumber   String?
+  phone        String?
+  city         String?
+  address      String?
+  country      String?
+  createdAt    DateTime @default(now())
 }
 
 model Femmes {
-  id     Int     @id @default(autoincrement())
-  name   String
-  price  String
-  image  String
+  id    Int    @id @default(autoincrement())
+  name  String
+  price String
+  image String
 }
 
 model Hommes {
-  id     Int     @id @default(autoincrement())
-  name   String
-  price  String
-  image  String
+  id    Int    @id @default(autoincrement())
+  name  String
+  price String
+  image String
 }
 
 model Enfants {
-  id     Int     @id @default(autoincrement())
-  name   String
-  price  String
-  image  String
+  id    Int    @id @default(autoincrement())
+  name  String
+  price String
+  image String
 }
 
 model Autres {
-  id     Int     @id @default(autoincrement())
-  name   String
-  price  String
-  image  String
+  id    Int    @id @default(autoincrement())
+  name  String
+  price String
+  image String
 }
