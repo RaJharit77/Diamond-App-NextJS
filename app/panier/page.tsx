@@ -62,7 +62,7 @@ export default function PanierPage() {
             )}
 
             {cart.length === 0 ? (
-                <div className="relative z-50 text-center text-menthe mt-20 text-2xl mb-20">
+                <div className="relative z-10 text-center text-menthe mt-36 text-2xl mb-36">
                     Votre panier est vide !
                 </div>
             ) : (

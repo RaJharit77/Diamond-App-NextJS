@@ -77,6 +77,9 @@ export async function GET() {
         { id: 73, name: "Hummel Short Authentic Poly Jaune_Noir pour enfant", price: "47.07€", image: "/img/enfant_73.jpg" },
         { id: 74, name: "Hummel HMLSET Logo short de sport Noir pour enfant", price: "60.02€", image: "/img/enfant_74.jpg" },
         { id: 75, name: "Hummel Denmark DBU Pro sport Unisex Kids Bleu Marine", price: "69.69€", image: "/img/enfant_75.jpg" },
+        { id: 76, name: "Hummel HMLCORE XK Poly Shorts sport kids 128 Jaune", price: "13.89€", image: "/img/enfant_76.jpg" },
+        { id: 77, name: "Hummel HMLLEAD Korte broken lime punch for Kids", price: "17.50€", image: "/img/enfant_77.jpg" },
+        { id: 78, name: "Hummel Manchester Shorts Sportbroek Kids Maat 164", price: "18.69€", image: "/img/enfant_78.jpg" },
     ];
 
     return NextResponse.json(enfants);
