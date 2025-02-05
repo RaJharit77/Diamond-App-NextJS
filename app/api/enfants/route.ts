@@ -71,9 +71,12 @@ export async function GET() {
         { id: 67, name: "Hummel Lyon sportShirt kids Maat 164", price: "27.49€", image: "/img/enfant_67.jpg" },
         { id: 68, name: "Hummel Perston S_S sportShirt Kids Maat 116", price: "23.87€", image: "/img/enfant_68.jpg" },
         { id: 69, name: "Hummel Preston S_S SportShirt Kids Maat 152", price: "24.22€", image: "/img/enfant_69.jpg" },
-        { id: 70, name: "Hummel ", price: "27.49€", image: "/img/enfant_70.jpg" },
-        { id: 71, name: "Hummel ", price: "23.87€", image: "/img/enfant_71.jpg" },
-        { id: 72, name: "Hummel ", price: "24.22€", image: "/img/enfant_72.jpg" },
+        { id: 70, name: "Hummel HMLDOS Sweat-shirt pour enfant Grise", price: "40.97€", image: "/img/enfant_70.jpg" },
+        { id: 71, name: "Hummel CLUB S_S Sportshirt Kids Maat 116 Bleu", price: "30.58€", image: "/img/enfant_71.jpg" },
+        { id: 72, name: "Hummel HMLCORE T-shirt Volley enfiler enfant Jaune", price: "50.12€", image: "/img/enfant_72.jpg" },
+        { id: 73, name: "Hummel Short Authentic Poly Jaune_Noir pour enfant", price: "47.07€", image: "/img/enfant_73.jpg" },
+        { id: 74, name: "Hummel HMLSET Logo short de sport Noir pour enfant", price: "60.02€", image: "/img/enfant_74.jpg" },
+        { id: 75, name: "Hummel Denmark DBU Pro sport Unisex Kids Bleu Marine", price: "69.69€", image: "/img/enfant_75.jpg" },
     ];
 
     return NextResponse.json(enfants);
