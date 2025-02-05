@@ -8,8 +8,6 @@
     "start": "next start",
     "lint": "next lint",
     "vercel-build": "prisma generate && prisma migrate deploy && next build",
-    "prisma-generate": "prisma generate",
-    "prisma-migrate": "prisma migrate deploy",
     "seed:femmes": "ts-node scripts/seed_femmes.ts",
     "seed:hommes": "ts-node scripts/seed_hommes.ts"
   },
@@ -60,7 +58,7 @@
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "postcss": "^8.4.49",
-    "prisma": "^6.2.1",
+    "prisma": "^6.3.1",
     "tailwindcss": "^3.4.15",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
