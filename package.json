@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "vercel-build": "prisma generate && prisma migrate deploy && next build",
+    "prisma-generate": "prisma generate",
+    "prisma-migrate": "prisma migrate deploy",
     "seed:femmes": "ts-node scripts/seed_femmes.ts",
     "seed:hommes": "ts-node scripts/seed_hommes.ts"
   },
@@ -35,7 +37,7 @@
     "neon": "^2.0.0",
     "next": "^15.1.2",
     "next-auth": "^4.24.10",
-    "pnpm": "^9.14.4",
+    "pnpm": "^9.15.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",

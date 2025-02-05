@@ -3823,10 +3823,10 @@ pirates@^4.0.1:
   resolved "https://registry.npmjs.org/pirates/-/pirates-4.0.6.tgz"
   integrity sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==
 
-pnpm@^9.14.4:
-  version "9.15.0"
-  resolved "https://registry.npmjs.org/pnpm/-/pnpm-9.15.0.tgz"
-  integrity sha512-duI3l2CkMo7EQVgVvNZije5yevN3mqpMkU45RBVsQpmSGon5djge4QfUHxLPpLZmgcqccY8GaPoIMe1MbYulbA==
+pnpm@^9.15.5:
+  version "9.15.5"
+  resolved "https://registry.npmjs.org/pnpm/-/pnpm-9.15.5.tgz"
+  integrity sha512-hFGWAmqrHMPwmKBHS2TfurKv56G06R3YaJXY5Koyp6bQMEni0K13C75N4COnEi+2jBodbg0DPHB2CF+dXUgA1A==
 
 possible-typed-array-names@^1.0.0:
   version "1.0.0"
