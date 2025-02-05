@@ -18,6 +18,17 @@ const hommes =  [
     { id: 67, name: "Hummel RANE Spodnji delitrenirk black", price: "23.17€", image: "/img/homme_67.jpg" },
     { id: 68, name: "Hummel Denmark Men away kit Long sleeve", price: "20.97€", image: "/img/homme_68.jpg" },
     { id: 69, name: "Hummel Everton Third kit Yellow & Blue", price: "27.03€", image: "/img/homme_69.jpg" },
+    { id: 70, name: "Hummel Basket short de sport Bleu Marine", price: "31.25€", image: "/img/homme_70.jpg" },
+    { id: 71, name: "Hummel ACTIVE T-shirt basic total eclipse Bleu Marine", price: "45€", image: "/img/homme_71.jpg" },
+    { id: 72, name: "Hummel Kit pour gardien Core Vert pointure X_X large", price: "33.33€", image: "/img/homme_72.jpg" },
+    { id: 73, name: "Hummel CORE XR TRAINING Pants sport survêtement Black", price: "42.22€", image: "/img/homme_73.jpg" },
+    { id: 74, name: "Hummel Maillot d'Entraînement First Performance Vert", price: "47.80€", image: "/img/homme_74.jpg" },
+    { id: 75, name: "Hummel SET survêtement dress Blues", price: "46.12€", image: "/img/homme_75.jpg" },
+    { id: 76, name: "Hummel SET Trainingspak bering sea", price: "28.30€", image: "/img/homme_76.jpg" },
+    { id: 77, name: "Hummel CORE XK Pants survêtement Black", price: "35.02€", image: "/img/homme_77.jpg" },
+    { id: 78, name: "Hummel T-shirt imprimé Black", price: "43.26€", image: "/img/homme_78.jpg" },
+    { id: 79, name: "Hummel T-shirt print Black", price: "39.22€", image: "/img/homme_79.jpg" },
+    { id: 80, name: "Hummel CORE T-shirt Marine", price: "39.22€", image: "/img/homme_80.jpg" },
 ];
 
 
