@@ -9,7 +9,9 @@
     "lint": "next lint",
     "vercel-build": "prisma generate && prisma migrate deploy && next build",
     "seed:femmes": "ts-node scripts/seed_femmes.ts",
-    "seed:hommes": "ts-node scripts/seed_hommes.ts"
+    "seed:hommes": "ts-node scripts/seed_hommes.ts",
+    "seed:enfants": "ts-node scripts/seed_enfants.ts",
+    "seed:autres": "ts-node scripts/seed_autres.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
