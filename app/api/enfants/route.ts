@@ -80,6 +80,9 @@ export async function GET() {
         { id: 76, name: "Hummel HMLCORE XK Poly Shorts sport kids 128 Jaune", price: "13.89€", image: "/img/enfant_76.jpg" },
         { id: 77, name: "Hummel HMLLEAD Korte broken lime punch for Kids", price: "17.50€", image: "/img/enfant_77.jpg" },
         { id: 78, name: "Hummel Manchester Shorts Sportbroek Kids Maat 164", price: "18.69€", image: "/img/enfant_78.jpg" },
+        { id: 79, name: "Hummel HMLFIRST Performance Cuissard pour Enfant Jaune", price: "41.80€", image: "/img/enfant_79.jpg" },
+        { id: 80, name: "Hummel HMLFIRST Performance Cuissard pour Enfant Bleu", price: "51.09€", image: "/img/enfant_80.jpg" },
+        { id: 81, name: "Hummel HMLRUN Unisex Korte broek sport pour Enfant Noir", price: "36.62€", image: "/img/enfant_81.jpg" },
     ];
 
     return NextResponse.json(enfants);
