@@ -100,7 +100,7 @@ const LoginPage = () => {
                     Se connecter
                 </button>
                 <div className="mt-4 text-center">
-                    <Link href="/signup" className="text-corail hover:underline">
+                    <Link href="/signUp" className="text-corail hover:underline">
                         Créer un compte
                     </Link>
                 </div>
