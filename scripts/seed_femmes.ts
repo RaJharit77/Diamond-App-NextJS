@@ -106,6 +106,9 @@ const femmes = [
 
 async function main() {
     console.log("Seeding produits pour femmes...");
+
+    await prisma.femmes.deleteMany();
+
     for (const femme of femmes) {
         await prisma.femmes.create({
             data: femme,

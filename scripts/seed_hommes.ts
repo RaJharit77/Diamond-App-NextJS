@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-const hommes =  [
+const hommes = [
     { id: 1, name: "Hummel sûrvêtement Coton", price: "90€", image: "/img/homme_1.jpg" },
     { id: 2, name: "Hummel blouse sportif Poly", price: "56€", image: "/img/homme_2.jpg" },
     { id: 3, name: "Danemark sweat blue travel", price: "79€", image: "/img/homme_3.jpg" },
@@ -61,6 +61,9 @@ const hommes =  [
 
 async function main() {
     console.log("Seeding produits pour hommes...");
+
+    await prisma.hommes.deleteMany();
+
     for (const homme of hommes) {
         await prisma.hommes.create({
             data: homme,
