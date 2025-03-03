@@ -1,20 +1,22 @@
 -- CreateTable
 CREATE TABLE "User" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "password" TEXT NOT NULL,
-    "dob" DATETIME,
+    "dob" TIMESTAMP(3),
     "birthCity" TEXT,
     "postalCode" TEXT,
     "gender" TEXT,
     "country" TEXT,
-    "address" TEXT
+    "address" TEXT,
+
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Purchase" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
     "productId" INTEGER NOT NULL,
     "productName" TEXT NOT NULL,
@@ -24,39 +26,49 @@ CREATE TABLE "Purchase" (
     "city" TEXT,
     "address" TEXT,
     "country" TEXT,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "Purchase_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Femmes" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "price" TEXT NOT NULL,
-    "image" TEXT NOT NULL
+    "image" TEXT NOT NULL,
+
+    CONSTRAINT "Femmes_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Hommes" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "price" TEXT NOT NULL,
-    "image" TEXT NOT NULL
+    "image" TEXT NOT NULL,
+
+    CONSTRAINT "Hommes_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Enfants" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "price" TEXT NOT NULL,
-    "image" TEXT NOT NULL
+    "image" TEXT NOT NULL,
+
+    CONSTRAINT "Enfants_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Autres" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "price" TEXT NOT NULL,
-    "image" TEXT NOT NULL
+    "image" TEXT NOT NULL,
+
+    CONSTRAINT "Autres_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
