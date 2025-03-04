@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
-const LoginPage = () => {
+const LogInPage = () => {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [errorMessage, setErrorMessage] = useState<string>("");
@@ -109,4 +109,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default LogInPage;

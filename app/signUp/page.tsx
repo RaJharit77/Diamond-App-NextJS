@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
-function SignupPage() {
+function SignUpPage() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -104,4 +104,4 @@ function SignupPage() {
     );
 }
 
-export default SignupPage;
+export default SignUpPage;
