@@ -20,7 +20,7 @@ const LoginPage = () => {
         }
 
         try {
-            const res = await fetch("/api/auth/login", {
+            const res = await fetch("/api/auth/logIn", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -100,7 +100,7 @@ const LoginPage = () => {
                     Se connecter
                 </button>
                 <div className="mt-4 text-center">
-                    <Link href="/signup" className="text-corail hover:underline">
+                    <Link href="/signUp" className="text-corail hover:underline">
                         Créer un compte
                     </Link>
                 </div>

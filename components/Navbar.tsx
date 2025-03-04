@@ -188,7 +188,7 @@ const Navbar = () => {
                             </button>
                         </div>
                     ) : (
-                        <Link href="/login" className="bg-bleuDiamant w-10 h-10 rounded-full flex items-center justify-center hover:bg-bleuTurquoise relative group transition-all duration-500 ease-in-out glow-effect">
+                        <Link href="/logIn" className="bg-bleuDiamant w-10 h-10 rounded-full flex items-center justify-center hover:bg-bleuTurquoise relative group transition-all duration-500 ease-in-out glow-effect">
                             <FaUser className="text-white text-lg group-hover:text-black" />
                         </Link>
                     )}

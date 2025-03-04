@@ -15,7 +15,7 @@ function SignupPage() {
         e.preventDefault();
 
         try {
-            const res = await fetch("/api/auth/signup", {
+            const res = await fetch("/api/auth/signUp", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -29,7 +29,7 @@ function SignupPage() {
                 return;
             }
 
-            window.location.href = "/login";
+            window.location.href = "/logIn";
         } catch {
             setErrorMessage("Erreur lors de l'inscription. Veuillez réessayer.");
         }
@@ -95,7 +95,7 @@ function SignupPage() {
                 </button>
                 <p className="mt-4 text-center">
                     Déjà un compte ?{" "}
-                    <Link href="/login" className="text-bleuTurquoise hover:underline">
+                    <Link href="/logIn" className="text-bleuTurquoise hover:underline">
                         Connectez-vous
                     </Link>
                 </p>
