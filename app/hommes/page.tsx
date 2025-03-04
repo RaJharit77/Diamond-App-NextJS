@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard";
 
-/** Typage */
 type Product = {
     id: number;
     name: string;

@@ -29,7 +29,7 @@ function SignUpPage() {
                 return;
             }
 
-            window.location.href = "/logIn";
+            window.location.href = "/login";
         } catch {
             setErrorMessage("Erreur lors de l'inscription. Veuillez réessayer.");
         }
@@ -95,7 +95,7 @@ function SignUpPage() {
                 </button>
                 <p className="mt-4 text-center">
                     Déjà un compte ?{" "}
-                    <Link href="/logIn" className="text-bleuTurquoise hover:underline">
+                    <Link href="/login" className="text-bleuTurquoise hover:underline">
                         Connectez-vous
                     </Link>
                 </p>
