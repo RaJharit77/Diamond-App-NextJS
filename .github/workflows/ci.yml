@@ -1,4 +1,4 @@
-name: CI for Diamond-App-NextJS
+name: CI/CD for Diamond-App-NextJS
 
 on:
   push:
@@ -9,6 +9,9 @@ on:
 jobs:
   build-test:
     runs-on: ubuntu-latest
+    env:
+      NODE_ENV: development
+      DATABASE_URL_PRISMA: ${{ secrets.DATABASE_URL_PRISMA }}
 
     steps:
       - name: Checkout repository
@@ -29,11 +32,21 @@ jobs:
       - name: Generate Prisma client
         run: npx prisma generate
 
-      - name: Validate Prisma schema
+      - name: Check Prisma schema validity
         run: npx prisma validate
 
       - name: Build Next.js app
         run: npm run build
 
+      - name: Run migrations (check mode)
+        run: npx prisma migrate status
+        continue-on-error: true
+
+      # Facultatif : tester les seeds
+      - name: Seed test (optional)
+        run: |
+          echo "Running seed scripts..."
+          npm run seed:femmes || true
+
       - name: Success message
-        run: echo "✅ CI pipeline succeeded (no secrets required)."
+        run: echo "✅ Build & tests passed. Vercel can now deploy."
