@@ -10,7 +10,7 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
     env:
-      NODE_ENV: development
+      NODE_ENV: production
       DATABASE_URL_PRISMA: ${{ secrets.DATABASE_URL_PRISMA }}
 
     steps:
@@ -30,9 +30,9 @@ jobs:
         run: npm run lint
 
       - name: Generate Prisma client
-        run: npx prisma generate
+        run: npx prisma generate --no-engine
 
-      - name: Check Prisma schema validity
+      - name: Validate Prisma schema
         run: npx prisma validate
 
       - name: Build Next.js app
@@ -41,12 +41,6 @@ jobs:
       - name: Run migrations (check mode)
         run: npx prisma migrate status
         continue-on-error: true
-
-      # Facultatif : tester les seeds
-      - name: Seed test (optional)
-        run: |
-          echo "Running seed scripts..."
-          npm run seed:femmes || true
 
       - name: Success message
         run: echo "✅ Build & tests passed. Vercel can now deploy."
