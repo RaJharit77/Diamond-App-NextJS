@@ -1,4 +1,4 @@
-name: CI/CD for Diamond-App-NextJS
+name: CI/CD for Diamond-Store-App
 
 on:
   push:
