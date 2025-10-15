@@ -27,7 +27,7 @@ jobs:
         run: npm ci
 
       - name: Lint (ESLint)
-        run: ./node_modules/.bin/eslint . --max-warnings=0 --ext .js,.jsx,.ts,.tsx
+        run: npx eslint@8 . --max-warnings=0 --ext .js,.jsx,.ts,.tsx
 
       - name: Generate Prisma client
         run: npx prisma generate --no-engine
