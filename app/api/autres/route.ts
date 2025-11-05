@@ -9,6 +9,7 @@ export async function GET() {
             note: 'Cette fonctionnalité nécessite un déploiement avec support serveur'
         });
     }
+
     const autres = [
         { id: 1, name: "Hummel CORE - Sporta soma Marina Blue & Sky blue", price: "49€", image: "/img/autre_1.jpg" },
         { id: 2, name: "Hummel ballon de Handball Bleu marine étoilé", price: "59€", image: "/img/autre_2.jpg" },
