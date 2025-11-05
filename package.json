@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "vercel-build": "prisma generate && prisma migrate deploy && next build",
-    "build:gh-pages": "node disable-api.js && next build",
+    "build:gh-pages": "node build-gh-pages.js",
     "seed:femmes": "ts-node scripts/seed_femmes.ts",
     "seed:hommes": "ts-node scripts/seed_hommes.ts",
     "seed:enfants": "ts-node scripts/seed_enfants.ts",
