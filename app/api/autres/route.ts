@@ -1,6 +1,14 @@
 import { NextResponse } from 'next/server';
 
+export const dynamic = process.env.GITHUB_PAGES ? 'error' : 'force-dynamic';
+
 export async function GET() {
+    if (process.env.GITHUB_PAGES) {
+        return NextResponse.json({
+            message: 'API non disponible en version statique',
+            note: 'Cette fonctionnalité nécessite un déploiement avec support serveur'
+        });
+    }
     const autres = [
         { id: 1, name: "Hummel CORE - Sporta soma Marina Blue & Sky blue", price: "49€", image: "/img/autre_1.jpg" },
         { id: 2, name: "Hummel ballon de Handball Bleu marine étoilé", price: "59€", image: "/img/autre_2.jpg" },
