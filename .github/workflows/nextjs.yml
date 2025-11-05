@@ -75,7 +75,14 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        run: |
+          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
+            yarn run build:gh-pages
+          else
+            npm run build:gh-pages
+          fi
+        env:
+          GITHUB_PAGES: 'true'
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
