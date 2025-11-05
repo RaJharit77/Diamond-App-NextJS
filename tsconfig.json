@@ -35,7 +35,7 @@
     ".next/types/**/*.ts",
     "prisma/**/*",
     ".next/dev/types/**/*.ts"
-  ],
+, "proxy.config.js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -11,9 +11,20 @@ const nextConfig: NextConfig = {
       unoptimized: true
     },
     basePath: '/Diamond-App-NextJS',
+    skipTrailingSlashRedirect: true,
+    exportPathMap: async function (defaultPathMap) {
+      const paths = { ...defaultPathMap };
+
+      Object.keys(paths).forEach(path => {
+        if (path.startsWith('/api/')) {
+          delete paths[path];
+        }
+      });
+
+      return paths;
+    },
   }),
   skipTrailingSlashRedirect: true,
 };
 
 export default nextConfig;
-
