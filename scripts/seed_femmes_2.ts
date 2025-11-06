@@ -3,12 +3,12 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 const femmes = [
-    { id: 100, name: "Hummel HMLLogo FunctionShirt Move Damen Grobe XL Gray", price: "50.40€", image: "/img/femme_100.jpg" },
-    { id: 101, name: "Hummel Go Cotton Sweat à capuche jaune femme medium", price: "30.59€", image: "/img/femme_101.jpg" },
-    { id: 102, name: "Hummel HMLNANNA Pajkice hlace zephyr women Marina blue", price: "22.95€", image: "/img/femme_102.jpg" },
-    { id: 103, name: "Hummel Jersey Denmark GoalKeeper kit 2022 green Women", price: "43.57€", image: "/img/femme_103.jpg" },
-    { id: 104, name: "Hummel ", price: "39.46€", image: "/img/femme_104.jpg" },
-    { id: 105, name: "Hummel ", price: "23.23€", image: "/img/femme_105.jpg" },
+    { name: "Hummel HMLLogo FunctionShirt Move Damen Grobe XL Gray", price: "50.40€", image: "/img/femme_100.jpg" },
+    { name: "Hummel Go Cotton Sweat à capuche jaune femme medium", price: "30.59€", image: "/img/femme_101.jpg" },
+    { name: "Hummel HMLNANNA Pajkice hlace zephyr women Marina blue", price: "22.95€", image: "/img/femme_102.jpg" },
+    { name: "Hummel Jersey Denmark GoalKeeper kit 2022 green Women", price: "43.57€", image: "/img/femme_103.jpg" },
+    { name: "Hummel ", price: "39.46€", image: "/img/femme_104.jpg" },
+    { name: "Hummel ", price: "23.23€", image: "/img/femme_105.jpg" },
 ];
 
 
