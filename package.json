@@ -10,7 +10,9 @@
     "vercel-build": "prisma generate && prisma migrate deploy && next build",
     "build:gh-pages": "node build-gh-pages.js",
     "seed:femmes": "ts-node scripts/seed_femmes.ts",
+    "seed:femmes_2": "ts-node scripts/seed_femmes_2.ts",
     "seed:hommes": "ts-node scripts/seed_hommes.ts",
+    "seed:hommes_2": "ts-node scripts/seed_hommes_2.ts",
     "seed:enfants": "ts-node scripts/seed_enfants.ts",
     "seed:autres": "ts-node scripts/seed_autres.ts"
   },
