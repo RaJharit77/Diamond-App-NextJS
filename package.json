@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "vercel-build": "prisma generate && prisma migrate deploy && next build",
     "build:gh-pages": "node build-gh-pages.js",
+    "prisma:generate": "prisma generate --no-engine",
     "seed:femmes": "ts-node scripts/seed_femmes.ts",
     "seed:femmes_2": "ts-node scripts/seed_femmes_2.ts",
     "seed:hommes": "ts-node scripts/seed_hommes.ts",

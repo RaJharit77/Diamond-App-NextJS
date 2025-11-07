@@ -89,7 +89,7 @@ const autres = [
 async function main() {
     console.log("Seeding produits pour autres...");
     for (const autre of autres) {
-        await prisma.femmes.create({
+        await prisma.autres.create({
             data: autre,
         });
     }
