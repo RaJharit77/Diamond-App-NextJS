@@ -129,7 +129,7 @@ const Footer: React.FC = () => {
 
             <div className="w-full text-center bg-black py-3 mt-7">
                 <p className="text-bleuDiamant">
-                    &copy; {new Date().getFullYear()} Diamond Store®. Created by RaJharit77. All rights reserved.
+                    &copy; 2024 - {new Date().getFullYear()} Diamond Store®. Created by RaJharit77. All rights reserved.
                 </p>
             </div>
         </footer>
@@ -137,3 +137,4 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+
