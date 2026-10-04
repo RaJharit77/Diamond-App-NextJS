@@ -1,14 +1,14 @@
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL_PRISMA")
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
 }
 
-generator client {
-  provider = "prisma-client-js"
+datasource db {
+  provider = "postgresql"
 }
 
 model User {
-  id         String   @id @default(uuid())
+  id         String    @id @default(uuid())
   email      String    @unique
   name       String
   password   String
@@ -35,28 +35,28 @@ model Purchase {
 }
 
 model Femmes {
-  id    String   @id @default(uuid())
+  id    String @id @default(uuid())
   name  String
   price String
   image String
 }
 
 model Hommes {
-  id    String   @id @default(uuid())
+  id    String @id @default(uuid())
   name  String
   price String
   image String
 }
 
 model Enfants {
-  id    String   @id @default(uuid())
+  id    String @id @default(uuid())
   name  String
   price String
   image String
 }
 
 model Autres {
-  id    String   @id @default(uuid())
+  id    String @id @default(uuid())
   name  String
   price String
   image String

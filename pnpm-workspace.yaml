@@ -1,0 +1,14 @@
+allowBuilds:
+  '@fortawesome/fontawesome-common-types': true
+  '@fortawesome/fontawesome-svg-core': true
+  '@prisma/client': true
+  '@prisma/engines': true
+  bcrypt: true
+  bun: true
+  esbuild: true
+  pnpm: true
+  prisma: true
+  sqlite3: true
+  unrs-resolver: false
+  workerd: true
+  yarn: false
