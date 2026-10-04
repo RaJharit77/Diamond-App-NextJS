@@ -1,11 +1,6 @@
 import prisma from "@/lib/prisma";
+import { CartItem } from "@/types/achat";
 import { NextResponse } from "next/server";
-
-type CartItem = {
-    id: number;
-    name: string;
-    price: string;
-};
 
 export async function POST(req: Request) {
     try {
