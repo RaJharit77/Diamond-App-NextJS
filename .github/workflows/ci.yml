@@ -34,7 +34,7 @@ jobs:
         run: echo "Linting skipped for now" && exit 0
 
       - name: Generate Prisma client
-        run: pnpm exec prisma generate --no-engine
+        run: pnpm exec prisma generate
 
       - name: Validate Prisma schema
         run: pnpm exec prisma validate
