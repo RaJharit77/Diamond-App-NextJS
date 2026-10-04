@@ -150,7 +150,7 @@ const Navbar = () => {
                             <Link href={href} className="relative flex items-center group text-white hover:text-bleuDiamant">
                                 <span className="mr-2 text-bleuDiamant">{icon}</span>
                                 {label}
-                                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-bleuDiamant group-hover:w-full transition-all duration-500 ease-in-out"></span>
+                                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-bleuDiamant group-hover:w-full transition-all duration-500 ease-in-out"></span>
                             </Link>
                         </li>
                     ))}
@@ -159,7 +159,7 @@ const Navbar = () => {
                             <FaHeart className="mr-1" />
                         </Link>
                         {favoritesCount >= 0 && (
-                            <span className="absolute top-[-10px] right-[-10px] bg-bleuDiamant text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                            <span className="absolute -top-2.5 -right-2.5 bg-bleuDiamant text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                                 {favoritesCount}
                             </span>
                         )}
@@ -169,7 +169,7 @@ const Navbar = () => {
                             <FaShoppingCart className="mr-1" />
                         </Link>
                         {cartCount >= 0 && (
-                            <span className="absolute top-[-10px] right-[-10px] bg-bleuDiamant text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                            <span className="absolute -top-2.5 -right-2.5 bg-bleuDiamant text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                                 {cartCount}
                             </span>
                         )}
@@ -224,7 +224,7 @@ const Navbar = () => {
                                 <FaHeart className="mr-1" />
                             </Link>
                             {favoritesCount >= 0 && (
-                                <span className="absolute top-[-10px] left-3 bg-bleuDiamant text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
+                                <span className="absolute -top-2.5 left-3 bg-bleuDiamant text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
                                     {favoritesCount}
                                 </span>
                             )}
@@ -234,7 +234,7 @@ const Navbar = () => {
                                 <FaShoppingCart className="mr-1" />
                             </Link>
                             {cartCount >= 0 && (
-                                <span className="absolute top-[-10px] left-3 bg-bleuDiamant text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
+                                <span className="absolute -top-2.5 left-3 bg-bleuDiamant text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
                                     {cartCount}
                                 </span>
                             )}
