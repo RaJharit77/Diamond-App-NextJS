@@ -96,7 +96,7 @@ const ProfilePage = () => {
             )}
 
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-            <div className="relative z-10 bg-gray-900 bg-opacity-60 p-8 rounded-lg shadow-lg w-[40rem] bottom-12">
+            <div className="relative z-10 bg-gray-900 bg-opacity-60 p-8 rounded-lg shadow-lg w-160 bottom-12">
                 <h2 className="text-2xl font-bold text-center mb-6 text-menthe">Mon Profil</h2>
                 {user ? (
                     <div className="space-y-6">

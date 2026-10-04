@@ -19,7 +19,7 @@ export default {
         bleuDiamant: '#0EBFE9',
         corail: '#FF7F50',
         menthe: '#98FF98',
-        pâle: '#FFFACD',
+        pale: '#FFFACD',
         /*
         neonRouge: '#ff0000',
         neonBleu: '#0000f',
