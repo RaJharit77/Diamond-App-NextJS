@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 const femmes = [
     { name: "Hummel HMLLogo FunctionShirt Move Damen Grobe XL Gray", price: "50.40€", image: "/img/femme_100.jpg" },
