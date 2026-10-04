@@ -11,7 +11,7 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        neonRed: '#ff073a', 
+        neonRed: '#ff073a',
         /**neonRouge: '#ff0000',
         neonBleu: '#0000f',
         neonJaune: '#ffff33',*/
@@ -20,6 +20,11 @@ export default {
         corail: '#FF7F50',
         menthe: '#98FF98',
         pâle: '#FFFACD',
+        /*
+        neonRouge: '#ff0000',
+        neonBleu: '#0000f',
+        neonJaune: '#ffff33',
+        */
       },
     },
   },

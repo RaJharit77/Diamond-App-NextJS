@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 const hommes = [
     { name: "Hummel sûrvêtement Coton", price: "90€", image: "/img/homme_1.jpg" },

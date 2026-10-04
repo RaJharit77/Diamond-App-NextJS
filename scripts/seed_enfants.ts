@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 const enfants = [
     { name: "Hummel sweat pour enfant Noir avec un tennis offert", price: "77€", image: "/img/enfant_1.jpg" },

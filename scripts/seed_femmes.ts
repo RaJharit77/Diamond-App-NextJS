@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 const femmes = [
     { name: "Hummel Brassière de sport sans coûture taille (S, L, XL) jersey woman", price: "30€", image: "/img/femme_1.jpg" },
