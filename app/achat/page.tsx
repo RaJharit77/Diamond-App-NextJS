@@ -1,15 +1,10 @@
 "use client";
 
+import { CardItem } from "@/types/cardItem";
 import { useEffect, useState } from "react";
 
-type CartItem = {
-    id: number;
-    name: string;
-    price: string;
-};
-
 export default function AchatPage() {
-    const [cart, setCart] = useState<CartItem[]>([]);
+    const [cart, setCart] = useState<CardItem[]>([]);
     const [email, setEmail] = useState("");
     const [cardNumber, setCardNumber] = useState("");
     const [phone, setPhone] = useState("");
@@ -21,7 +16,7 @@ export default function AchatPage() {
 
     useEffect(() => {
         if (typeof window !== "undefined") {
-            const cartItems: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
+            const cartItems: CardItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
             setCart(cartItems);
 
             const storedUserEmail = localStorage.getItem("userEmail");
@@ -77,7 +72,7 @@ export default function AchatPage() {
             className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
             style={{ backgroundImage: "url('/img/bgAchat.jpg')" }}
         >
-            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div className="absolute inset-0 bg-black/50"></div>
             <form
                 onSubmit={handlePurchase}
                 className="bg-gray-900 bg-opacity-70 p-6 rounded-lg shadow-lg w-full max-w-lg mb-20 z-10"

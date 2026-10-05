@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import { CartItem } from "@/types/achat";
+import { CardItem } from "@/types/cardItem";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -11,7 +11,7 @@ export async function POST(req: Request) {
         }
 
         const purchases = await prisma.$transaction(
-            cart.map((product: CartItem) =>
+            cart.map((product: CardItem) =>
                 prisma.purchase.create({
                     data: {
                         email,

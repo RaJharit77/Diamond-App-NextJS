@@ -1,18 +1,8 @@
 "use client";
 
+import { User } from "@/types/interface/user";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
-interface User {
-    name: string;
-    email: string;
-    dob: string;
-    birthCity: string;
-    postalCode: string;
-    gender: string;
-    country: string;
-    address: string;
-}
 
 const ProfilePage = () => {
     const defaultUser: User = {
@@ -95,7 +85,7 @@ const ProfilePage = () => {
                 </div>
             )}
 
-            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div className="absolute inset-0 bg-black/50"></div>
             <div className="relative z-10 bg-gray-900 bg-opacity-60 p-8 rounded-lg shadow-lg w-160 bottom-12">
                 <h2 className="text-2xl font-bold text-center mb-6 text-menthe">Mon Profil</h2>
                 {user ? (

@@ -2,13 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard";
-
-type Product = {
-    id: number;
-    name: string;
-    price: string;
-    image: string;
-};
+import { Product } from "@/types/products";
 
 export default function ProductsPage() {
     const [products, setProducts] = useState<Product[]>([]);
@@ -55,7 +49,7 @@ export default function ProductsPage() {
             }}
         >
 
-            <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+            <div className="absolute inset-0 bg-black/70"></div>
 
             <div className="relative max-w-6xl mx-auto p-6">
                 <h1 className="text-4xl font-bold mb-6 text-center text-menthe">Enfants</h1>
