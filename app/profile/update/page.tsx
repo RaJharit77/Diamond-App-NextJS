@@ -97,7 +97,7 @@ const ProfilePageUpdate = () => {
 
     return (
         <div className="flex justify-center items-center h-screen bg-cover bg-center relative" style={{ backgroundImage: 'url(/img/bgUpdate.jpg)' }}>
-            <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+            <div className="absolute inset-0 bg-black/70"></div>
             <div className="relative z-10 bg-gray-950 bg-opacity-60 p-8 rounded-lg shadow-lg w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 bottom-12">
                 <h1 className="text-2xl font-bold text-menthe mb-4 text-center">Éditer votre profil</h1>
                 <form onSubmit={handleSubmit} className="w-full">

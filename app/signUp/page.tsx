@@ -40,7 +40,7 @@ function SignUpPage() {
             className="relative bg-cover bg-center min-h-screen flex items-center justify-center"
             style={{ backgroundImage: "url('/img/bgSignUp.jpg')" }}
         >
-            <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+            <div className="absolute inset-0 bg-black/60"></div>
 
             <form
                 onSubmit={handleSubmit}

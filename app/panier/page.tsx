@@ -1,14 +1,8 @@
 "use client";
 
+import { Product } from "@/types/products";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
-type Product = {
-    id: number;
-    name: string;
-    price: string;
-    image: string;
-};
 
 export default function PanierPage() {
     const [cart, setCart] = useState<Product[]>([]);
@@ -50,7 +44,7 @@ export default function PanierPage() {
     return (
         <div className="relative p-8 bg-cover bg-center min-h-screen" style={{ backgroundImage: "url('/img/bgPanier.jpg')" }}>
 
-            <div className="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
+            <div className="absolute inset-0 bg-black/60 z-0"></div>
 
             <div className="relative z-10 text-center text-corail">
                 <h1 className="text-4xl font-bold mb-4">Mon Panier</h1>

@@ -15,7 +15,7 @@ export default function AboutPage() {
             style={{ backgroundImage: 'url("/img/bgAbout.jpg")' }}
             data-aos="fade-up"
         >
-            <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+            <div className="absolute inset-0 bg-black/70"></div>
 
             <div className="relative z-10 max-w-4xl mx-auto text-center px-4 py-12">
                 <h1 className="text-5xl font-bold mb-6 tracking-wider leading-tight text-corail">
