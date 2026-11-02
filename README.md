@@ -15,4 +15,4 @@ Le site propose une interface intuitive pour parcourir les produits, consulter l
 
 ## Lien du déploiement
 
-Diamond Store app : [https://diamond-store-app-madagascar.vercel.app/](https://diamond-store-app-madagascar.vercel.app/)
+Diamond Store app : [https://diamond-store-app-madagascar.vercel.app/](https://diamond-store-app-madagascar.vercel.app)
